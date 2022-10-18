@@ -11,6 +11,7 @@
                             <field name="nom"/>
                             <field name="name"/>
                             <field name="date_de_naissance"/>
+                            <field name="age"/>
                             <field name="passeport"/>
                             <field name="numero"/>
                             <field name="personne_de_contact"/>
