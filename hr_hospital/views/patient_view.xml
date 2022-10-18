@@ -8,11 +8,12 @@
                 <form string="hr_hospital_view_form">
                     <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="numero"/>
                             <field name="nom"/>
+                            <field name="name"/>
                             <field name="date_de_naissance"/>
-
+                            <field name="passeport"/>
+                            <field name="numero"/>
+                            <field name="personne_de_contact"/>
                         </group>
                     </sheet>
                 </form>
