@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+
+          <record id="patient_1" model="hr_hospital.patient">
+            <field name="name">Jan</field>
+            <field name="numero">123456789012</field>
+            <field name="nom">Gayon</field>
+            <field name="date_de_naissance">15.01.1987</field>
+          </record>
+
+          <record id="object1" model="hr_hospital.medecin">
+            <field name="name">Beaille</field>
+            <field name="specialiste">Traitant</field>
+          </record>
+    </data>
+</odoo>

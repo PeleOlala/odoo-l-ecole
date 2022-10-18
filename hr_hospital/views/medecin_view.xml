@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_hospital_medecin_form_view" model="ir.ui.view">
+            <field name="name">hr_hospital_medecin_form</field>
+            <field name="model">hr_hospital.medecin</field>
+            <field name="arch" type="xml">
+                <form string="Mon medecin">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h3>
+                                <field name="name" placeholder="Nom mon medecin"/>
+                            </h3>
+                            <label for="specialiste"/>
+                            <h3>
+                                <field name="specialiste" placeholder="Le specialiste:"/>
+                            </h3>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_hospital_medecin_tree_view" model="ir.ui.view">
+            <field name="name">hr_hospital_medecin_tree</field>
+            <field name="model">hr_hospital.medecin</field>
+            <field name="arch" type="xml">
+                <tree string="Mon medecine">
+                    <field name="name"/>
+                    <field name="specialiste"/>
+                </tree>
+            </field>
+        </record>
+        <record id="hr_hospital_medecin_action" model="ir.actions.act_window">
+            <field name="name">Mon medecin</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_hospital.medecin</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Mon medecine"
+                  id="hr_hospital_medecin_menu"
+                  parent="hr_hospital_main"
+                  action="hr_hospital_medecin_action"
+                  sequence="200"
+        />
+
+    </data>
+</odoo>
