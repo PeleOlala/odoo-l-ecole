@@ -19,11 +19,11 @@ class Patient(models.Model):
     date_de_naissance = fields.Date(
         string='Date de naissance',
         required=True)
-#    sexe = fields.Selection(
-#        string='Sexe',
-#        selection=[('masculin', _('Masculin')),
-#                   ('féminin', _('Féminin')), ('indécis', _('Indécis'))],
-#        required=False, )
+    sexe = fields.Selection(
+        string='Sexe',
+        selection=[('masculin', 'Masculin'),
+                   ('féminin', 'Féminin'), ('indécis', 'Indécis')],
+        required=False, )
     passeport = fields.Char(
         string='Le passeport',
         required=False)
@@ -34,10 +34,10 @@ class Patient(models.Model):
         string="l'Age",
         compute='_compute_age_patient',
         )
-#    state = fields.Selection(
-#        required=True, default='disabled', selection=[
-#            ('draft', 'Draft'), ('sent', 'Sent'),
-#            ('test', 'Test Mode')], )
+    state = fields.Selection(
+        required=True, default='draft', selection=[
+            ('draft', 'Draft'), ('sent', 'Sent'),
+            ('test', 'Test Mode')], )
 #@api.multi
 
     @api.depends('date_de_naissance')
@@ -45,7 +45,10 @@ class Patient(models.Model):
         for card in self:
             date1 = card.date_de_naissance
             date_ah = datetime.date.today()
-            card.age = (date_ah.year-date1.year-1)+(date_ah.month+12-date1.month)//12
+            if type(date1) == type(date_ah):
+                card.age = (date_ah.year-date1.year-1)+(date_ah.month+12-date1.month)//12
+            else:
+                card.age = 0
 
 
 

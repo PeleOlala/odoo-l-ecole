@@ -10,6 +10,7 @@
                         <group>
                             <field name="nom"/>
                             <field name="name"/>
+                            <field name="sexe"/>
                             <field name="date_de_naissance"/>
                             <field name="age"/>
                             <field name="passeport"/>
