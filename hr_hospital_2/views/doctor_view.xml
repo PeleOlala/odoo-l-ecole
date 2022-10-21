@@ -43,7 +43,7 @@
                   id="hr_hospital_2_doctor_menu"
                   parent="hr_hospital_2_setting_main"
                   action="hr_hospital_2.hr_hospital_2_doctor_action"
-                  sequence="200"
+                  sequence="220"
         />
 
     </data>

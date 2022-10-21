@@ -31,13 +31,13 @@
         </record>
 
         <record id="patient_card_act_window" model="ir.actions.act_window">
-            <field name="name">ModelTitle</field>
+            <field name="name">Patient card</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hr_hospital_2.patient_card</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="ModelTitle" id="patient_card_menu" parent="hr_hospital_2_setting_main" action="patient_card_act_window"/>
+        <menuitem name="Patient card" id="patient_card_menu" parent="hr_hospital_2_setting_main" action="patient_card_act_window" sequence="420"/>
 
     </data>
 </odoo>
