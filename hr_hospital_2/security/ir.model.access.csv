@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_hospital_2_hr_hospital_2,hr_hospital_2.hr_hospital_2,model_hr_hospital_2_hr_hospital_2,base.group_user,1,1,1,1
+access_hr_hospital_2_patient,hr_hospital_2.patient,model_hr_hospital_2_patient,base.group_user,1,1,1,1
+access_hr_hospital_2_patient_card,hr_hospital_2.patient_card,model_hr_hospital_2_patient_card,base.group_user,1,1,1,1
+access_hr_hospital_2_doctor,hr_hospital_2.doctor,model_hr_hospital_2_doctor,base.group_user,1,1,1,1
+access_hr_hospital_2_diagnosis,hr_hospital_2.diagnosis,model_hr_hospital_2_diagnosis,base.group_user,1,1,1,1
