@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Тегі "data" не потрібно додавати -->
+
+        <!--  Кореневе меню повинно мати зображення  -->
+        <menuitem
+            id="hr_hospital_2_main"
+            name="Hospital"
+            web_icon="hr_hospital_2,static/description/icon.png"
+            sequence="300"
+        />
+        <menuitem id="hr_hospital_2_setting_main" name="Main" parent="hr_hospital_2_main" sequence="310"/>
+        <menuitem id="hr_hospital_2_reports_main" name="Reports" parent="hr_hospital_2_main" sequence="320"/>
+
+</odoo>

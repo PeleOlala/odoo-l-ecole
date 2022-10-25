@@ -1,6 +1,7 @@
-from odoo import api, fields, models
+from odoo import fields, models
 
-class doctor(models.Model):
+
+class Doctor(models.Model):  # У назві класів повинен використовуватися CamelCase.
     _name = 'hr_hospital_2.doctor'
     _description = 'Doctor'
 
