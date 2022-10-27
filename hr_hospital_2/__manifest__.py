@@ -1,8 +1,8 @@
 {
     'name': 'hr_hospital_2',
-    'version': '15.0.1.0.0',  # Нумерація повінна бути у наступному форматі: номер версії Odoo, та далі три цифри версії
+    'version': '1.0.0.0',
     'summary': 'Test task 2 module addon hospital',
-    # 'description': 'Test task 2 modeles addon',  # __manifest__.py:1: [C8103(manifest-deprecated-key), ] Deprecated key "description" in manifest file
+    'description': 'Test task 2 modeles addon',
     'author': 'Olga Holodaieva',
     'website': '',
     'license': '',
