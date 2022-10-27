@@ -22,7 +22,7 @@
                             <field name="doctor_id" ref ="hr_hospital_3.hr_hospital_3_doctor_tree_view"/>
                             <field name="diagnostic_id" ref ="hr_hospital_3.diagnostic_tree_view"/>
                             <field name="appointment"/>
-                            <field name="research_ids" wiget="many2many_tags">
+                            <field name="research_ids" widget="many2many_tags">
                             </field>
                         </group>
                     </sheet>

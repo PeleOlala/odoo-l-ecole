@@ -58,7 +58,7 @@
             <field name="name">hr_hospital_3.disease.tree</field>
             <field name="model">hr_hospital_3.disease</field>
             <field name="arch" type="xml">
-                <tree string="Disease">
+                <tree string="Disease" expand="1">
                     <field name="name"/>
                     <field name="disease_catalog_id" ref="_3_disease_catalog_tree_view"/>
                 </tree>
@@ -83,7 +83,8 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hr_hospital_3.disease</field>
             <field name="view_mode">tree,form</field>
-         </record>
+             <field name="context">{'search_default_disease_catalog_id':1}</field>
+        </record>
 
         <menuitem name="Disease" id="_3_disease_menu" parent="hr_hospital_3_setting_main" action="_3_disease_action"/>
 

@@ -20,6 +20,10 @@ class ResearchCatalog(models.Model):
     research_count = fields.Integer(
         '# research', compute='_compute_research_count',
         help="The number of reseach under this category (Does not consider the children categories)")
+    research_ids = fields.One2many(
+        comodel_name='hr_hospital_3.research',
+        inverse_name='research_catalog_id',
+        string='Groupe research')
 
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):
@@ -33,10 +37,10 @@ class ResearchCatalog(models.Model):
         read_group_res = self.env['hr_hospital_3.research'].read_group([('research_catalog_id', 'child_of', self.ids)], ['research_catalog_id'], ['research_catalog_id'])
         group_data = dict((data['research_catalog_id'][0], data['research_catalog_id_count']) for data in read_group_res)
         for categ in self:
-            disease_count = 0
+            research_count = 0
             for sub_categ_id in categ.search([('id', 'child_of', categ.ids)]).ids:
-                disease_count += group_data.get(sub_categ_id, 0)
-            categ.disease_count = disease_count
+                research_count += group_data.get(sub_categ_id, 0)
+            categ.research_count = research_count
 
     @api.constrains('parent_id')
     def _check_category_recursion(self):
@@ -70,7 +74,7 @@ class Research(models.Model):
     patient_card_id = fields.Many2one(
         comodel_name='hr_hospital_3.patient_card',
         string='Visit doctor',
-        domain="['&',('doctor_id', '=', 'doctor_id'),('patient_id','=','patient_id')]",
+        domain="['&',('doctor_id', '=', doctor_id),('patient_id','=',patient_id)]",
         required=False
     )
     sample_id = fields.Many2one(

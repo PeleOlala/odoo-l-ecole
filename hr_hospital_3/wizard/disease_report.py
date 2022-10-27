@@ -31,5 +31,8 @@ class DeseaseSummary(models.TransientModel):
             'model': 'hr_hospital_3.doctor',
             'form': data
         }
-        return self.env.ref('hr_hospital_3.report.disease_summery').report_action(doctors, data=datas)
+        return (datas, doctors)
+
+
+#self.env.ref('hr_hospital_3.report.disease_summery').report_action(doctors, data=datas)
 

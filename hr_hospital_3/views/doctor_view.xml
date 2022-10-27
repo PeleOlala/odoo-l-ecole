@@ -21,14 +21,13 @@
                         <group>
                             <field name="last_name"/>
                             <field name="sex"/>
-                            <field name="photo"/>
-                            <field name="telephone"/>
-                            <field name="email"/>
-                        </group>
-                        <groupe>
+                            <field name="photo" widget="image" class="oe_avatar" options='{"preview_image": "avatar_128"}'/>
+                            <field name="telephone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <newline/>
                             <field name="intern"/>
                             <field name="mentor_id" ref="hr_hospital_3_doctor_tree_view"/>
-                        </groupe>
+                        </group>
                     </sheet>
                 </form>
             </field>

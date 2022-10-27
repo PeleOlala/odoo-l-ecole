@@ -30,7 +30,7 @@ class DiseaseCatalog(models.Model):
     disease_count = fields.Integer(
         '# disease', compute='_compute_disease_count',
         help="The number of disease under this category (Does not consider the children categories)")
-    disease_ids = fields.One2many(comodel_name='hr_hospital_3.disease', inverse_name='id')
+    disease_ids = fields.One2many(comodel_name='hr_hospital_3.disease', inverse_name='disease_catalog_id')
 
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):

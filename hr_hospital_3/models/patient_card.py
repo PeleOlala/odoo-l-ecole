@@ -22,11 +22,14 @@ class PatientCard(models.Model):
         string='Diagnos',
         required=False)
     date_time_visite = fields.Datetime(
-        string='Date time',
+        string='Date & time visite',
         default=fields.Date.today,
+        required=False)
+    duree_visite = fields.Integer(
+        string=' minut ',
         required=False)
     research_ids = fields.One2many(
         comodel_name='hr_hospital_3.research',
-        inverse_name='id',
+        inverse_name='patient_card_id',
         string='Research appointment',
         required=False)

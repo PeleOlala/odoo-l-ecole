@@ -9,3 +9,4 @@ from . import histoir_person_doctor
 from . import research
 from . import sample
 from . import patient_card
+from . import schedule_doctor

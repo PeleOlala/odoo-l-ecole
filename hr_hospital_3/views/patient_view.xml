@@ -17,9 +17,9 @@
                         <group>
                                 <field name="last_name"/>
                                 <field name="sex"/>
-                                <field name="photo"/>
-                                <field name="telephone"/>
-                                <field name="email"/>
+                                <field name="photo" widget="image" class="oe_avatar" options='{"preview_image": "avatar_128"}'/>
+                                <field name="telephone" widget="phone"/>
+                                <field name="email" widget="email"/>
                         </group>
                         <group>
                             <field name="doctor_personal_id" ref ="hr_hospital_3.hr_hospital_3_doctor_tree_view"/>

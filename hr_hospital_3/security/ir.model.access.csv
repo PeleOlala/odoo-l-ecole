@@ -9,8 +9,10 @@ access_hr_hospital_3_personne_contact,hr_hospital_3.personne_contact,model_hr_ho
 access_hr_hospital_3_patient_card,hr_hospital_3.patient_card,model_hr_hospital_3_patient_card,base.group_user,1,1,1,1
 access_hr_hospital_3_histoir_person_doctor,hr_hospital_3.histoir_person_doctor,model_hr_hospital_3_histoir_person_doctor,base.group_user,1,1,1,1
 access_hr_hospital_3_research,hr_hospital_3.research,model_hr_hospital_3_research,base.group_user,1,1,1,1
+access_hr_hospital_3_research_catalog,hr_hospital_3.research_catalog,model_hr_hospital_3_research_catalog,base.group_user,1,1,1,1
 access_hr_hospital_3_sample,hr_hospital_3.sample,model_hr_hospital_3_sample,base.group_user,1,1,1,1
 access_hr_hospital_3_fill_wizard,hr_hospital_3.fill_doctor_wizard,model_hr_hospital_3_fill_doctor_wizard,base.group_user,1,1,1,1
+access_hr_hospital_3_schedule_doctor,hr_hospital_3.schedule_doctor,model_hr_hospital_3_schedule_doctor,base.group_user,1,1,1,1
 access_hr_hospital_3_mm1,hr_hospital_3.mm1,model_my_model1,base.group_user,1,1,1,1
 access_hr_hospital_3_mm2,hr_hospital_3.mm2,model_my_model2,base.group_user,1,1,1,1
 access_hr_hospital_3_mm3,hr_hospital_3.mm3,model_my_model3,base.group_user,1,1,1,1
