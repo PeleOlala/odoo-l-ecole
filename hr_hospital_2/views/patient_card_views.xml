@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
 
         <record id="patient_card_form_view" model="ir.ui.view">
             <field name="name">hr_hospital_2.patient_card.form</field>
@@ -39,5 +38,4 @@
 
         <menuitem name="Patient card" id="patient_card_menu" parent="hr_hospital_2_setting_main" action="patient_card_act_window" sequence="420"/>
 
-    </data>
 </odoo>

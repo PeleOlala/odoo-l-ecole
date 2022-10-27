@@ -1,6 +1,7 @@
-from odoo import api, fields, models
+from odoo import fields, models
 
-class Patient(models.Model):
+
+class Patient(models.Model):  # Перед класом потрібно залишати 2 рядки.
     _name = 'hr_hospital_2.patient'
     _description = 'Patient'
 

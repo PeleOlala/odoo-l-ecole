@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
 
         <record id="hr_hospital_2_diagnostic_form_view" model="ir.ui.view">
             <field name="name">hr_hospital_2.diagnosis.form</field>
@@ -29,7 +28,7 @@
             </field>
         </record>
 
-        <record id="hr_hospital_2_diagnosis_act_window" model="ir.actions.act_window">
+        <record id="hr_hospital_2_diagnosis_action" model="ir.actions.act_window">
             <field name="name">Diagnostics</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hr_hospital_2.diagnosis</field>
@@ -41,7 +40,6 @@
             </field>
         </record>
 
-        <menuitem name="Diagnostics" id="hr_hospital_2_diagnosis_menu" parent="hr_hospital_2_setting_main" action="hr_hospital_2.hr_hospital_2_diagnosis_act_window"/>
+        <menuitem name="Diagnostics" id="hr_hospital_2_diagnosis_menu" parent="hr_hospital_2_setting_main" action="hr_hospital_2_diagnosis_action"/>
 
-    </data>
 </odoo>
