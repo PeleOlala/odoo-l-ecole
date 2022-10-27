@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="hr_hospital_3_patient_view_form" model="ir.ui.view">
+            <field name="name">hr_hospital_3_view_form</field>
+            <field name="model">hr_hospital_3.patient</field>
+            <field name="arch" type="xml">
+                <form string="hr_hospital_3_view_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="birthday"/>
+                            <field name="age"/>
+                            <field name="passport"/>
+                            <field name="personne_contact_id"/>
+                        </group>
+                        <group>
+                                <field name="last_name"/>
+                                <field name="sex"/>
+                                <field name="photo"/>
+                                <field name="telephone"/>
+                                <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="doctor_personal_id" ref ="hr_hospital_3.hr_hospital_3_doctor_tree_view"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_hospital_3_patient_view_tree" model="ir.ui.view">
+            <field name="name">hr_hospital_3_patient_view_tree</field>
+            <field name="model">hr_hospital_3.patient</field>
+            <field name="arch" type="xml">
+                <tree multi_edit="1" string="hr_hospital_3_patient_tree">
+                    <field name="name"/>
+                    <field name="birthday"/>
+                    <field name="doctor_personal_id" ref="hr_hospital_3.hr_hospital_3_doctor_tree_view"/>
+                </tree>
+            </field>
+        </record>
+
+    <record id="list_patient_action" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_hospital_3.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Patient" id="patient_menu" parent="hr_hospital_3_setting_main" action="list_patient_action"/>
+
+    <record id="hr_hospital_3_mymodel1" model="ir.ui.view">
+        <field name="name">hr_hospital_mymodel1</field>
+        <field name="model">my.model1</field>
+        <field name="arch" type="xml">
+            <form string="my model1">
+                <sheet>
+                    <group>
+                        <field name="birthday"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="list_patient_action1" model="ir.actions.act_window">
+        <field name="name">Patients1</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">my.model1</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Patient1" id="patient_menu1" parent="hr_hospital_3_setting_main" action="list_patient_action1"/>
+
+    <record id="hr_hospital_3_mymodel2" model="ir.ui.view">
+        <field name="name">hr_hospital_mymodel2</field>
+        <field name="model">my.model2</field>
+        <field name="arch" type="xml">
+            <form string="my model2">
+                <sheet>
+                    <group>
+                        <field name="birthday"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="list_patient_action2" model="ir.actions.act_window">
+        <field name="name">Patients2</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">my.model2</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Patient2" id="patient_menu2" parent="hr_hospital_3_setting_main" action="list_patient_action2"/>
+
+    <record id="hr_hospital_3_mymodel3" model="ir.ui.view">
+        <field name="name">hr_hospital_mymodel3</field>
+        <field name="model">my.model3</field>
+        <field name="arch" type="xml">
+            <form string="my model3">
+                <sheet>
+                    <group>
+                        <field name="birthday"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="list_patient_action3" model="ir.actions.act_window">
+        <field name="name">Patients3</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">my.model3</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Patient3" id="patient_menu3" parent="hr_hospital_3_setting_main" action="list_patient_action3"/>
+
+</odoo>
