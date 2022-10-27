@@ -3,7 +3,10 @@
     <data>
 
 <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
-<menuitem id="hr_hospital_main" name="L'hopital" sequence="300"/>
+
+        <menuitem id="hr_hospital_main" name="L'hopital" sequence="300"/>
+        <menuitem id="hr_hospital_setting_main" name="Acueil" parent="hr_hospital_main" sequence="310"/>
+        <menuitem id="hr_hospital_reports_main" name="Les reports" parent="hr_hospital_main" sequence="320"/>
         <!-- This Menu Item must have a parent and an action -->
 <!--        <menuitem id="hr_hospital_medecin" name="Les medecins" parent="hr_hospital_main" action="list_medicins_action" sequence="0"/> -->
 

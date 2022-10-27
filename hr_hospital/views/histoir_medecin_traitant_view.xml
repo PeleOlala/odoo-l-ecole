@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_hospital_histoir_form_view" model="ir.ui.view">
+            <field name="name">hr_hospital.histoir.form</field>
+            <field name="model">hr_hospital.histoir</field>
+            <field name="arch" type="xml">
+                <form string="l'histoir">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Titre"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="medecin_id"/>
+                                <field name="patient_id"/>
+                                <field name="date_de_nomination"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_hospital_histoir_tree_view" model="ir.ui.view">
+            <field name="name">hr_hospital.histoir.tree</field>
+            <field name="model">hr_hospital.histoir</field>
+            <field name="arch" type="xml">
+                <tree string="l'histoir">
+                    <field name="date_de_nomination"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_hospital_histoir_act_window" model="ir.actions.act_window">
+            <field name="name">hr_hospital.histoir</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_hospital.histoir</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="L'histoir" id="hr_hospital_histoir" parent="hr_hospital_setting_main" action="hr_hospital_histoir_act_window"/>
+
+    </data>
+</odoo>

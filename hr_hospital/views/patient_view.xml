@@ -8,14 +8,22 @@
                 <form string="hr_hospital_view_form">
                     <sheet>
                         <group>
-                            <field name="nom"/>
                             <field name="name"/>
-                            <field name="sexe"/>
                             <field name="date_de_naissance"/>
                             <field name="age"/>
                             <field name="passeport"/>
                             <field name="numero"/>
-                            <field name="personne_de_contact"/>
+                            <field name="personne_de_contact_id" ref="personne_de_contact_tree_view"/>
+                        </group>
+                        <group>
+                            <field name="nom"/>
+                            <field name="sexe"/>
+                            <field name="photo"/>
+                            <field name="telephone"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="medecin_traitant_id" ref ="hr_hospital_medecin_tree_view"/>
                         </group>
                     </sheet>
                 </form>
@@ -29,7 +37,6 @@
                     <field name="name"/>
                     <field name="nom"/>
                     <field name="date_de_naissance"/>
-
                 </tree>
             </field>
         </record>
@@ -41,7 +48,7 @@
         </record>
         <menuitem id="hr_hospital_patient_menu"
                   name="Les patients"
-                  parent="hr_hospital_main"
+                  parent="hr_hospital_setting_main"
                   action="list_patient_action"
                   sequence="200"/>
 

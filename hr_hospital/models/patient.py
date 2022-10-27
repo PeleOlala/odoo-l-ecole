@@ -1,6 +1,6 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 import datetime
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class Patient(models.Model):
@@ -8,27 +8,20 @@ class Patient(models.Model):
     _description = 'Patient'
 
     name = fields.Char(
-        string='Prenom'
+       string='Prenom'
     )
     numero = fields.Char(
         string="Numéro d'assurance",
         required=False)
-    nom = fields.Char(
-        string='Nom',
-        required=True)
     date_de_naissance = fields.Date(
         string='Date de naissance',
         required=True)
-    sexe = fields.Selection(
-        string='Sexe',
-        selection=[('masculin', 'Masculin'),
-                   ('féminin', 'Féminin'), ('indécis', 'Indécis')],
-        required=False, )
     passeport = fields.Char(
         string='Le passeport',
         required=False)
-    personne_de_contact = fields.Char(
-        string='Personne de contact',
+    personne_de_contact_id = fields.Many2one(
+        comodel_name='hr_hospital.personne_de_contact',
+        string='La personne de contact',
         required=False)
     age = fields.Integer(
         string="l'Age",
@@ -38,7 +31,6 @@ class Patient(models.Model):
         required=True, default='draft', selection=[
             ('draft', 'Draft'), ('sent', 'Sent'),
             ('test', 'Test Mode')], )
-#@api.multi
 
     @api.depends('date_de_naissance')
     def _compute_age_patient(self):
@@ -49,6 +41,29 @@ class Patient(models.Model):
                 card.age = (date_ah.year-date1.year-1)+(date_ah.month+12-date1.month)//12
             else:
                 card.age = 0
+
+class Patient_ext(models.Model):
+    _name = 'hr_hospital.patient'
+    _description = 'Patient ext 3'
+    _inherit = ['hr_hospital.personne','hr_hospital.patient']
+    _rec_name = 'name'
+
+    medecin_traitant_id = fields.Many2one(
+        comodel_name='hr_hospital.medecin',
+        string='Le medecin traitant',
+        inverse='_histoir_medecin',
+        required=False)
+
+    def _histoir_medecin(self):
+        for cadr in self:
+            if cadr.id:
+                self.env['hr_hospital.histoir'].create({
+                    'name':cadr.name+' '+cadr.medecin_traitant_id.name,
+                    'medecin_id':cadr.medecin_traitant_id.id,
+                    'patient_id':cadr.id,
+                    'date_de_nomination':datetime.date.today()})
+            else:
+                raise UserError(_('Il faut garde la carte de patient.'))
 
 
 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_hospital_bref_histoirique_form_view" model="ir.ui.view">
+            <field name="name">RDV de patient</field>
+            <field name="model">hr_hospital.bref_histoirique</field>
+            <field name="arch" type="xml">
+                <form string="RDV">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="Name"/>
+                            <h1>
+                                <field name="Name" placeholder="Titre"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="patient_id" ref="hr_hospital.hr_hospital_patient_view_tree"/>
+                                <field name="medecin_id" ref="hr_hospital.hr_hospital_medecin_tree_view"/>
+                                <field name="diagnostic_id" ref="hr_hospital.hr_hospital_diagnostic_tree_view"/>
+                            </group>
+                            <group>
+                                <field name="data_rdv"/>
+                                <field name="time_rdv"/>
+                                <field name="traitement_prescrit"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_hospital_bref_histoirique_tree_view" model="ir.ui.view">
+            <field name="name">hr_hospital.hr_hospital_bref_histoirique.tree</field>
+            <field name="model">hr_hospital.hr_hospital_bref_histoirique</field>
+            <field name="arch" type="xml">
+                <tree string="RDV de patient">
+                    <field name="name"/>
+                    <field name="patient_id" ref="hr_hospital.hr_hospital_patient_view_tree"/>
+                    <field name="medecin_id" ref="hr_hospital.hr_hospital_medecin_tree_view"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_hospital_bref_histoirique_search_view" model="ir.ui.view">
+            <field name="name">hr_hospital.hr_hospital_bref_histoirique.search</field>
+            <field name="model">hr_hospital.hr_hospital_bref_histoirique</field>
+            <field name="arch" type="xml">
+                <search string="RDV">
+                    <group expand="1" string="Group By">
+                        <filter string="Le patient" name="patient_id"
+                                context="{'group_by':'patient_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hr_hospital_bref_histoirique_act_window" model="ir.actions.act_window">
+            <field name="name">RDV de patient</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_hospital.bref_histoirique</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="RDV de patient" id="hr_hospital_bref_histoirique_menu" parent="hr_hospital_setting_main" action="hr_hospital_bref_histoirique_act_window"/>
+
+    </data>
+</odoo>

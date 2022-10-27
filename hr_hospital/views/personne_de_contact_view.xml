@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="personne_de_contact_form_view" model="ir.ui.view">
+            <field name="name">hr_hospital.personne_de_contact.form</field>
+            <field name="model">hr_hospital.personne_de_contact</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Nom et prenom"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="nom"/>
+                                <field name="sexe"/>
+                                <field name="photo"/>
+                                <field name="telephone"/>
+                                <field name="email"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="personne_de_contact_tree_view" model="ir.ui.view">
+            <field name="name">hr_hospital.personne_de_contact.tree</field>
+            <field name="model">hr_hospital.personne_de_contact</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="personne_de_contact_search_view" model="ir.ui.view">
+            <field name="name">hr_hospital.personne_de_contact.search</field>
+            <field name="model">hr_hospital.personne_de_contact</field>
+            <field name="arch" type="xml">
+                <search string="ModelTitle">
+                    <group expand="1" string="Group By">
+                        <filter string="name" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="personne_de_contact_act_window" model="ir.actions.act_window">
+            <field name="name">Les personne de contact</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_hospital.personne_de_contact</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="La personne de contact"
+                  id="personne_de_contact_menu"
+                  parent="hr_hospital_setting_main"
+                  action="personne_de_contact_act_window"
+                  sequence="100"/>
+
+    </data>
+</odoo>
