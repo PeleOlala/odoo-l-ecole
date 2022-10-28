@@ -20,6 +20,8 @@
                                 <field name="doctor_id" ref ="hr_hospital_3.hr_hospital_3_doctor_tree_view"/>
                                 <field name="disease_id" ref="_3_disease_catalog_tree_view"/>
                                 <field name="appointment"/>
+                                <field name="research_ids" widget="many2many_tags"/>
+
                             </group>
                             <group>
                                 <field name="comment"/>

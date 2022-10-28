@@ -34,6 +34,12 @@ class Diagnostic(models.Model):
     comment = fields.Text(
         string="Comment of mentor",
         required=False)
+    research_ids = fields.Many2many(
+        comodel_name='hr_hospital_3.research',
+        relation="hr_hospital_3_patient_card_rel",
+        column1="diagnostic_id", column2="research_ids",
+        domain="['&','&',('doctor_id', '=', doctor_id),('patient_id','=',patient_id),('patient_card_id.diagnostic_id','=',id)]",
+        string='Rel research')
 
     def _appel_mentor(self):
         for cadr in self:

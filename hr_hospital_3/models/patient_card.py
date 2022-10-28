@@ -39,7 +39,7 @@ class PatientCard(models.Model):
         required=False)
     schedule_doctor_id = fields.Many2one(
         comodel_name='hr_hospital_3.schedule_doctor',
-        domain="[('doctor_id', '=', doctor_id)]",
+        domain="['&',('doctor_id', '=', doctor_id),('patient_card_id','=',None)]",
         string='Schedule')
     is_finish = fields.Boolean(
         string='Visist is finished')
@@ -54,7 +54,7 @@ class PatientCard(models.Model):
     def _chang_schedule(self):
         for card in self:
             recordset = self.env['hr_hospital_3.patient_card'].search_count([('schedule_doctor_id', '=', card.schedule_doctor_id.id)])
-            if recordset > 1:
+            if recordset > 1 and card.schedule_doctor_id:
                 raise UserError(_("Schedule is not free, chose other, pls"))
             if card.is_finish:
                 raise UserError(_('Visit is finished. Cannot do it!'))

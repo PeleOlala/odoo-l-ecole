@@ -24,7 +24,8 @@
                         <group>
                             <field name="patient_id" ref="hr_hospital_3.hr_hospital_3_patient_view_tree"/>
                             <field name="doctor_id" ref ="hr_hospital_3.hr_hospital_3_doctor_tree_view"/>
-                            <field name="schedule_doctor_id" ref="hr_hospital_3.hr_hospital_3_schedule_doctor_tree_view" readonly="1"/>
+                            <field name="schedule_doctor_id" placeholder="For choisir reception use wizard, pls!"
+                                   ref="hr_hospital_3.hr_hospital_3_schedule_doctor_tree_view"/>
                             <field name="is_finish"/>
                         </group>
                         <group>
@@ -42,7 +43,7 @@
             <field name="name">hr_hospital_3.patient_card.tree</field>
             <field name="model">hr_hospital_3.patient_card</field>
             <field name="arch" type="xml">
-                <tree string="Patient card">
+                <tree string="Visit of Patient">
                     <field name="name"/>
                     <field name="date_time_visite"/>
                     <field name="appointment"/>
@@ -54,12 +55,12 @@
         </record>
 
         <record id="patient_card_action" model="ir.actions.act_window">
-            <field name="name">Patient card</field>
+            <field name="name">Visit of Patient</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hr_hospital_3.patient_card</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Patient card" id="_3_patient_card_menu" parent="hr_hospital_3_visites_main" action="patient_card_action" sequence="420"/>
+        <menuitem name="Visit of Patient" id="_3_patient_card_menu" parent="hr_hospital_3_visites_main" action="patient_card_action" sequence="420"/>
 
 </odoo>

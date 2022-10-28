@@ -18,7 +18,11 @@ class DoctorExt3(models.Model):
     _inherit = ['hr_hospital_3.personne', 'hr_hospital_3.doctor']
     _rec_name = 'name'
 
-    intern = fields.Boolean(string="Intern", default=False, required=False, compute='_compute_intern', readonly=False, store=True)
+    intern = fields.Boolean(string="Intern",
+                            default=False,
+                            required=False,
+                            compute='_compute_intern',
+                            readonly=False, store=True)
 
     mentor_id = fields.Many2one(
         comodel_name='hr_hospital_3.doctor',
