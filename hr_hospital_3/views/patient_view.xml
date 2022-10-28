@@ -71,7 +71,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Patient1" id="patient_menu1" parent="hr_hospital_3_setting_main" action="list_patient_action1"/>
+    <menuitem name="Patient1" id="patient_menu1" parent="hr_hospital_3_ups_main" action="list_patient_action1"/>
 
     <record id="hr_hospital_3_mymodel2" model="ir.ui.view">
         <field name="name">hr_hospital_mymodel2</field>
@@ -94,7 +94,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Patient2" id="patient_menu2" parent="hr_hospital_3_setting_main" action="list_patient_action2"/>
+    <menuitem name="Patient2" id="patient_menu2" parent="hr_hospital_3_ups_main" action="list_patient_action2"/>
 
     <record id="hr_hospital_3_mymodel3" model="ir.ui.view">
         <field name="name">hr_hospital_mymodel3</field>
@@ -117,6 +117,6 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Patient3" id="patient_menu3" parent="hr_hospital_3_setting_main" action="list_patient_action3"/>
+    <menuitem name="Patient3" id="patient_menu3" parent="hr_hospital_3_ups_main" action="list_patient_action3"/>
 
 </odoo>

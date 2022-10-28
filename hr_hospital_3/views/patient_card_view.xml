@@ -16,10 +16,18 @@
                             <h3>
                                 <field name="date_time_visite"/>
                             </h3>
+                            <label for="time_visite"/>
+                            <h3>
+                                <field name="time_visite" widget="float_time"/>
+                            </h3>
                         </div>
                         <group>
                             <field name="patient_id" ref="hr_hospital_3.hr_hospital_3_patient_view_tree"/>
                             <field name="doctor_id" ref ="hr_hospital_3.hr_hospital_3_doctor_tree_view"/>
+                            <field name="schedule_doctor_id" ref="hr_hospital_3.hr_hospital_3_schedule_doctor_tree_view"/>
+                            <field name="is_finish"/>
+                        </group>
+                        <group>
                             <field name="diagnostic_id" ref ="hr_hospital_3.diagnostic_tree_view"/>
                             <field name="appointment"/>
                             <field name="research_ids" widget="many2many_tags">
@@ -52,6 +60,6 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Patient card" id="_3_patient_card_menu" parent="hr_hospital_3_setting_main" action="patient_card_action" sequence="420"/>
+        <menuitem name="Patient card" id="_3_patient_card_menu" parent="hr_hospital_3_visites_main" action="patient_card_action" sequence="420"/>
 
 </odoo>

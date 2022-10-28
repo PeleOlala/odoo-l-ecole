@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
     <record id="hr_hospital_patient_fill_multi_wizard_view_form" model="ir.ui.view">
         <field name="name">hr_hospital_3.fill_doctor_wizard.view.form</field>
         <field name="model">hr_hospital_3.fill_doctor_wizard</field>

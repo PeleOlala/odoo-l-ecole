@@ -28,8 +28,10 @@
         'views/sample_view.xml',
         'views/research_views.xml',
         'views/patient_card_view.xml',
+        'views/schedule_doctor_views.xml',
         'wizard/fill_doctor_person_wizard_views.xml',
-        'wizard/disease_report_views.xml'
+        'wizard/disease_report_views.xml',
+        'wizard/change_reception_wizard_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -11,7 +11,7 @@ class FillDoctorPerson(models.TransientModel):
     doctor_id = fields.Many2one(
         comodel_name='hr_hospital_3.doctor',
         string='Doctor',
-        required=False)
+        required=True)
     patient_ids = fields.Many2many(
         comodel_name='hr_hospital_3.patient',
         string='List patient',

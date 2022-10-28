@@ -22,8 +22,7 @@ class Diagnostic(models.Model):
         comodel_name='hr_hospital_3.doctor',
         string='Doctor',
         required=False,
-        inverse='_appel_mentor'
-    )
+        inverse='_appel_mentor')
     disease_id = fields.Many2one(
         comodel_name='hr_hospital_3.disease',
         string='Disease',
