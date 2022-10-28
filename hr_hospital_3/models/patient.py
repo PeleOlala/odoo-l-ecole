@@ -1,5 +1,4 @@
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from odoo import api, fields, models
 import datetime
 
 
@@ -7,9 +6,7 @@ class Patient(models.Model):
     _name = 'hr_hospital_3.patient'
     _description = 'Patient'
 
-    name = fields.Char(
-       string='Name'
-    )
+    name = fields.Char()
     number = fields.Char(
         string="Number assurance",
         required=False)
@@ -42,10 +39,11 @@ class Patient(models.Model):
             else:
                 card.age = 0
 
+
 class Patient_ext(models.Model):
     _name = 'hr_hospital_3.patient'
     _description = 'Patient ext 3'
-    _inherit = ['hr_hospital_3.personne','hr_hospital_3.patient']
+    _inherit = ['hr_hospital_3.personne', 'hr_hospital_3.patient']
     _rec_name = 'name'
 
     doctor_personal_id = fields.Many2one(
@@ -58,9 +56,7 @@ class Patient_ext(models.Model):
         for cadr in self:
             if cadr.id and cadr.doctor_personal_id:
                 self.env['hr_hospital_3.histoir_person_doctor'].create({
-                    'name':cadr.name+' '+cadr.doctor_personal_id.name,
-                    'doctor_id':cadr.doctor_personal_id.id,
-                    'patient_id':cadr.id,
-                    'date_appointment':datetime.date.today()})
-            else:
-                raise UserError(_('Save card patient.'))
+                    'name': cadr.name+' '+cadr.doctor_personal_id.name,
+                    'doctor_id': cadr.doctor_personal_id.id,
+                    'patient_id': cadr.id,
+                    'date_appointment': datetime.date.today()})

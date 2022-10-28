@@ -1,5 +1,5 @@
 from odoo import api, fields, models, _
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import ValidationError
 
 
 class Disease(models.Model):
@@ -11,6 +11,7 @@ class Disease(models.Model):
         comodel_name='hr_hospital_3.disease_catalog',
         string='Catalog',
         required=False)
+
 
 class DiseaseCatalog(models.Model):
     _name = 'hr_hospital_3.disease_catalog'

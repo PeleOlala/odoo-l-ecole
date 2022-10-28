@@ -36,7 +36,7 @@
             </field>
         </record>
 
-        <record id="menu_create_partner_multi_wizard" model="ir.ui.menu">
+        <record id="hr_hospital_3_reports_main_wizard" model="ir.ui.menu">
             <field name="name">Diseases report</field>
             <field name="parent_id" ref="hr_hospital_3_reports_main"/>
             <field name="action" ref="server_hr_hospital_3_desease_summary_report"/>

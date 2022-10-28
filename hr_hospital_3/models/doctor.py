@@ -1,6 +1,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
+
 class Doctor(models.Model):
     _name = 'hr_hospital_3.doctor'
     _description = 'Doctor'
@@ -9,6 +10,7 @@ class Doctor(models.Model):
     specialiste = fields.Char(
         string='Doctor',
         required=False)
+
 
 class DoctorExt3(models.Model):
     _name = 'hr_hospital_3.doctor'
@@ -28,13 +30,10 @@ class DoctorExt3(models.Model):
     @api.depends('mentor_id')
     def _compute_intern(self):
         for cadr in self:
-            cadr.intern=(cadr.mentor_id!=None)
+            cadr.intern = (not cadr.mentor_id)
 
     @api.constrains("intern")
     def _chang_intern(self):
         for card in self:
             if card.intern and not card.mentor_id:
                 raise UserError(_('First fill mentor'))
-
-
-

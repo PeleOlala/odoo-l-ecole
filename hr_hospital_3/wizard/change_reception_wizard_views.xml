@@ -10,9 +10,9 @@
                     <sheet>
                         <div class="oe_title">
                             <label for="schedule_doctor_id"/>
-                            <h1>
+                            <h3>
                                 <field name="schedule_doctor_id" placeholder="schedul"/>
-                            </h1>
+                            </h3>
                         </div>
                         <group>
                             <field name="patient_card_id" invisible="True" options="{'no_create': True}"/>

@@ -6,9 +6,6 @@
     'author': "Olha Holodaieva",
     'website': "http://golodaeva.org.ua",
 
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
     'category': 'module_category_human_resources',
     'version': '15.0.2.7',
 
@@ -32,6 +29,7 @@
         'wizard/fill_doctor_person_wizard_views.xml',
         'wizard/disease_report_views.xml',
         'wizard/change_reception_wizard_views.xml',
+        'wizard/fill_schedule_doctor_week_views.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

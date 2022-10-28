@@ -8,4 +8,3 @@ class ResearchDiagnostic(models.Model):
     name = fields.Char()
     diagnostic_id = fields.Many2many
     research_ids = fields.Many2many('hr.employee', 'employee_category_rel', 'category_id', 'emp_id', string='Employees')
-

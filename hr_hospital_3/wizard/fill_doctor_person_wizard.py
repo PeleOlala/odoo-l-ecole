@@ -31,11 +31,11 @@ class FillDoctorPerson(models.TransientModel):
             'view_mode': 'form',
             'res_id': self.id,
             'target': 'new',
-            'context':{'active_ids':self._context.get('active_ids', [])},
+            'context': {'active_ids': self._context.get('active_ids', [])},
         }
 
     def action_fill(self):
         self.ensure_one()
-        self.patient_ids=self.env['hr_hospital_3.patient'].browse(self.env.context.get('active_ids', []))
+        self.patient_ids = self.env['hr_hospital_3.patient'].browse(self.env.context.get('active_ids', []))
         for chaque in self.patient_ids:
-            chaque.write({'doctor_personal_id':self.doctor_id.id})
+            chaque.write({'doctor_personal_id': self.doctor_id.id})

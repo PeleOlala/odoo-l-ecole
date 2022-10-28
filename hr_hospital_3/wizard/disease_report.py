@@ -1,6 +1,5 @@
 import time
-
-from odoo import api, fields, models, _
+from odoo import fields, models, _
 
 
 class DeseaseSummary(models.TransientModel):
@@ -18,7 +17,7 @@ class DeseaseSummary(models.TransientModel):
             'view_mode': 'form',
             'res_model': 'hr_hospital_3.desease.summary.report',
             'target': 'new',
-            'context':{'active_ids':self._context.get('active_ids', [])},
+            'context': {'active_ids': self._context.get('active_ids', [])},
         }
 
     def print_report(self):
@@ -32,7 +31,3 @@ class DeseaseSummary(models.TransientModel):
             'form': data
         }
         return (datas, doctors)
-
-
-#self.env.ref('hr_hospital_3.report.disease_summery').report_action(doctors, data=datas)
-

@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models
 
 
 class PersonneContact(models.Model):
@@ -6,6 +6,7 @@ class PersonneContact(models.Model):
     _description = 'Personne contact'
 
     name = fields.Char()
+
 
 class PersonneContactExt(models.Model):
     _name = 'hr_hospital_3.personne_contact'
