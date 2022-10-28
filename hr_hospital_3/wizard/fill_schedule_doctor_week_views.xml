@@ -19,13 +19,15 @@
                                 <field name="date_end"/>
                                 <field name="dure_rec"/>
                             </group>
-                            <group>
-                                <field name="time_begin_odd" widget="float_time"/>
-                                <field name="time_begin_even" widget="float_time"/>
-                            </group>
-                            <group>
-                                <field name="time_end_odd" widget="float_time"/>
-                                <field name="time_end_even" widget="float_time"/>
+                            <group colospan="2" col="2">
+                                <group>
+                                    <field name="time_begin_odd" widget="float_time"/>
+                                    <field name="time_begin_even" widget="float_time"/>
+                                </group>
+                                <group>
+                                    <field name="time_end_odd" widget="float_time"/>
+                                    <field name="time_end_even" widget="float_time"/>
+                                </group>
                             </group>
                         </group>
                     </sheet>

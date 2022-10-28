@@ -24,7 +24,7 @@
                         <group>
                             <field name="patient_id" ref="hr_hospital_3.hr_hospital_3_patient_view_tree"/>
                             <field name="doctor_id" ref ="hr_hospital_3.hr_hospital_3_doctor_tree_view"/>
-                            <field name="schedule_doctor_id" ref="hr_hospital_3.hr_hospital_3_schedule_doctor_tree_view" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="schedule_doctor_id" ref="hr_hospital_3.hr_hospital_3_schedule_doctor_tree_view" readonly="1"/>
                             <field name="is_finish"/>
                         </group>
                         <group>
