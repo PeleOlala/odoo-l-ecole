@@ -14,21 +14,13 @@
                             </h3>
                         </div>
                         <group>
-                            <group>
-                                <field name="date_begin"/>
-                                <field name="date_end"/>
-                                <field name="dure_rec"/>
-                            </group>
-                            <group colospan="2" col="2">
-                                <group>
-                                    <field name="time_begin_odd" widget="float_time"/>
-                                    <field name="time_begin_even" widget="float_time"/>
-                                </group>
-                                <group>
-                                    <field name="time_end_odd" widget="float_time"/>
-                                    <field name="time_end_even" widget="float_time"/>
-                                </group>
-                            </group>
+                            <field name="date_begin"/>
+                            <field name="date_end"/>
+                            <field name="dure_rec"/>
+                            <field name="time_begin_odd" widget="float_time" />
+                            <field name="time_end_odd" widget="float_time"/>
+                            <field name="time_begin_even" widget="float_time"/>
+                            <field name="time_end_even" widget="float_time"/>
                         </group>
                     </sheet>
                     <footer>
