@@ -17,8 +17,17 @@ class DeseaseSummary(models.TransientModel):
         string='Month',
         selection=[('1', 'Jan'),
                    ('2', 'Feb'),
-                   ('3','Mar'),
-                   ('4', 'Avr')])
+                   ('3', 'Mar'),
+                   ('4', 'Avr'),
+                   ('5', 'May'),
+                   ('6', 'Jun'),
+                   ('7', 'Jul'),
+                   ('8', 'Aug'),
+                   ('9', 'Sep'),
+                   ('10', 'Oct'),
+                   ('11', 'Nov'),
+                   ('12', 'Dic')],
+        default=lambda *a: str(datetime.date.today().month))
 
 
     def action_open_wizard(self):

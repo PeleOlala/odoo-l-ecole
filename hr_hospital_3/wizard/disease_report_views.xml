@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <form string="Diseases report">
                     <group >
-                        <field name="year" options='{"format": false}, "step": 1'/>
+                        <field name="year" options='{"format": false}'/>
                         <field name="month" />
                     </group>
                     <footer>
