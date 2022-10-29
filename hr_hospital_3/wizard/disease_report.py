@@ -29,7 +29,6 @@ class DeseaseSummary(models.TransientModel):
                    ('12', 'Dic')],
         default=lambda *a: str(datetime.date.today().month))
 
-
     def action_open_wizard(self):
         return {
             'name': _('Report disease'),
