@@ -7,7 +7,8 @@
             <field name="arch" type="xml">
                 <form string="Diseases report">
                     <group >
-                        <field name="date_from" options='{"datepicker": {"changeMonth": true}}'/>
+                        <field name="year" options='{"format": false}, "step": 1'/>
+                        <field name="month" />
                     </group>
                     <footer>
                         <button name="print_report" string="Print" type="object" class="btn-primary" data-hotkey="q"/>
