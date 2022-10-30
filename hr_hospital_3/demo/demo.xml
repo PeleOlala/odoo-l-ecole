@@ -218,6 +218,60 @@
             <field name="sample_id" ref="samp0"/>
           </record>
 
+        <record id="sch_12_8" model="hr_hospital_3.schedule_doctor">
+            <field name="doctor_id" ref="doctor12"/>
+            <field name="date_time_rec">2022-4-18</field>
+            <field name="time_rec">23.00</field>
+          </record>
+        <record id="sch_12_9" model="hr_hospital_3.schedule_doctor">
+            <field name="doctor_id" ref="doctor12"/>
+            <field name="date_time_rec">2022-10-25</field>
+            <field name="time_rec">23.00</field>
+          </record>
+
+        <record id="sch_13_1" model="hr_hospital_3.schedule_doctor">
+            <field name="doctor_id" ref="doctor13"/>
+            <field name="date_time_rec">2023-1-1</field>
+            <field name="time_rec">23.00</field>
+          </record>
+
+       <record id="sch_12_7" model="hr_hospital_3.schedule_doctor">
+            <field name="doctor_id" ref="doctor12"/>
+            <field name="date_time_rec">2022-1-2</field>
+            <field name="time_rec">23.00</field>
+          </record>
+
+       <record id="sch_12_6" model="hr_hospital_3.schedule_doctor">
+            <field name="doctor_id" ref="doctor12"/>
+            <field name="date_time_rec">2021-12-6</field>
+            <field name="time_rec">23.00</field>
+          </record>
+       <record id="sch_9_1" model="hr_hospital_3.schedule_doctor">
+            <field name="doctor_id" ref="doctor8"/>
+            <field name="date_time_rec">2005-3-27</field>
+            <field name="time_rec">23.00</field>
+          </record>
+       <record id="sch_9_2" model="hr_hospital_3.schedule_doctor">
+            <field name="doctor_id" ref="doctor8"/>
+            <field name="date_time_rec">2005-4-3</field>
+            <field name="time_rec">23.00</field>
+          </record>
+
+    <record id="sch_0_1" model="hr_hospital_3.schedule_doctor">
+            <field name="doctor_id" ref="doctor0"/>
+            <field name="date_time_rec">1986-1-2</field>
+            <field name="time_rec">23.00</field>
+          </record>
+
+    <record id="vis2" model="hr_hospital_3.patient_card">
+            <field name="name">The Power of the Doctor</field>
+            <field name="patient_id" ref="com13_2"/>
+            <field name="doctor_id" ref="doctor12"/>
+              <field name="date_time_visite">2022-10-25</field>
+              <field name="schedule_doctor_id" ref="sch_12_9"/>
+              <field name="time_visite">23.00</field>
+          </record>
+
 
     <!--
 
