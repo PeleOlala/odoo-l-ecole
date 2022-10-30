@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_hospital_4_histoir_form_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4.histoir_person_doctor.form</field>
+            <field name="model">hr_hospital_4.histoir_person_doctor</field>
+            <field name="arch" type="xml">
+                <form string="l'histoir">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Titre"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="doctor_id"/>
+                                <field name="patient_id"/>
+                                <field name="date_appointment"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_hospital_4_histoir_person_doctortree_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4.histoir_person_doctor.tree</field>
+            <field name="model">hr_hospital_4.histoir_person_doctor</field>
+            <field name="arch" type="xml">
+                <tree string="Histoir doctor">
+                    <field name="date_appointment"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_hospital_4_histoir_act_window" model="ir.actions.act_window">
+            <field name="name">Histoir person doctor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_hospital_4.histoir_person_doctor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Histore doctor" id="hr_hospital_4_histoir" parent="hr_hospital_4_setting_main" action="hr_hospital_4_histoir_act_window"/>
+    </data>
+</odoo>

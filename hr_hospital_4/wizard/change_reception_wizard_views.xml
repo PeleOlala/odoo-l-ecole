@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_hospital_4_change_reception_wizard_form_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4_change_reception_wizard_form</field>
+            <field name="model">hr_hospital_4.change_reception.wizard</field>
+            <field name="arch" type="xml">
+                <form string="wizard change schedule for visit">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="schedule_doctor_id"/>
+                            <h3>
+                                <field name="schedule_doctor_id" placeholder="schedul"/>
+                            </h3>
+                        </div>
+                        <group>
+                            <field name="patient_card_id" invisible="True" options="{'no_create': True}"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="action_change"
+                            string="Apply"
+                            type="object"
+                            icon="fa-plus"
+                            class="btn-primary"/>
+                        <button special="cancel" class="oe_link" string="Close"/>
+                </footer>
+               </form>
+            </field>
+        </record>
+
+    <record id="action_hr_hospital_4_change_reception_wizard" model="ir.actions.act_window">
+        <field name="name">Change reception visit</field>
+        <field name="res_model">hr_hospital_4.change_reception.wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_hr_hospital_4_patient_card"/>
+        <field name="binding_view_types">form</field>
+        <field name="binding_type">action</field>
+    </record>
+
+    <record id="server_action_create_partner_multi_wizard" model="ir.actions.server">
+        <field name="name">Change reception</field>
+        <field name="model_id" ref="model_hr_hospital_4_change_reception_wizard"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_open_wizard()
+        </field>
+    </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="_3_sample_form_view" model="ir.ui.view">
+            <field name="name">hr_hostital_3.sample.form</field>
+            <field name="model">hr_hospital_4.sample</field>
+            <field name="arch" type="xml">
+                <form string="Samples">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="_3_sample_tree_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4.sample.tree</field>
+            <field name="model">hr_hospital_4.sample</field>
+            <field name="arch" type="xml">
+                <tree string="Samples">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sample_action" model="ir.actions.act_window">
+            <field name="name">Samples</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_hospital_4.sample</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="sample_menu" name="Sample" parent="hr_hospital_4_setting_main" action="sample_action"/>
+
+    </data>
+</odoo>

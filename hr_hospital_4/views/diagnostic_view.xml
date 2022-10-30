@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="diagnostic_form_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4.diagnostic.form</field>
+            <field name="model">hr_hospital_4.diagnostic</field>
+            <field name="arch" type="xml">
+                <form string="Diagnostic">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Diagnostic"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date_diagnistic"/>
+                                <field name="patient_id" ref="hr_hospital_4.hr_hospital_4_patient_view_tree"/>
+                                <field name="doctor_id" ref ="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
+                                <field name="disease_id" ref="_3_disease_catalog_tree_view"/>
+                                <field name="appointment"/>
+                                <field name="research_ids" widget="many2many_tags"/>
+
+                            </group>
+                            <group>
+                                <field name="comment"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="diagnostic_tree_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4.diagnostic.tree</field>
+            <field name="model">hr_hospital_4.diagnostic</field>
+            <field name="arch" type="xml">
+                <tree string="Dignostic">
+                    <field name="name"/>
+                    <field name="date_diagnistic"/>
+                    <field name="patient_id"/>
+                    <field name="doctor_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="diagnostic_action" model="ir.actions.act_window">
+            <field name="name">Diagnostic</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_hospital_4.diagnostic</field>
+            <field name="view_mode">tree,form</field>
+         </record>
+
+        <menuitem name="Diagnostic" id="diagnostic_menu" parent="hr_hospital_4_setting_main" action="diagnostic_action"/>
+
+</odoo>

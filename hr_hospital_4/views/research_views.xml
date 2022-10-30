@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="research_catalog_tree_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4.research_cataloc.tree</field>
+            <field name="model">hr_hospital_4.research_catalog</field>
+            <field name="arch" type="xml">
+                <tree string="Groupe catalog research" expand="1">
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="_3_research_form_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4.research.form</field>
+            <field name="model">hr_hospital_4.research</field>
+            <field name="arch" type="xml">
+                <form string="Research">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Name of research"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="patient_id" ref="hr_hospital_4.hr_hospital_4_patient_view_tree"/>
+                                <field name="doctor_id" ref ="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
+                                <field name="patient_card_id" ref="hr_hospital_4.patient_card_tree_view"/>
+                                <field name="sample_id" reg="_3_sample_tree_view"/>
+                                <field name="research_catalog_id" ref="research_catalog_tree_view"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+       <record id="research_catalog_form_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4.research_catalog.form</field>
+            <field name="model">hr_hospital_4.research_catalog</field>
+            <field name="arch" type="xml">
+                <form string="Research catalog">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h3>
+                                <field name="name" placeholder="Title"/>
+                            </h3>
+                        </div>
+                        <group>
+                            <field name="parent_id" ref="_3_disease_catalog_tree_view"/>
+                            <field name="child_id" ref="_3_disease_catalog_tree_view" widget="many2many_tags"/>
+                            <field name="research_ids" widget="mane2mane_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="research_search_view" model="ir.ui.view">
+            <field name="name">hr_hospital.research.search</field>
+            <field name="model">hr_hospital_4.research</field>
+            <field name="arch" type="xml">
+                <search string="Research catalog">
+                    <group expand="1" string="Catalog">
+                        <filter string="Research catalog" name="research_catalog_id" domain="[]"
+                                context="{'group_by':'research_catalog_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="research_tree_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4.research.tree</field>
+            <field name="model">hr_hospital_4.research</field>
+            <field name="arch" type="xml">
+                <tree string="Research" expand="1">
+                    <field name="name"/>
+                    <field name="patient_id"/>
+                    <field name="doctor_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="research_catalog_tree_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4.research_catalog.tree</field>
+            <field name="model">hr_hospital_4.research_catalog</field>
+            <field name="arch" type="xml">
+                <tree string="Research" expand="1">
+                    <field name="name"/>
+                    <field name="research_count"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="research_action" model="ir.actions.act_window">
+            <field name="name">Research</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_hospital_4.research</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_research_catalog_id':1}</field>
+        </record>
+
+        <menuitem name="Research" id="_3_research_menu" parent="hr_hospital_4_setting_main" action="research_action"/>
+
+        <record id="action_research_catalog" model="ir.actions.act_window">
+            <field name="name">Catalog Research</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_hospital_4.research_catalog</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Catalog Research" id="_3_research_catalog_menu" parent="hr_hospital_4_setting_main" action="action_research_catalog"/>
+
+</odoo>

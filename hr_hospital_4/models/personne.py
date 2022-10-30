@@ -3,7 +3,7 @@ import datetime
 
 
 class PersonneIdentifi(models.AbstractModel):
-    _name = 'hr_hospital_3.personne'
+    _name = 'hr_hospital_4.personne'
     _description = 'Identifie personne'
 
     last_name = fields.Char(
