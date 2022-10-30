@@ -1,12 +1,52 @@
 <odoo>
-    <data>
+
+          <record id="doctor0" model="hr_hospital_3.doctor">
+            <field name="name">First docotr</field>
+            <field name="specialiste">Doctor Who</field>
+            <field name="sex">masculin</field>
+              <field name="last_name">William Hartnell</field>
+          </record>
+          <record id="doctor1" model="hr_hospital_3.doctor">
+            <field name="name">Second Doctor</field>
+            <field name="specialiste">Doctor Who</field>
+            <field name="sex">masculin</field>
+              <field name="last_name">Patrick Troughton</field>
+          </record>
+          <record id="doctor2" model="hr_hospital_3.doctor">
+            <field name="name">Third Doctor</field>
+            <field name="specialiste">Doctor Who</field>
+            <field name="sex">masculin</field>
+              <field name="last_name">Jon Pertwee</field>
+          </record>
+          <record id="doctor3" model="hr_hospital_3.doctor">
+            <field name="name">Fourth Doctor</field>
+            <field name="specialiste">Doctor Who</field>
+            <field name="sex">masculin</field>
+              <field name="last_name">Tom Baker</field>
+          </record>
+          <record id="doctor4" model="hr_hospital_3.doctor">
+            <field name="name">Fifth Doctor</field>
+            <field name="specialiste">Doctor Who</field>
+            <field name="sex">masculin</field>
+              <field name="last_name">Peter Davison</field>
+          </record>
+          <record id="doctor12" model="hr_hospital_3.doctor">
+            <field name="name">Thirteenth Doctor</field>
+            <field name="specialiste">Doctor Who</field>
+            <field name="sex">féminin</field>
+              <field name="last_name">Jodie Whittaker</field>
+          </record>
 <!--
-          <record id="object0" model="hr_hospital_3.hr_hospital_3">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
+          <record id="doctor14" model="hr_hospital_4.doctor">
+            <field name="name">Fifteenth Doctor</field>
+            <field name="specialiste">Doctor Who</field>
+            <field name="sex">féminin</field>
+              <field name="last_name">Ncuti Gatwa</field>
+              <field name="intern">True</field>
+              <field name="mentor_id">doctor0</field>
           </record>
 
-          <record id="object1" model="hr_hospital_3.hr_hospital_3">
+          <record id="object1" model="hr_hospital_4.hr_hospital_3">
             <field name="name">Object 1</field>
             <field name="value">10</field>
           </record>
@@ -26,5 +66,5 @@
             <field name="value">40</field>
           </record>
 -->
-    </data>
+
 </odoo>
