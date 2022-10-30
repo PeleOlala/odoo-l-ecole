@@ -30,7 +30,7 @@ class FillScheduleDoctor(models.TransientModel):
     def _action_open_modal(self):
         self.refresh()
         return {
-            'name': _('Fill doctor personal'),
+            'name': _('Fill schedule doctor'),
             'type': 'ir.actions.act_window',
             'res_model': 'hr_hospital_3.fill_schedule_wizard',
             'view_mode': 'form',
