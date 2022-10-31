@@ -34,7 +34,7 @@ class DoctorExt3(models.Model):
     @api.depends('mentor_id')
     def _compute_intern(self):
         for cadr in self:
-            cadr.intern = (not cadr.mentor_id)
+            cadr.intern = (cadr.mentor_id)
 
     @api.constrains("intern")
     def _chang_intern(self):
