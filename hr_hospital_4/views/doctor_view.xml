@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+
+        <record id="hr_hospital_4_doctor_form_vit_view" model="ir.ui.view">
+            <field name="name">hr_hospital_4_doctor_form</field>
+            <field name="model">hr_hospital_4.doctor</field>
+            <field name="arch" type="xml">
+                <form string="Doctor">
+                    <sheet>
+                        <group>
+                            <field name="name" placeholder="Doctor"/>
+                            <field name="specialiste" placeholder="Specialiste:"/>
+                            <field name="last_name"/>
+                            <field name="sex"/>
+                            <field name="photo" widget="image" class="oe_avatar" options='{"preview_image": "avatar_128"}'/>
+                            <field name="telephone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="intern"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
         <record id="hr_hospital_4_doctor_form_view" model="ir.ui.view">
             <field name="name">hr_hospital_4_doctor_form</field>
@@ -24,12 +44,25 @@
                             <field name="photo" widget="image" class="oe_avatar" options='{"preview_image": "avatar_128"}'/>
                             <field name="telephone" widget="phone"/>
                             <field name="email" widget="email"/>
-                            <newline/>
                             <field name="intern"/>
-                            <field name="mentor_id" ref="hr_hospital_4_doctor_tree_view"/>
-                            <newline/>
-                            <field name="patient_declaration_ids" widget="many2many_tags" options="{'readonly':1}"/>
                         </group>
+                        <notebook>
+                            <page name="mentor" string="Mentor" attrs="{'invisible':[('intern','=',False)]}">
+                                <group>
+                                    <field name="mentor_id" ref="hr_hospital_4_doctor_form_vit_view"/>
+                                </group>
+                            </page>
+                            <page name="patient" string="patient" attrs="{'invisible':[('patient_declaration_ids','=',False)]}">
+                                <group>
+                                <field name="patient_declaration_ids" context="{'tree_view_ref':'hr_hospital_4_patient_view_tree'}"/>
+                                </group>
+                            </page>
+                            <page name="interns" String="Interns" attrs="{'invisible':[('intern_ids','=',False)]}">
+                                <group>
+                                <field name="intern_ids" mode="kanban" />
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
@@ -55,7 +88,6 @@
             </field>
         </record>
 
-
         <record id="hr_hospital_4_doctor_tree_view" model="ir.ui.view">
             <field name="name">hr_hospital_4_doctor_tree</field>
             <field name="model">hr_hospital_4.doctor</field>
@@ -77,7 +109,7 @@
                                 context="{'group_by':'specialiste'}"/>
                         <filter string="Interns" name="intern" domain="[('intern','=',True)]"/>
                         <filter string="Mentor" name="mentors" domain="[('intern','=',False)]"/>
-                        <filter string="Il n'a pas des declarationes" name="paspersonne" domain="[('patient_declaration_ids','!=',None)]"/>
+                        <filter string="Il n'a pas des declarationes" name="paspersonne" domain="[('patient_declaration_ids','=',False)]"/>
                     </group>
                 </search>
             </field>
@@ -97,5 +129,4 @@
                   sequence="999"
         />
 
-    </data>
 </odoo>
