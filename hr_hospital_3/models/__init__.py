@@ -1,3 +1,6 @@
+"""
+jamais
+"""
 
 from . import personne
 from . import patient

@@ -1,3 +1,7 @@
+"""
+jamais
+"""
+
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
@@ -36,14 +40,15 @@ class CnahgeReception(models.TransientModel):
 
     def action_change(self):
         self.ensure_one()
-        self.patient_card_id = self.env['hr_hospital_3.patient_card'].browse(self.env.context.get('active_ids', []))
-        recordset = self.env['hr_hospital_3.patient_card'].search_count([('schedule_doctor_id',
-                                                                          '=', self.schedule_doctor_id.id)])
+        self.patient_card_id = self.env['hr_hospital_3.patient_card'].\
+            browse(self.env.context.get('active_ids', []))
+        recordset = self.env['hr_hospital_3.patient_card'].\
+            search_count([('schedule_doctor_id','=', self.schedule_doctor_id.id)])
         if recordset > 1:
             raise UserError(_("Schedule is not free, chose other, pls"))
-        else:
-            self.patient_card_id.schedule_doctor_id.write({'patient_card_id': None})
-            self.patient_card_id.write({'schedule_doctor_id': self.schedule_doctor_id.id,
+
+        self.patient_card_id.schedule_doctor_id.write({'patient_card_id': None})
+        self.patient_card_id.write({'schedule_doctor_id': self.schedule_doctor_id.id,
                                         'date_time_visite': self.schedule_doctor_id.date_time_rec,
                                         'time_visite': self.schedule_doctor_id.time_rec,
                                         'doctor_id': self.schedule_doctor_id.doctor_id.id})

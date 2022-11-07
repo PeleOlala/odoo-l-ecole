@@ -1,5 +1,9 @@
-from odoo import fields, models
+"""
+jamais
+"""
+
 import datetime
+from odoo import fields, models
 
 
 class PersonneIdentifi(models.AbstractModel):
@@ -53,7 +57,8 @@ class MyModel2(models.Model):
 
 class MyModel3(models.Model):
     _name = 'my.model3'
-    birthday = fields.Date(compute='_compute_birthday', inverse='_inverse_compute_birthday', compute_sudo=True, )
+    birthday = fields.Date(compute='_compute_birthday', inverse='_inverse_compute_birthday'
+                           , compute_sudo=True, )
 
     def _inverse_compute_birthday(self):
         pass

@@ -1,3 +1,4 @@
+
 from odoo import api, fields, models, _
 
 
@@ -29,7 +30,7 @@ class FillDoctorPerson(models.TransientModel):
             'type': 'ir.actions.act_window',
             'res_model': 'hr_hospital_3.fill_doctor_wizard',
             'view_mode': 'form',
-            'res_id': self.id,
+            'res_id': self.ids,
             'target': 'new',
             'context': {'active_ids': self._context.get('active_ids', [])},
         }

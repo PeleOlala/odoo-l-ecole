@@ -1,3 +1,8 @@
+"""
+jamais
+"""
+import datetime
+
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
@@ -38,7 +43,9 @@ class Diagnostic(models.Model):
         comodel_name='hr_hospital_3.research',
         relation="hr_hospital_3_patient_card_rel",
         column1="diagnostic_id", column2="research_ids",
-        domain="['&','&',('doctor_id', '=', doctor_id),('patient_id','=',patient_id),('patient_card_id.diagnostic_id','=',id)]",
+        domain="['&','&',('doctor_id', '=', doctor_id)"
+               ",('patient_id','=',patient_id)"
+               ",('patient_card_id.diagnostic_id','=',id)]",
         string='Rel research')
 
     def _appel_mentor(self):
@@ -51,7 +58,7 @@ class Diagnostic(models.Model):
         for card in self:
             date1 = card.patient_id.birthday
             date_ah = card.date_diagnistic
-            if type(date1) == type(date_ah):
+            if isinstance(date1, datetime.date):
                 card.age_for_disease = (date_ah.year - date1.year - 1) + (date_ah.month + 12 - date1.month) // 12
             else:
                 card.age_for_disease = 0

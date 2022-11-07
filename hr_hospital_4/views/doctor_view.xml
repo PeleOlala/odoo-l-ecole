@@ -52,14 +52,14 @@
                                     <field name="mentor_id" ref="hr_hospital_4_doctor_form_vit_view"/>
                                 </group>
                             </page>
-                            <page name="patient" string="patient" attrs="{'invisible':[('patient_declaration_ids','=',False)]}">
+                            <page name="patient" string="patient" >
                                 <group>
-                                <field name="patient_declaration_ids" context="{'tree_view_ref':'hr_hospital_4_patient_view_tree'}"/>
+                                    <field name="patient_declaration_ids" context="{'tree_view_ref':'hr_hospital_4_patient_view_tree'}"/>
                                 </group>
                             </page>
-                            <page name="interns" String="Interns" attrs="{'invisible':[('intern_ids','=',False)]}">
+                           <page string="Intern" attrs="{'invisible':[('intern','=',True)]}">
                                 <group>
-                                <field name="intern_ids" mode="kanban" />
+                                    <field name="intern_ids" mode="kanban" kanban_view_ref="hr_hospital_4_doctor_form_vit_view"/>
                                 </group>
                             </page>
                         </notebook>
@@ -79,6 +79,7 @@
                                 <div class="oe_kanban_details">
                                     <strong class="o_kanban_record_title oe_partner_heading">
                                         <field name="name"/>
+                                        <field name="specialiste"/>
                                     </strong>
                                 </div>
                             </div>

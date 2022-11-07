@@ -1,5 +1,9 @@
-from odoo import api, fields, models
+"""
+jamais
+"""
+
 import datetime
+from odoo import api, fields, models
 
 
 class Patient(models.Model):
@@ -34,13 +38,13 @@ class Patient(models.Model):
         for card in self:
             date1 = card.birthday
             date_ah = datetime.date.today()
-            if type(date1) == type(date_ah):
+            if isinstance(date1,  datetime.date):
                 card.age = (date_ah.year-date1.year-1)+(date_ah.month+12-date1.month)//12
             else:
                 card.age = 0
 
 
-class Patient_ext(models.Model):
+class PatientExt(models.Model):
     _name = 'hr_hospital_3.patient'
     _description = 'Patient ext 3'
     _inherit = ['hr_hospital_3.personne', 'hr_hospital_3.patient']

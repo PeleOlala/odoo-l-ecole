@@ -1,4 +1,3 @@
-
 import datetime
 import calendar
 
@@ -34,7 +33,7 @@ class FillScheduleDoctor(models.TransientModel):
         return {
             'name': _('Fill schedule doctor'),
             'type': 'ir.actions.act_window',
-            'res_model': 'hr_hospital_3.fill_schedule_wizard',
+            'res_model': 'hr_hospital_4.fill_schedule_wizard',
             'view_mode': 'form',
             'res_id': self.id,
             'target': 'new',
@@ -55,16 +54,14 @@ class FillScheduleDoctor(models.TransientModel):
                     cur_teme_end = self.time_end_odd
                 while cur_time <= cur_teme_end:
                     self.env['hr_hospital_3.schedule_doctor'].create({'doctor_id': self.doctor_id.id,
-                                                                      'date_time_rec': cur_day,
-                                                                      'time_rec': cur_time})
+                                 'date_time_rec': cur_day,
+                                 'time_rec': cur_time})
                     cur_time += delta_time
             cur_day += datetime.timedelta(days=1)
 
     @api.onchange('time_begin_even', 'time_end_odd', 'time_end_even', 'time_begin_odd')
     def _onchange_de_time(self):
-        if self.time_end_odd<self.time_begin_odd or self.time_end_odd>24:
+        if self.time_end_odd < self.time_begin_odd or self.time_end_odd > 24:
             self.time_end_odd = 23.98
-        if self.time_end_even<self.time_begin_eveb or self.time_end_even>24:
+        if self.time_end_even < self.time_begin_even or self.time_end_even > 24:
             self.time_end_even = 23.98
-
-

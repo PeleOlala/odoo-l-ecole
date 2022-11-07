@@ -1,3 +1,7 @@
+"""
+jamais
+"""
+
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
@@ -41,5 +45,5 @@ class DoctorExt3(models.Model):
         for card in self:
             if card.intern and not card.mentor_id:
                 raise UserError(_('First fill mentor'))
-            elif not card.intern and card.mentor_id:
+            if not card.intern and card.mentor_id:
                 raise UserError(_('Erase field mentor or put intern.'))

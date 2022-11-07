@@ -1,3 +1,7 @@
+"""
+jamais
+"""
+
 from odoo import fields, models, _
 from odoo.exceptions import UserError
 
