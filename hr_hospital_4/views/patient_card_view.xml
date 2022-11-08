@@ -39,6 +39,17 @@
             </field>
         </record>
 
+        <record id="_4_patient_card_search" model="ir.ui.view">
+            <field name="name">hr_hospital_4_patient_card_search</field>
+            <field name="model">hr_hospital_4.patient_card</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="patient_id" string="By patient" domain="[]" context="{'group_by':'patient_id'}"/>
+                    <field name="doctor_id" string="By doctor" domain="[]" context="{'group_by':'doctor_id'}"/>
+                </search>
+            </field>
+        </record>
+
         <record id="patient_card_tree_view" model="ir.ui.view">
             <field name="name">hr_hospital_4.patient_card.tree</field>
             <field name="model">hr_hospital_4.patient_card</field>
@@ -62,5 +73,12 @@
         </record>
 
         <menuitem name="Visit of Patient" id="_3_patient_card_menu" parent="hr_hospital_4_visites_main" action="patient_card_action" sequence="420"/>
+
+        <record id="action_quick_order_doctor" model="ir.actions.act_window">
+            <field name="name">Запис до лікаря швидкий</field>
+            <field name="res_model">hr_hospital_4.patient_card</field>
+            <field name="view_mode">form</field>
+            <field name="context">{'search_default_doctor_id': [active_id]}</field>
+        </record>
 
 </odoo>

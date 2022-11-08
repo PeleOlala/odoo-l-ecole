@@ -40,7 +40,7 @@ class Patient(models.Model):
                 card.age = 0
 
 
-class Patient_ext(models.Model):
+class PatientExt(models.Model):
     _name = 'hr_hospital_4.patient'
     _description = 'Patient ext 3'
     _inherit = ['hr_hospital_4.personne', 'hr_hospital_4.patient']
@@ -51,6 +51,20 @@ class Patient_ext(models.Model):
         string='Personal doctor',
         inverse='_histoir_doctor',
         required=False)
+    history_patient_ids = fields.One2many(
+        comodel_name='hr_hospital_4.patient_card',
+        inverse_name='patient_id',
+        string='Patient card')
+    research_patient_ids = fields.One2many(
+        comodel_name='hr_hospital_4.research',
+        inverse_name='patient_id',
+        string='Patient research'
+    )
+    diagnostic_patient_ids = fields.One2many(
+        comodel_name='hr_hospital_4.diagnostic',
+        inverse_name='patient_id',
+        string='Patient diagnostic'
+    )
 
     def _histoir_doctor(self):
         for cadr in self:

@@ -46,12 +46,28 @@ class DoctorExt3(models.Model):
     @api.depends('mentor_id')
     def _compute_intern(self):
         for cadr in self:
-            cadr.intern = (cadr.mentor_id)
+            cadr.intern = cadr.mentor_id
 
     @api.constrains("intern")
     def _chang_intern(self):
         for card in self:
             if card.intern and not card.mentor_id:
                 raise UserError(_('First fill mentor'))
-            elif not card.intern and card.mentor_id:
+            if not card.intern and card.mentor_id:
                 raise UserError(_('Erase field mentor or put intern.'))
+
+    def action_create_visit_to_doctor(self):
+
+        new_wizard = self.env['hr_hospital_4.set_reception.wizard'].create({'doctor_ids': self._context.get('active_ids', [])})
+        view_id = self.env.ref('hr_hospital_4.set_reception_wizard').id
+
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('Visit to doctor'),
+            'view_mode': 'form',
+            'res_model': 'hr_hospital_4.set_reception.wizard',
+            'target': 'new',
+            'res_id': new_wizard.id,
+            'views': [[view_id, 'form']],
+            'doctor_ids': self._context.get('active_ids', [])
+        }

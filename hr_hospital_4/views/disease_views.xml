@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <record id="_3_disease_catalog_tree_view" model="ir.ui.view">
+        <record id="_4_disease_catalog_tree_view" model="ir.ui.view">
             <field name="name">hr_hospital_4.disease_cataloc.tree</field>
             <field name="model">hr_hospital_4.disease_catalog</field>
             <field name="arch" type="xml">
@@ -24,7 +24,7 @@
                             </h3>
                             <label for="disease_catalog_id"/>
                             <h3>
-                                <field name="disease_catalog_id" ref="_3_disease_catalog_tree_view"/>
+                                <field name="disease_catalog_id" ref="_4_disease_catalog_tree_view"/>
                             </h3>
                         </div>
                     </sheet>
@@ -45,8 +45,8 @@
                             </h3>
                         </div>
                         <group>
-                            <field name="parent_id" ref="_3_disease_catalog_tree_view"/>
-                            <field name="child_id" ref="_3_disease_catalog_tree_view" widget="many2many_tags"/>
+                            <field name="parent_id" ref="_4_disease_catalog_tree_view"/>
+                            <field name="child_id" ref="_4_disease_catalog_tree_view" widget="many2many_tags"/>
                             <field name="disease_ids" ref="_3_disease_form_view" widget="many2many_tags"/>
                         </group>
                     </sheet>
@@ -54,18 +54,18 @@
             </field>
         </record>
 
-        <record id="_3_disease_tree_view" model="ir.ui.view">
+        <record id="_4_disease_tree_view" model="ir.ui.view">
             <field name="name">hr_hospital_4.disease.tree</field>
             <field name="model">hr_hospital_4.disease</field>
             <field name="arch" type="xml">
                 <tree string="Disease" expand="1">
                     <field name="name"/>
-                    <field name="disease_catalog_id" ref="_3_disease_catalog_tree_view"/>
+                    <field name="disease_catalog_id" ref="_4_disease_catalog_tree_view"/>
                 </tree>
             </field>
         </record>
 
-        <record id="_3_disease_search_view" model="ir.ui.view">
+        <record id="_4_disease_search_view" model="ir.ui.view">
             <field name="name">hr_hospital.disease.search</field>
             <field name="model">hr_hospital_4.disease</field>
             <field name="arch" type="xml">
@@ -78,7 +78,7 @@
             </field>
         </record>
 
-        <record id="_3_disease_action" model="ir.actions.act_window">
+        <record id="_4_disease_action" model="ir.actions.act_window">
             <field name="name">Disease</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hr_hospital_4.disease</field>
@@ -86,6 +86,6 @@
              <field name="context">{'search_default_disease_catalog_id':1}</field>
         </record>
 
-        <menuitem name="Disease" id="_3_disease_menu" parent="hr_hospital_4_setting_main" action="_3_disease_action"/>
+        <menuitem name="Disease" id="_3_disease_menu" parent="hr_hospital_4_setting_main" action="_4_disease_action"/>
 
 </odoo>

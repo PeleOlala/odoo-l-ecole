@@ -14,6 +14,7 @@ access_hr_hospital_4_sample,hr_hospital_4.sample,model_hr_hospital_4_sample,base
 access_hr_hospital_4_fill_wizard,hr_hospital_4.fill_doctor_wizard,model_hr_hospital_4_fill_doctor_wizard,base.group_user,1,1,1,1
 access_hr_hospital_4_change_reception_wizard,hr_hospital_4.change_reception.wizard,model_hr_hospital_4_change_reception_wizard,base.group_user,1,1,1,1
 access_hr_hospital_4_fill_schedule_wizard,hr_hospital_4.fill_schedule_wizard,model_hr_hospital_4_fill_schedule_wizard,base.group_user,1,1,1,1
+access_hr_hospital_4_set_reception.wizard,hr_hospital_4.set_reception.wizard,model_hr_hospital_4_set_reception_wizard,base.group_user,1,1,1,1
 access_hr_hospital_4_schedule_doctor,hr_hospital_4.schedule_doctor,model_hr_hospital_4_schedule_doctor,base.group_user,1,1,1,1
 access_hr_hospital_4_mm1,hr_hospital_4.mm1,model_my_model1,base.group_user,1,1,1,1
 access_hr_hospital_4_mm2,hr_hospital_4.mm2,model_my_model2,base.group_user,1,1,1,1

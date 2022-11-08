@@ -25,9 +25,9 @@ class CnahgeReception(models.TransientModel):
     def _action_open_modal(self):
         self.refresh()
         return {
-            'name': _('Fill doctor personal'),
+            'name': _('Change reception'),
             'type': 'ir.actions.act_window',
-            'res_model': 'hr_hospital_4.fill_doctor_wizard',
+            'res_model': 'hr_hospital_4.change_reception.wizard',
             'view_mode': 'form',
             'res_id': self.id,
             'target': 'new',
@@ -39,11 +39,11 @@ class CnahgeReception(models.TransientModel):
         self.patient_card_id = self.env['hr_hospital_4.patient_card'].browse(self.env.context.get('active_ids', []))
         recordset = self.env['hr_hospital_4.patient_card'].search_count([('schedule_doctor_id',
                                                                           '=', self.schedule_doctor_id.id)])
-        if recordset > 1:
-            raise UserError(_("Schedule is not free, chose other, pls"))
-        else:
+        if recordset <= 1:
             self.patient_card_id.schedule_doctor_id.write({'patient_card_id': None})
             self.patient_card_id.write({'schedule_doctor_id': self.schedule_doctor_id.id,
                                         'date_time_visite': self.schedule_doctor_id.date_time_rec,
                                         'time_visite': self.schedule_doctor_id.time_rec,
                                         'doctor_id': self.schedule_doctor_id.doctor_id.id})
+        else:
+            raise UserError(_("Schedule is not free, chose other, pls"))
