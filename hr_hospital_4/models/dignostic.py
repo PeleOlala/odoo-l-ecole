@@ -1,3 +1,5 @@
+import datetime
+
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
@@ -11,7 +13,13 @@ class Diagnostic(models.Model):
         string='Date diagnistic',
         default=fields.Date.today,
         required=True)
-    appointment = fields.Char(
+    appointment_ids = fields.Many2many(
+        comodel_name='hr_hospital_4.appointment',
+        relation="hr_hospital_4_patient_card_rel2",
+        column1="diagnostic_id", column2="appointment_ids",
+        domain="['&','&',('doctor_id', '=', doctor_id),"
+               "('patient_id','=',patient_id),"
+               "('patient_card_id.diagnostic_id','=',id)]",
         string='Appointment',
         required=False)
     patient_id = fields.Many2one(
@@ -30,7 +38,7 @@ class Diagnostic(models.Model):
     age_for_disease = fields.Integer(
         string='Age for disease',
         compute='_compute_age_patient',
-        readonly=True, story=True)
+        readonly=True, store=True, group_operator='avg')
     comment = fields.Text(
         string="Comment of mentor",
         required=False)
@@ -38,7 +46,9 @@ class Diagnostic(models.Model):
         comodel_name='hr_hospital_4.research',
         relation="hr_hospital_4_patient_card_rel",
         column1="diagnostic_id", column2="research_ids",
-        domain="['&','&',('doctor_id', '=', doctor_id),('patient_id','=',patient_id),('patient_card_id.diagnostic_id','=',id)]",
+        domain="['&','&',('doctor_id', '=', doctor_id),"
+               "('patient_id','=',patient_id),"
+               "('patient_card_id.diagnostic_id','=',id)]",
         string='Rel research')
 
     def _appel_mentor(self):
@@ -51,7 +61,8 @@ class Diagnostic(models.Model):
         for card in self:
             date1 = card.patient_id.birthday
             date_ah = card.date_diagnistic
-            if type(date1) == type(date_ah):
-                card.age_for_disease = (date_ah.year - date1.year - 1) + (date_ah.month + 12 - date1.month) // 12
+            if isinstance(date1, datetime.date):
+                card.age_for_disease = (date_ah.year - date1.year - 1) \
+                                       + (date_ah.month + 12 - date1.month) // 12
             else:
                 card.age_for_disease = 0

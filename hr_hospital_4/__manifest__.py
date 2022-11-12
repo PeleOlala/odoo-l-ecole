@@ -7,7 +7,7 @@
     'website': "http://golodaeva.org.ua",
 
     'category': 'module_category_human_resources',
-    'version': '15.0.4.19',
+    'version': '15.0.13.27',
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
@@ -24,6 +24,7 @@
         'views/diagnostic_view.xml',
         'views/sample_view.xml',
         'views/research_views.xml',
+        'views/appointment_views.xml',
         'views/patient_card_view.xml',
         'views/schedule_doctor_views.xml',
         'wizard/fill_doctor_person_wizard_views.xml',

@@ -34,8 +34,10 @@ class ResearchCatalog(models.Model):
                 category.complete_name = category.name
 
     def _compute_research_count(self):
-        read_group_res = self.env['hr_hospital_4.research'].read_group([('research_catalog_id', 'child_of', self.ids)], ['research_catalog_id'], ['research_catalog_id'])
-        group_data = dict((data['research_catalog_id'][0], data['research_catalog_id_count']) for data in read_group_res)
+        read_group_res = self.env['hr_hospital_4.research'].read_group([('research_catalog_id', 'child_of', self.ids)],
+                                                                       ['research_catalog_id'], ['research_catalog_id'])
+        group_data = dict(
+            (data['research_catalog_id'][0], data['research_catalog_id_count']) for data in read_group_res)
         for categ in self:
             research_count = 0
             for sub_categ_id in categ.search([('id', 'child_of', categ.ids)]).ids:
@@ -85,3 +87,22 @@ class Research(models.Model):
         comodel_name='hr_hospital_4.research_catalog',
         string='Catalog research',
         required=False)
+    patient_last_name = fields.Char(string='by lastname', compute="_comp_last_name",
+                                    search='_search_by_last_name')
+    patient_telephone = fields.Char(string='by telephone', compute="_comp_telephone",
+                                    search='_search_by_telephone')
+    date_research = fields.Date(string='Date research')
+
+    def _comp_last_name(self):
+        for card in self:
+            card.patient_last_name = card.patient_id.last_name
+
+    def _search_by_last_name(self, operator, value):
+        return [('patient_id.last_name', operator, value)]
+
+    def _comp_telephone(self):
+        for card in self:
+            card.patient_telephone = card.patient_id.telephone
+
+    def _search_by_telephone(self, operator, value):
+        return [('patient_id.telephone', operator, value)]

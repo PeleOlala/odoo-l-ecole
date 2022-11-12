@@ -26,6 +26,7 @@
                         </div>
                         <group>
                             <group>
+                                <field name="date_research"/>
                                 <field name="patient_id" ref="hr_hospital_4.hr_hospital_4_patient_view_tree"/>
                                 <field name="doctor_id" ref ="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
                                 <field name="patient_card_id" ref="hr_hospital_4.patient_card_tree_view"/>
@@ -68,9 +69,15 @@
                     <group expand="1" string="Catalog">
                         <filter string="Research catalog" name="research_catalog_id" domain="[]"
                                 context="{'group_by':'research_catalog_id'}"/>
-                        <field name="patient_id" string="By patient" context="{'group_by':'patient_id'}"/>
-                        <field name="doctor_id" string="By doctor" context="{'group_by':'doctor_id'}"/>
                     </group>
+                    <group expand="1" string="Sample">
+                        <filter string="Sample" name="sample_id" domain="[]"
+                                context="{'group_by':'sample_id'}"/>
+                    </group>
+                    <field name="patient_last_name" string="By last name"/>
+                    <field name="patient_telephone" string="By telephone"/>
+                    <field name="patient_id" string="By patient" />
+                    <field name="doctor_id" string="By doctor" />
                 </search>
             </field>
         </record>
@@ -98,11 +105,22 @@
             </field>
         </record>
 
+        <record id="research_sample_view_pivot" model="ir.ui.view">
+            <field name="model">hr_hospital_4.research</field>
+            <field name="arch" type="xml">
+                <pivot display_quantity="1" sample="1">
+                    <field name="sample_id" type="col" />
+                    <field name="doctor_id" type="row" />
+                    <field name="date_research" interval="month" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
         <record id="research_action" model="ir.actions.act_window">
             <field name="name">Research</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hr_hospital_4.research</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,pivot</field>
             <field name="context">{'search_default_research_catalog_id':1}</field>
         </record>
 
@@ -111,7 +129,6 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hr_hospital_4.research</field>
             <field name="view_mode">tree</field>
-            <field name="context">{'search_default_patient_id':1}</field>
         </record>
 
         <menuitem name="Research" id="_3_research_menu" parent="hr_hospital_4_setting_main" action="research_action"/>

@@ -7,7 +7,9 @@ class PatientCard(models.Model):
     _description = 'Patient cards'
 
     name = fields.Char()
-    appointment = fields.Char(
+    appointment_ids = fields.One2many(
+        comodel_name='hr_hospital_4.appointment',
+        inverse_name='patient_card_id',
         string='Appointment',
         required=False)
     patient_id = fields.Many2one(

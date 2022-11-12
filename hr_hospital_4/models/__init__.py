@@ -10,3 +10,4 @@ from . import research
 from . import sample
 from . import patient_card
 from . import schedule_doctor
+from . import appointment

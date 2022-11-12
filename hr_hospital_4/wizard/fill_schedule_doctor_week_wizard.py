@@ -54,6 +54,7 @@ class FillScheduleDoctor(models.TransientModel):
                 while cur_time <= cur_teme_end:
                     self.env['hr_hospital_4.schedule_doctor'].create({'doctor_id': self.doctor_id.id,
                                                                       'date_time_rec': cur_day,
-                                                                      'time_rec': cur_time})
+                                                                      'time_rec': cur_time,
+                                                                     'dure_time': delta_time})
                     cur_time += delta_time
             cur_day += datetime.timedelta(days=1)

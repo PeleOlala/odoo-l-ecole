@@ -8,11 +8,12 @@ class SetReception(models.TransientModel):
 
     schedule_doctor_id = fields.Many2one(
         comodel_name='hr_hospital_4.schedule_doctor',
+        domain="['&',('doctor_id', '=', doctor_id),('patient_card_id','=',False)]",
         string='New schedule reception')
-    patient_ids = fields.Many2many(
+    patient_id = fields.Many2one(
         comodel_name='hr_hospital_4.patient',
         string='Patient')
-    doctor_ids = fields.Many2many(
+    doctor_id = fields.Many2one(
         comodel_name='hr_hospital_4.doctor',
         string='For doctor')
 
@@ -34,22 +35,15 @@ class SetReception(models.TransientModel):
                 ,'patient_id': self._context.get('patient_id', [])},
         }
 
-    @api.model
-    def default_get(self, fields):
-        self.patient_ids = self.env['hr_hospital_4.patient'].browse(self.env.context.get('patient_id', []))
-        self.doctor_ids = self.env['hr_hospital_4.doctor'].browse(self.env.context.get('doctor_ids', []))
-
-
     def action_set_visite(self):
         self.ensure_one()
-        #self.patient_id = self.env['hr_hospital_4.patient'].browse(self.env.context.get('patient_id', []))
-        #self.doctor_id = self.env['hr_hospital_4.doctor'].browse(self.env.context.get('doctor_id', []))
         if not self.schedule_doctor_id.patient_card_id:
             sc_id = self.env['hr_hospital_4.patient_card'].create({'doctor_id': self.doctor_id.id
-                                                              ,'patient_id': self.patient_id.id
-                                                              ,'schedule_doctor_id': self.schedule_doctor_id.id
-                                                              ,'date_time_visite': self.schedule_doctor_id.date_time_rec
-                                                              ,'time_visite': self.schedule_doctor_id.time_rec})
-            self.patient_card_id.schedule_doctor_id.write({'patient_card_id': sc_id.id})
+                                    , 'patient_id': self.patient_id.id
+                                    , 'schedule_doctor_id': self.schedule_doctor_id.id
+                                    , 'date_time_visite': self.schedule_doctor_id.date_time_rec
+                                    , 'time_visite': self.schedule_doctor_id.time_rec
+                                    , 'name': "Visit %s chez %s" % (self.patient_id.name, self.doctor_id.name)})
+            self.schedule_doctor_id.write({'patient_card_id': sc_id.id})
         else:
             raise UserError(_("Schedule is not free, chose other, pls"))

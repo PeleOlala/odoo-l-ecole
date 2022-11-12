@@ -11,12 +11,12 @@
                         <div class="oe_title">
                             <label for="schedule_doctor_id"/>
                             <h3>
-                                <field name="schedule_doctor_id" placeholder="schedul"/>
+                                <field name="schedule_doctor_id" placeholder="schedul" options="{'no_open': True, 'no_create': True}"/>
                             </h3>
                         </div>
-                        <group>
-                            <field name="patient_ids"/>
-                            <field name="doctor_ids"/>
+                        <group col="4">
+                            <field name="patient_id"/>
+                            <field name="doctor_id"/>
                         </group>
                     </sheet>
                     <footer>
@@ -37,7 +37,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
-        <field name="binding_model_id" ref="model_hr_hospital_4_patient_card"/>
+        <field name="binding_model_id" ref="model_hr_hospital_4_doctor"/>
         <field name="binding_view_types">form</field>
         <field name="binding_type">action</field>
     </record>

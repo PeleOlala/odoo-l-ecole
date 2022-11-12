@@ -29,8 +29,10 @@
                             <field name="is_finish"/>
                         </group>
                         <group>
-                            <field name="diagnostic_id" ref ="hr_hospital_4.diagnostic_tree_view"/>
-                            <field name="appointment"/>
+                            <field name="diagnostic_id" ref ="hr_hospital_4.diagnostic_tree_view"
+                                   context="{'default_patient_id': patient_id,
+                                   'default_doctor_id': doctor_id}"/>
+                            <field name="appointment_ids" widget="many2many_tags"/>
                             <field name="research_ids" widget="many2many_tags">
                             </field>
                         </group>
@@ -44,8 +46,8 @@
             <field name="model">hr_hospital_4.patient_card</field>
             <field name="arch" type="xml">
                 <search string="">
-                    <field name="patient_id" string="By patient" domain="[]" context="{'group_by':'patient_id'}"/>
-                    <field name="doctor_id" string="By doctor" domain="[]" context="{'group_by':'doctor_id'}"/>
+                    <field name="patient_id" string="By patient" />
+                    <field name="doctor_id" string="By doctor" />
                 </search>
             </field>
         </record>
@@ -57,7 +59,7 @@
                 <tree string="Visit of Patient">
                     <field name="name"/>
                     <field name="date_time_visite"/>
-                    <field name="appointment"/>
+                    <field name="appointment_ids"/>
                     <field name="patient_id"/>
                     <field name="doctor_id"/>
                     <field name="diagnostic_id"/>

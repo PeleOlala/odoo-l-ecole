@@ -34,7 +34,7 @@ class Patient(models.Model):
         for card in self:
             date1 = card.birthday
             date_ah = datetime.date.today()
-            if type(date1) == type(date_ah):
+            if isinstance(date1, datetime.date):
                 card.age = (date_ah.year-date1.year-1)+(date_ah.month+12-date1.month)//12
             else:
                 card.age = 0
@@ -58,13 +58,15 @@ class PatientExt(models.Model):
     research_patient_ids = fields.One2many(
         comodel_name='hr_hospital_4.research',
         inverse_name='patient_id',
-        string='Patient research'
-    )
+        string='Patient research')
     diagnostic_patient_ids = fields.One2many(
         comodel_name='hr_hospital_4.diagnostic',
         inverse_name='patient_id',
-        string='Patient diagnostic'
-    )
+        string='Patient diagnostic')
+    appointment_patient_ids = fields.One2many(
+        comodel_name='hr_hospital_4.appointment',
+        inverse_name='patient_id',
+        string='Patient diagnostic')
 
     def _histoir_doctor(self):
         for cadr in self:

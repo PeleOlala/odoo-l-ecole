@@ -10,22 +10,41 @@
                         <div name="button_box" class="oe_button_box">
                             <button type="action" name="%(hr_hospital_4.patient_card_action)d"
                                       class="oe_stat_button"
-                                      icon="fa-dna"
-                                      domain="[('patient_id', '=', active_id)]"
+                                      icon="fa-rocket"
+                                      domain="[('default_patient_id', '=', active_id)]"
                                       context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">
                                 <field string="" name="history_patient_ids" widget="statinfo" />
                             </button>
                             <button type="action" name="%(hr_hospital_4.research_patient_action)d"
                                       class="oe_stat_button"
                                       icon="fa-flask"
-                                      domain="[('patient_id', '=', active_id)]"
+                                      domain="[('default_patient_id', '=', active_id)]"
                                       context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">
+                                <field string="" name="research_patient_ids" widget="statinfo" />
+                            </button>
+                            <button class="btn-primary" icon="fa-smile" type="action"
+                                                       name="%(hr_hospital_4.action_hr_hospital_4_set_reception_wizard)d"
+                                    context="{'default_patient_id': active_id}">+visite
+                            </button>
+                            <button type="action" name="%(hr_hospital_4.appointment_patient_action)d"
+                                      class="oe_stat_button"
+                                      icon="fa-train"
+                                      domain="[('default_patient_id', '=', active_id)]"
+                                      context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">Appointment
                             </button>
                         </div>
                         <field name="photo" widget="image" class="oe_avatar" />
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h3>
+                                <field name="name" placeholder="Patient"/>
+                            </h3>
+                            <label for="last_name"/>
+                            <h3>
+                                <field name="last_name" placeholder="Last name Patient"/>
+                            </h3>
+                        </div>
                         <group  col="4">
-                            <field name="name"/>
-                            <field name="last_name"/>
                             <field name="birthday"/>
                             <field name="age"/>
                             <field name="sex"/>
@@ -42,8 +61,8 @@
                             <page name="page_patient_one" string="History diagnostic">
                                 <field name="diagnostic_patient_ids" readonly="True"/>
                             </page>
-                            <page name="page_patient_doux" string="Research">
-                                <field name="research_patient_ids" readonly="True"/>
+                            <page name="page_patient_doux" string="Appointment">
+                                <field name="appointment_patient_ids" readonly="True"/>
                             </page>
                         </notebook>
                     </sheet>

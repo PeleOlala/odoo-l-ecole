@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_pivot_checkout" model="ir.ui.view">
+        <field name="model">hr_hospital_4.diagnostic</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="disease_id" type="row" />
+                <field name="member_id" />
+                <field name="date_diagnistic" interval="month" type="col"/>
+                <field name="count_check" type="measure" />
+            </pivot>
+        </field>
+    </record>
+
+        <report
+                id="_4_disease_summery_report"
+                model="hr_hospital_4.diagnostic"
+                string="Рівень захворюваності"
+                name="hr_hospital_4.report_disease_summery_view"
+                file="hr_hospital_4.report_diagnostic"
+                report_type="qweb-pdf"/>
+
+        <template id="report_report_disease_summery_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+</odoo>
