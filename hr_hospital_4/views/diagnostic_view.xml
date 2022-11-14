@@ -65,6 +65,8 @@
                         <filter string="Disease" name="groupby_disease" domain="[]"
                                 context="{'group_by':'disease_id'}"/>
                     </group>
+                    <filter name="filter_diagnos_date" date="date_diagnistic" default_period="month"
+                    context="{'group_by':'date_diagnistic'}"/>
                     <field name="patient_id" string="By patient" />
                     <field name="doctor_id" string="By doctor" />
                     <field name="disease_id" string="By disease" />
@@ -87,6 +89,8 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hr_hospital_4.diagnostic</field>
             <field name="view_mode">pivot,graph</field>
+            <field name="context">{'search_default_filter_diagnos_date':2,
+                'search_default_filter_groupby_disease':1}</field>
          </record>
 
         <record id="diagnostic_action" model="ir.actions.act_window">
