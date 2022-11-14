@@ -19,18 +19,18 @@
                                       class="oe_stat_button"
                                       icon="fa-flask"
                                       domain="[('default_patient_id', '=', active_id)]"
-                                      context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">
+                                      context="{'search_default_patient_id': active_id, 'default_patient_id': active_id}">
                                 <field string="" name="research_patient_ids" widget="statinfo" />
-                            </button>
-                            <button class="btn-primary" icon="fa-smile" type="action"
-                                                       name="%(hr_hospital_4.action_hr_hospital_4_set_reception_wizard)d"
-                                    context="{'default_patient_id': active_id}">+visite
                             </button>
                             <button type="action" name="%(hr_hospital_4.appointment_patient_action)d"
                                       class="oe_stat_button"
                                       icon="fa-train"
                                       domain="[('default_patient_id', '=', active_id)]"
                                       context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">Appointment
+                            </button>
+                            <button class="btn-primary" icon="fa-smile" type="action"
+                                                       name="%(hr_hospital_4.action_hr_hospital_4_set_reception_wizard)d"
+                                    context="{'default_patient_id': active_id}">+
                             </button>
                         </div>
                         <field name="photo" widget="image" class="oe_avatar" />
@@ -89,6 +89,6 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Patient" id="patient_menu" parent="hr_hospital_4_setting_main" action="list_patient_action"/>
+    <menuitem name="Patient" id="patient_menu" parent="hr_hospital_4_setting_main" action="list_patient_action" sequence="20"/>
 
 </odoo>

@@ -34,7 +34,7 @@ class DeseaseSummary(models.TransientModel):
             'name': _('Report disease'),
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
-            'res_model': 'diagnostic_pivot_action',
+            'res_model': 'hr_hospital_4.diagnostic_pivot_action',
             'target': 'new',
             'context': {'doctor_id': self._context.get('active_id', [])},
         }

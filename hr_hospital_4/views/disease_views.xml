@@ -86,6 +86,6 @@
              <field name="context">{'search_default_disease_catalog_id':1}</field>
         </record>
 
-        <menuitem name="Disease" id="_3_disease_menu" parent="hr_hospital_4_setting_main" action="_4_disease_action"/>
+        <menuitem name="Disease" id="_3_disease_menu" parent="hr_hospital_4_setting_main" action="_4_disease_action" sequence="800"/>
 
 </odoo>

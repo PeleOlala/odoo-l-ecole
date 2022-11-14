@@ -1,13 +1,13 @@
 {
     'name': "hr_hospital_4",
 
-    'summary': "Lesson 4 ",
+    'summary': "Lesson 4 - 5",
 
     'author': "Olha Holodaieva",
     'website': "http://golodaeva.org.ua",
 
     'category': 'module_category_human_resources',
-    'version': '15.0.13.27',
+    'version': '15.0.15.31',
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
@@ -18,6 +18,7 @@
         'views/hr_hospital_4_menu.xml',
         'views/patient_view.xml',
         'views/doctor_view.xml',
+        'report/doctor_report.xml',
         'views/personne_contact_view.xml',
         'views/disease_views.xml',
         'views/histoir_person_doctor_view.xml',
@@ -31,7 +32,7 @@
         'wizard/disease_report_views.xml',
         'wizard/change_reception_wizard_views.xml',
         'wizard/set_reception_wizard_views.xml',
-        'wizard/fill_schedule_doctor_week_views.xml'
+        'wizard/fill_schedule_doctor_week_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

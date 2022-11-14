@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="_4_paperformat_euro_landscape" model="report.paperformat">
+        <field name="name">A4 Landscape</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">32</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_doctor_report"
+            model="ir.actions.report">
+        <field name="name">Doctor report</field>
+        <field name="model">hr_hospital_4.doctor</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">hr_hospital_4.print_doctor_report</field>
+        <field name="report_file">hr_hospital_4.print_doctor_report</field>
+        <field name="print_report_name">'Print doctor report - %s' % (object.name).replace('/', '')</field>
+        <field name="paperformat_id" ref="hr_hospital_4._4_paperformat_euro_landscape"/>
+        <field name="binding_model_id" ref="model_hr_hospital_4_doctor"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="print_doctor_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <!-- Report header content -->
+                    <div class="container">
+                        <t t-foreach="docs" t-as="doctor">
+                            <div class="row">
+                                <!-- Report row content -->
+                                <ul class="col-12 list-unstyled" align="right">
+                                    <span t-field="doctor.photo"
+                                          t-options="{'widget': 'image', 'style': 'max-width: 128px'}"/>
+                                </ul>
+                                <div class="col-12" style="font-size:15pt;"
+                                     align="right">
+                                    <span t-field="doctor.name"/>
+                                </div>
+                                <div class="col-12" style="font-size:15pt; "
+                                     align="right">
+                                    <span t-field="doctor.last_name"/>
+                                </div>
+                                <div class="col-12" style="font-size:15pt; "
+                                     align="right">
+                                    <span t-field="doctor.specialiste"/>
+                                </div>
+                                <t t-if="len(doctor.mapped('histore_doctors_ids'))>0">
+                                    <div class="col-12" align="center">
+                                        <p>
+                                            <strong>History personal doctor</strong>
+                                        </p>
+                                    </div>
+                                    <p class="row">
+                                        <div class="col-10 bg-primary">Patient name</div>
+                                        <div class="col-2 bg-primary">date appointment</div>
+                                    </p>
+                                    <t t-foreach="doctor.mapped('histore_doctors_ids')" t-as="h">
+                                        <p class="row">
+                                            <div class="col-10">
+                                                <h4>
+                                                    <span t-field="h.patient_id"/>
+                                                </h4>
+                                            </div>
+                                            <div class="col-2">
+                                                <span t-field="h.date_appointment" t-options="{'widget': 'date'}"/>
+                                            </div>
+                                        </p>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <div class="col-12" style="font-size:15pt; "
+                                         align="centre">
+                                        Il y n'a pas uncore des declaration.
+                                        <br/>
+                                    </div>
+                                </t>
+                                <t t-if="len(doctor.mapped('patient_declaration_ids'))>0">
+                                    <div class="col-12" align="center">
+                                        <p>
+                                            <strong>History patients</strong>
+                                        </p>
+                                    </div>
+                                    <p class="row">
+                                        <div class="col-3 bg-primary">Patient name</div>
+                                        <div class="col-3 bg-primary">Patient last name</div>
+                                        <div class="col-2 bg-primary">Birthday</div>
+                                        <div class="col-2 bg-primary">Numbre diagnostic</div>
+                                        <div class="col-2 bg-primary">Numbre visits</div>
+                                    </p>
+                                    <t t-foreach="doctor.mapped('patient_declaration_ids')" t-as="p">
+                                        <t t-set="level_douleur" t-value="len(p.mapped('diagnostic_patient_ids'))"/>
+                                        <t t-set="level_douleur_class" t-if="level_douleur &lt;= 5"
+                                           t-value="'bg-success'"/>
+                                        <t t-set="level_douleur_class"
+                                           t-elif="level_douleur &gt; 5 and level_douleur &lt;= 10"
+                                           t-value="'bg-warning'"/>
+                                        <t t-set="level_douleur_class" t-else="" t-value="'bg-danger'"/>
+                                        <p class="row">
+                                            <div t-att-class="'col-3 %s' % (level_douleur_class)">
+                                                <h4>
+                                                    <span t-field="p.name"/>
+                                                </h4>
+                                            </div>
+                                            <div t-att-class="'col-3 %s' % (level_douleur_class)">
+                                                <span t-field="p.last_name"/>
+                                            </div>
+                                            <div t-att-class="'col-2 %s' % (level_douleur_class)">
+                                                <span t-field="p.birthday" t-options="{'widget': 'date'}"/>
+                                            </div>
+                                            <div t-att-class="'col-2 %s' % (level_douleur_class)">
+                                                <span t-out="len(p.mapped('diagnostic_patient_ids'))"/>
+                                            </div>
+                                            <div t-att-class="'col-2 %s' % (level_douleur_class)">
+                                                <span t-out="len(p.mapped('history_patient_ids'))"/>
+                                            </div>
+                                        </p>
+                                    </t>
+                                </t>
+                            </div>
+                        </t>
+                        <!--                    <div class="row">Date du report:
+                                                <div class="col-12" align="center">
+                                                    <span t-out="DateTime.today()"/>
+                                                </div>
+                                            </div> -->
+                    </div> <!-- Report content -->
+                </div>
+            </t>
+            <!-- Report footer content -->
+        </t>
+    </template>
+</odoo>

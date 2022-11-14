@@ -211,7 +211,7 @@
                   id="hr_hospital_4_doctor_menu"
                   parent="hr_hospital_4_setting_main"
                   action="hr_hospital_4_doctor_action"
-                  sequence="999"
+                  sequence="10"
         />
 
 </odoo>

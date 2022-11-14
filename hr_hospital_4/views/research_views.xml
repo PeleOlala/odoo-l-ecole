@@ -74,9 +74,9 @@
                         <filter string="Sample" name="sample_id" domain="[]"
                                 context="{'group_by':'sample_id'}"/>
                     </group>
+                    <field name="patient_id" string="By patient" />
                     <field name="patient_last_name" string="By last name"/>
                     <field name="patient_telephone" string="By telephone"/>
-                    <field name="patient_id" string="By patient" />
                     <field name="doctor_id" string="By doctor" />
                 </search>
             </field>

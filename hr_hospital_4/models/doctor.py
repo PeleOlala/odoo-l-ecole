@@ -42,6 +42,14 @@ class DoctorExt3(models.Model):
         inverse_name='mentor_id',
         string='Mes intern',
         auto_join=True)
+    company_id = fields.Many2one('res.company',required=True)
+    company_country_id = fields.Many2one('res.country', 'Company Country', related='company_id.country_id', readonly=True)
+    company_country_code = fields.Char(related='company_country_id.code', readonly=True)
+    histore_doctors_ids = fields.One2many(
+        comodel_name='hr_hospital_4.histoir_person_doctor',
+        inverse_name='doctor_id',
+        string='history personnal patients')
+
 
     @api.depends('mentor_id')
     def _compute_intern(self):
