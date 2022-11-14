@@ -58,3 +58,10 @@ class FillScheduleDoctor(models.TransientModel):
                                                                      'dure_time': delta_time})
                     cur_time += delta_time
             cur_day += datetime.timedelta(days=1)
+
+    @api.onchange('time_begin_even', 'time_end_odd', 'time_end_even', 'time_begin_odd')
+    def _onchange_de_time(self):
+        if self.time_end_odd < self.time_begin_odd or self.time_end_odd > 24:
+            self.time_end_odd = 23.98
+        if self.time_end_even < self.time_begin_even or self.time_end_even > 24:
+            self.time_end_even = 23.98

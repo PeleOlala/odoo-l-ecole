@@ -1,295 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <data noupdate="1">
 
-          <record id="doctor0" model="hr_hospital_4.doctor">
-            <field name="name">First docotr</field>
+        <record id="hr_hospital_4_doctor0" model="hr_hospital_4.doctor">
+            <field name="name">First Doctor</field>
             <field name="specialiste">Doctor Who</field>
             <field name="sex">masculin</field>
-              <field name="last_name">William Hartnell</field>
-          </record>
-          <record id="doctor1" model="hr_hospital_4.doctor">
-            <field name="name">Second Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Patrick Troughton</field>
-          </record>
-          <record id="doctor2" model="hr_hospital_4.doctor">
-            <field name="name">Third Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Jon Pertwee</field>
-          </record>
-          <record id="doctor3" model="hr_hospital_4.doctor">
-            <field name="name">Fourth Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Tom Baker</field>
-          </record>
-          <record id="doctor4" model="hr_hospital_4.doctor">
-            <field name="name">Fifth Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Peter Davison</field>
-          </record>
-          <record id="doctor5" model="hr_hospital_4.doctor">
-            <field name="name">Sixth Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Colin Baker</field>
-          </record>
-          <record id="doctor6" model="hr_hospital_4.doctor">
-            <field name="name">Seventh Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Sylvester McCoy</field>
-          </record>
-          <record id="doctor7" model="hr_hospital_4.doctor">
-            <field name="name">Eighth Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Paul McGann</field>
-          </record>
-          <record id="doctor8" model="hr_hospital_4.doctor">
-            <field name="name">Ninth Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Christopher Eccleston</field>
-          </record>
-          <record id="doctor9" model="hr_hospital_4.doctor">
-            <field name="name">Tenth Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">David Tennant</field>
-          </record>
-          <record id="doctor10" model="hr_hospital_4.doctor">
-            <field name="name">Eleventh Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Matt Smith</field>
-          </record>
-          <record id="doctor11" model="hr_hospital_4.doctor">
-            <field name="name">Twelfth Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Peter Capaldi</field>
-          </record>
-
-          <record id="doctor12" model="hr_hospital_4.doctor">
-            <field name="name">Thirteenth Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">féminin</field>
-              <field name="last_name">Jodie Whittaker</field>
-          </record>
-          <record id="doctor13" model="hr_hospital_4.doctor">
-            <field name="name">Fourteenth Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">David Tennant</field>
-          </record>
-
-          <record id="doctor14" model="hr_hospital_4.doctor">
-            <field name="name">Fifteenth Doctor</field>
-            <field name="specialiste">Doctor Who</field>
-            <field name="sex">masculin</field>
-              <field name="last_name">Ncuti Gatwa</field>
-              <field name="intern" eval="True"/>
-              <field name="mentor_id" ref="doctor0"/>
-          </record>
-
-        <record id="aliens" model="hr_hospital_4.disease_catalog">
-            <field name="name">aliens</field>
-        </record>
-        <record id="catastrif" model="hr_hospital_4.disease_catalog">
-            <field name="name">catastrofic</field>
-        </record>
-        <record id="advance" model="hr_hospital_4.disease_catalog">
-            <field name="name">time-travelling</field>
+            <field name="last_name">William Hartnell</field>
         </record>
 
-          <record id="daleks" model="hr_hospital_4.disease">
-            <field name="name">Daleks</field>
-            <field name="disease_catalog_id" eval="aliens"/>
-          </record>
-          <record id="cyberman" model="hr_hospital_4.disease">
-            <field name="name">Cyberman</field>
-            <field name="disease_catalog_id" eval="catastrif"/>
-          </record>
-          <record id="udd" model="hr_hospital_4.disease">
-            <field name="name">Udd</field>
-            <field name="disease_catalog_id" eval="aliens"/>
-          </record>
-         <record id="adventure0" model="hr_hospital_4.disease">
-            <field name="name">Avdenture #1</field>
-            <field name="disease_catalog_id" eval="advance"/>
-          </record>
+         <record id="hr_hospital_4_doctor1" model="hr_hospital_4.doctor">
+             <field name="name">Second Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Patrick Troughton</field>
+         </record>
 
-          <record id="com0" model="hr_hospital_4.patient">
-              <field name="name">Susan Foreman</field>
-              <field name="last_name">Foreman</field>
-              <field name="sex">féminin</field>
-              <field name="birthday">1985-10-13</field>
-              <field name="doctor_personal_id" ref="doctor0"/>
-          </record>
-          <record id="com1" model="hr_hospital_4.patient">
-              <field name="name">Barbara Wright</field>
-              <field name="last_name">Jacqueline Hill</field>
-              <field name="sex">féminin</field>
-              <field name="birthday">1985-10-13</field>
-              <field name="doctor_personal_id" ref="doctor0"/>
-          </record>
-          <record id="com3" model="hr_hospital_4.patient">
-              <field name="name">Ian Chesterton</field>
-              <field name="last_name">William Russell</field>
-              <field name="sex">masculin</field>
-              <field name="birthday">1985-10-13</field>
-              <field name="doctor_personal_id" ref="doctor0"/>
-          </record>
+         <record id="hospital_4_doctor2" model="hr_hospital_4.doctor">
+             <field name="name">Third Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Jon Pertwee</field>
+         </record>
+         <record id="hr_hospital_4_doctor3" model="hr_hospital_4.doctor">
+             <field name="name">Fourth Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Tom Baker</field>
+         </record>
+         <record id="hr_hospital_4_doctor4" model="hr_hospital_4.doctor">
+             <field name="name">Fifth Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Peter Davison</field>
+         </record>
+         <record id="hr_hospital_4_doctor5" model="hr_hospital_4.doctor">
+             <field name="name">Sixth Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Colin Baker</field>
+         </record>
+         <record id="hr_hospital_4_hr_hospital_4_doctor6" model="hr_hospital_4.doctor">
+             <field name="name">Seventh Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Sylvester McCoy</field>
+         </record>
+         <record id="hr_hospital_4_doctor7" model="hr_hospital_4.doctor">
+             <field name="name">Eighth Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Paul McGann</field>
+         </record>
+         <record id="hr_hospital_4_doctor8" model="hr_hospital_4.doctor">
+             <field name="name">Ninth Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Christopher Eccleston</field>
+         </record>
+         <record id="hr_hospital_4_doctor9" model="hr_hospital_4.doctor">
+             <field name="name">Tenth Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">David Tennant</field>
+         </record>
+         <record id="hr_hospital_4_doctor10" model="hr_hospital_4.doctor">
+             <field name="name">Eleventh Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Matt Smith</field>
+         </record>
+         <record id="hr_hospital_4_doctor11" model="hr_hospital_4.doctor">
+             <field name="name">Twelfth Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Peter Capaldi</field>
+         </record>
 
-          <record id="com13_0" model="hr_hospital_4.patient">
-              <field name="name">Graham O'Brien</field>
-              <field name="last_name">Bradley Walsh</field>
-              <field name="sex">masculin</field>
-              <field name="birthday">2021-11-13</field>
-              <field name="doctor_personal_id" ref="doctor12"/>
-          </record>
-          <record id="com13_1" model="hr_hospital_4.patient">
-              <field name="name">Ryan Sinclair</field>
-              <field name="last_name">Tosin Cole</field>
-              <field name="sex">masculin</field>
-              <field name="birthday">2021-11-13</field>
-              <field name="doctor_personal_id" ref="doctor12"/>
-          </record>
-          <record id="com13_2" model="hr_hospital_4.patient">
-              <field name="name">Yasmin Khan</field>
-              <field name="last_name">Mandip Gill</field>
-              <field name="sex">féminin</field>
-              <field name="birthday">2021-11-13</field>
-              <field name="doctor_personal_id" ref="doctor12"/>
-          </record>
+         <record id="hr_hospital_4_doctor12" model="hr_hospital_4.doctor">
+             <field name="name">Thirteenth Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">féminin</field>
+             <field name="last_name">Jodie Whittaker</field>
+         </record>
+         <record id="hr_hospital_4_doctor13" model="hr_hospital_4.doctor">
+             <field name="name">Fourteenth Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">David Tennant</field>
+         </record>
 
-          <record id="diag0" model="hr_hospital_4.diagnostic">
-            <field name="name">"An Unearthly Child"</field>
-            <field name="date_diagnistic">1986-1-1</field>
-            <field name="patient_id" ref="com0"/>
-            <field name="doctor_id" ref="doctor0"/>
-              <field name="disease_id" ref="adventure0"/>
-          </record>
+         <record id="hr_hospital_4_doctor14" model="hr_hospital_4.doctor">
+             <field name="name">Fifteenth Doctor</field>
+             <field name="specialiste">Doctor Who</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Ncuti Gatwa</field>
+             <field name="intern" eval="True"/>
+             <field name="mentor_id" ref="hr_hospital_4_doctor0"/>
+         </record>
+         <record id="hr_hospital_4_missy0" model="hr_hospital_4.doctor">
+             <field name="name">First master</field>
+             <field name="specialiste">Missy</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Roger Delgado</field>
+         </record>
+         <record id="hr_hospital_4_missy1" model="hr_hospital_4.doctor">
+             <field name="name">Second master</field>
+             <field name="specialiste">Missy</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Peter Pratt</field>
+         </record>
+         <record id="hr_hospital_4_missy2" model="hr_hospital_4.doctor">
+             <field name="name">Eighth master</field>
+             <field name="specialiste">Missy</field>
+             <field name="sex">féminin</field>
+             <field name="last_name">Michelle Gomez</field>
+         </record>
+         <record id="hr_hospital_4_missy3" model="hr_hospital_4.doctor">
+             <field name="name">Ninth master</field>
+             <field name="specialiste">Missy</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Sacha Dhawan</field>
+         </record>
+         <record id="hr_hospital_4_missy4" model="hr_hospital_4.doctor">
+             <field name="name">Third master</field>
+             <field name="specialiste">Missy</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Geoffrey Beevers</field>
+         </record>
+         <record id="hr_hospital_4_missy5" model="hr_hospital_4.doctor">
+             <field name="name">Fourth master</field>
+             <field name="specialiste">Missy</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Anthony Ainley</field>
+         </record>
+         <record id="hr_hospital_4_missy6" model="hr_hospital_4.doctor">
+             <field name="name">Fifth master</field>
+             <field name="specialiste">Missy</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Eric Roberts</field>
+         </record>
+         <record id="hr_hospital_4_missy7" model="hr_hospital_4.doctor">
+             <field name="name">Sixth master</field>
+             <field name="specialiste">Missy</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">Derek Jacobi</field>
+         </record>
+         <record id="hr_hospital_4_missy8" model="hr_hospital_4.doctor">
+             <field name="name">Seventh master</field>
+             <field name="specialiste">Missy</field>
+             <field name="sex">masculin</field>
+             <field name="last_name">John Simm</field>
+         </record>
 
-    <record id="sch_0_1" model="hr_hospital_4.schedule_doctor">
-            <field name="doctor_id" ref="doctor0"/>
-            <field name="date_time_rec">1986-1-2</field>
-            <field name="time_rec">23.00</field>
-          </record>
+         <record id="hr_hospital_4_aliens" model="hr_hospital_4.disease_catalog">
+             <field name="name">aliens</field>
+         </record>
+         <record id="hr_hospital_4_catastrif" model="hr_hospital_4.disease_catalog">
+             <field name="name">catastrofic</field>
+         </record>
+         <record id="hr_hospital_4_advance" model="hr_hospital_4.disease_catalog">
+             <field name="name">time-travelling</field>
+         </record>
 
-          <record id="vis0" model="hr_hospital_4.patient_card">
-            <field name="name">An Unearthly Child</field>
-            <field name="patient_id" ref="com0"/>
-            <field name="doctor_id" ref="doctor0"/>
-              <field name="date_time_visite">1985-1-2</field>
-              <field name="diagnostic_id" ref="diag0"/>
-              <field name="time_visite">23.00</field>
-              <field name="is_finish" eval="True"/>
-          </record>
+         <record id="hr_hospital_4_daleks" model="hr_hospital_4.disease">
+             <field name="name">Daleks</field>
+             <field name="disease_catalog_id" eval="hr_hospital_4_aliens"/>
+         </record>
+         <record id="hr_hospital_4_cyberman" model="hr_hospital_4.disease">
+             <field name="name">Cyberman</field>
+             <field name="disease_catalog_id" eval="hr_hospital_4_catastrif"/>
+         </record>
+         <record id="hr_hospital_4_udd" model="hr_hospital_4.disease">
+             <field name="name">Udd</field>
+             <field name="disease_catalog_id" eval="hr_hospital_4_aliens"/>
+         </record>
+         <record id="hr_hospital_4_adventure0" model="hr_hospital_4.disease">
+             <field name="name">Avdenture #1</field>
+             <field name="disease_catalog_id" eval="hr_hospital_4_advance"/>
+         </record>
 
-          <record id="res_cat0" model="hr_hospital_4.research_catalog">
-            <field name="name">galaxy</field>
-          </record>
+         <record id="hr_hospital_4_com0" model="hr_hospital_4.patient">
+             <field name="name">Susan Foreman</field>
+             <field name="last_name">Foreman</field>
+             <field name="sex">féminin</field>
+             <field name="birthday">1985-10-13</field>
+             <field name="doctor_personal_id" ref="hr_hospital_4_doctor0"/>
+         </record>
+         <record id="hr_hospital_4_com1" model="hr_hospital_4.patient">
+             <field name="name">Barbara Wright</field>
+             <field name="last_name">Jacqueline Hill</field>
+             <field name="sex">féminin</field>
+             <field name="birthday">1985-10-13</field>
+             <field name="doctor_personal_id" ref="hr_hospital_4_doctor0"/>
+         </record>
+         <record id="hr_hospital_4_com3" model="hr_hospital_4.patient">
+             <field name="name">Ian Chesterton</field>
+             <field name="last_name">William Russell</field>
+             <field name="sex">masculin</field>
+             <field name="birthday">1985-10-13</field>
+             <field name="doctor_personal_id" ref="hr_hospital_4_doctor0"/>
+         </record>
 
-          <record id="res_cat1" model="hr_hospital_4.research_catalog">
-            <field name="name">time</field>
-          </record>
+         <record id="hr_hospital_4_com13_0" model="hr_hospital_4.patient">
+             <field name="name">Graham O'Brien</field>
+             <field name="last_name">Bradley Walsh</field>
+             <field name="sex">masculin</field>
+             <field name="birthday">2021-11-13</field>
+             <field name="doctor_personal_id" ref="hr_hospital_4_doctor12"/>
+         </record>
+         <record id="hr_hospital_4_com13_1" model="hr_hospital_4.patient">
+             <field name="name">Ryan Sinclair</field>
+             <field name="last_name">Tosin Cole</field>
+             <field name="sex">masculin</field>
+             <field name="birthday">2021-11-13</field>
+             <field name="doctor_personal_id" ref="hr_hospital_4_doctor12"/>
+         </record>
+         <record id="hr_hospital_4_com13_2" model="hr_hospital_4.patient">
+             <field name="name">Yasmin Khan</field>
+             <field name="last_name">Mandip Gill</field>
+             <field name="sex">féminin</field>
+             <field name="birthday">2021-11-13</field>
+             <field name="doctor_personal_id" ref="hr_hospital_4_doctor12"/>
+         </record>
 
-          <record id="res_cat2" model="hr_hospital_4.research_catalog">
-            <field name="name">exo planet</field>
-          </record>
+         <record id="hr_hospital_4_diag0" model="hr_hospital_4.diagnostic">
+             <field name="name">"An Unearthly Child"</field>
+             <field name="date_diagnistic">1986-1-1</field>
+             <field name="patient_id" ref="hr_hospital_4_com0"/>
+             <field name="doctor_id" ref="hr_hospital_4_doctor0"/>
+             <field name="disease_id" ref="hr_hospital_4_adventure0"/>
+         </record>
 
-          <record id="samp0" model="hr_hospital_4.sample">
-            <field name="name">TARDIS</field>
-          </record>
+         <record id="hr_hospital_4_sch_0_1" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor0"/>
+             <field name="date_time_rec">1986-1-2</field>
+             <field name="dure_time">0.333</field>
+             <field name="time_rec">23.00</field>
+         </record>
 
-          <record id="res0" model="hr_hospital_4.research">
-            <field name="name">Danger</field>
-            <field name="research_catalog_id" ref="res_cat1"/>
-            <field name="patient_id" ref="com0"/>
-            <field name="doctor_id" ref="doctor0"/>
-            <field name="patient_card_id" ref="vis0"/>
-            <field name="sample_id" ref="samp0"/>
-          </record>
+         <record id="hr_hospital_4_sch_13_1" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor12"/>
+             <field name="date_time_rec">2018-10-8</field>
+             <field name="dure_time">0.333</field>
+             <field name="time_rec">23.00</field>
+         </record>
+         <record id="hr_hospital_4_sch_13_9" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor12"/>
+             <field name="date_time_rec">2022-10-24</field>
+             <field name="dure_time">0.333</field>
+             <field name="time_rec">23.00</field>
+         </record>
+         <record id="hr_hospital_4_sch_13_8" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor12"/>
+             <field name="date_time_rec">2022-4-18</field>
+             <field name="dure_time">0.333</field>
+             <field name="time_rec">23.00</field>
+         </record>
 
-         <record id="res1" model="hr_hospital_4.research">
-            <field name="name">Paleolithic tribe</field>
-            <field name="research_catalog_id" ref="res_cat1"/>
-            <field name="patient_id" ref="com0"/>
-            <field name="doctor_id" ref="doctor0"/>
-            <field name="patient_card_id" ref="vis0"/>
-            <field name="sample_id" ref="samp0"/>
-          </record>
+         <record id="hr_hospital_4_vis0" model="hr_hospital_4.patient_card">
+             <field name="name">An Unearthly Child</field>
+             <field name="patient_id" ref="hr_hospital_4_com0"/>
+             <field name="doctor_id" ref="hr_hospital_4_doctor0"/>
+             <field name="date_time_visite">1985-1-2</field>
+             <field name="diagnostic_id" ref="hr_hospital_4_diag0"/>
+             <field name="time_visite">23.00</field>
+             <field name="is_finish" eval="True"/>
+         </record>
 
-        <record id="sch_12_8" model="hr_hospital_4.schedule_doctor">
-            <field name="doctor_id" ref="doctor12"/>
-            <field name="date_time_rec">2022-4-18</field>
-            <field name="time_rec">23.00</field>
-          </record>
-        <record id="sch_12_9" model="hr_hospital_4.schedule_doctor">
-            <field name="doctor_id" ref="doctor12"/>
-            <field name="date_time_rec">2022-10-25</field>
-            <field name="time_rec">23.00</field>
-          </record>
+         <record id="hr_hospital_4_vis13" model="hr_hospital_4.patient_card">
+             <field name="name">The Power of the Doctor(spesial)</field>
+             <field name="patient_id" ref="hr_hospital_4_com13_2"/>
+             <field name="doctor_id" ref="hr_hospital_4_doctor0"/>
+             <field name="date_time_visite">2022-10-24</field>
+             <field name="diagnostic_id" ref="hr_hospital_4_diag0"/>
+             <field name="time_visite">23.00</field>
+             <field name="is_finish" eval="True"/>
+         </record>
 
-        <record id="sch_13_1" model="hr_hospital_4.schedule_doctor">
-            <field name="doctor_id" ref="doctor13"/>
-            <field name="date_time_rec">2023-1-1</field>
-            <field name="time_rec">23.00</field>
-          </record>
+         <record id="hr_hospital_4_res_cat0" model="hr_hospital_4.research_catalog">
+             <field name="name">galaxy</field>
+         </record>
 
-       <record id="sch_12_7" model="hr_hospital_4.schedule_doctor">
-            <field name="doctor_id" ref="doctor12"/>
-            <field name="date_time_rec">2022-1-2</field>
-            <field name="time_rec">23.00</field>
-          </record>
+         <record id="hr_hospital_4_res_cat1" model="hr_hospital_4.research_catalog">
+             <field name="name">time</field>
+         </record>
 
-       <record id="sch_12_6" model="hr_hospital_4.schedule_doctor">
-            <field name="doctor_id" ref="doctor12"/>
-            <field name="date_time_rec">2021-12-6</field>
-            <field name="time_rec">23.00</field>
-          </record>
-       <record id="sch_9_1" model="hr_hospital_4.schedule_doctor">
-            <field name="doctor_id" ref="doctor8"/>
-            <field name="date_time_rec">2005-3-27</field>
-            <field name="time_rec">23.00</field>
-          </record>
-       <record id="sch_9_2" model="hr_hospital_4.schedule_doctor">
-            <field name="doctor_id" ref="doctor8"/>
-            <field name="date_time_rec">2005-4-3</field>
-            <field name="time_rec">23.00</field>
-          </record>
+         <record id="hr_hospital_4_res_cat2" model="hr_hospital_4.research_catalog">
+             <field name="name">exo planet</field>
+         </record>
 
-    <record id="vis2" model="hr_hospital_4.patient_card">
-            <field name="name">The Power of the Doctor</field>
-            <field name="patient_id" ref="com13_2"/>
-            <field name="doctor_id" ref="doctor12"/>
-              <field name="date_time_visite">2022-10-25</field>
-              <field name="schedule_doctor_id" ref="sch_12_9"/>
-              <field name="time_visite">23.00</field>
-          </record>
+         <record id="hr_hospital_4_samp0" model="hr_hospital_4.sample">
+             <field name="name">TARDIS</field>
+         </record>
 
-    <!--
+         <record id="hr_hospital_4_res0" model="hr_hospital_4.research">
+             <field name="name">Danger</field>
+             <field name="research_catalog_id" ref="hr_hospital_4_res_cat1"/>
+             <field name="patient_id" ref="hr_hospital_4_com0"/>
+             <field name="doctor_id" ref="hr_hospital_4_doctor0"/>
+             <field name="patient_card_id" ref="hr_hospital_4_vis0"/>
+             <field name="sample_id" ref="hr_hospital_4_samp0"/>
+         </record>
 
-              <field name="doctor_personal_id" ref="hr_hospital_4.doctor.doctor0"/>
+         <record id="hr_hospital_4_res1" model="hr_hospital_4.research">
+             <field name="name">Paleolithic tribe</field>
+             <field name="research_catalog_id" ref="hr_hospital_4_res_cat1"/>
+             <field name="patient_id" ref="hr_hospital_4_com0"/>
+             <field name="doctor_id" ref="hr_hospital_4_doctor0"/>
+             <field name="patient_card_id" ref="hr_hospital_4_vis0"/>
+             <field name="sample_id" ref="hr_hospital_4_samp0"/>
+         </record>
 
-          <record id="object2" model="hr_hospital_4.hr_hospital_4">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
-          </record>
+         <record id="hr_hospital_4_sch_12_8" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor12"/>
+             <field name="date_time_rec">2021-11-29</field>
+             <field name="time_rec">23.00</field>
+             <field name="dure_time">0.33</field>
+         </record>
 
-          <record id="object3" model="hr_hospital_4.hr_hospital_4">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
+         <record id="hr_hospital_4_sch_12_9" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor12"/>
+             <field name="date_time_rec">2022-1-2</field>
+             <field name="time_rec">23.00</field>
+             <field name="dure_time">0.33</field>
+         </record>
 
-          <record id="object4" model="hr_hospital_4.hr_hospital_4">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
+         <record id="hr_hospital_4_sch_13_1" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor13"/>
+             <field name="date_time_rec">2023-1-1</field>
+             <field name="time_rec">23.00</field>
+             <field name="dure_time">0.33</field>
+         </record>
 
+         <record id="hr_hospital_4_sch_12_7" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor12"/>
+             <field name="date_time_rec">2021-12-6</field>
+             <field name="time_rec">23.00</field>
+             <field name="dure_time">0.33</field>
+         </record>
+
+         <record id="hr_hospital_4_sch_12_6" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor12"/>
+             <field name="date_time_rec">2022-12-6</field>
+             <field name="time_rec">23.00</field>
+             <field name="dure_time">0.33</field>
+         </record>
+         <record id="hr_hospital_4_sch_9_1" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor8"/>
+             <field name="date_time_rec">2005-3-27</field>
+             <field name="time_rec">23.00</field>
+             <field name="dure_time">0.33</field>
+         </record>
+         <record id="hr_hospital_4_sch_9_2" model="hr_hospital_4.schedule_doctor">
+             <field name="doctor_id" ref="hr_hospital_4_doctor8"/>
+             <field name="date_time_rec">2005-4-3</field>
+             <field name="time_rec">23.00</field>
+             <field name="dure_time">0.33</field>
+         </record>
+
+         <record id="hr_hospital_4_vis2" model="hr_hospital_4.patient_card">
+             <field name="name">The Power of the Doctor</field>
+             <field name="patient_id" ref="hr_hospital_4_com13_2"/>
+             <field name="doctor_id" ref="hr_hospital_4_doctor12"/>
+             <field name="date_time_visite">2022-1-2</field>
+             <field name="schedule_doctor_id" ref="hr_hospital_4_sch_12_9"/>
+             <field name="time_visite">23.00</field>
+         </record>
+
+<!--
+
+                   <field name="doctor_personal_id" ref="doctor.doctor0"/>
+
+               <record id="hr_hospital_4_object2" model="hr_hospital_4.hr_hospital_4">
+                 <field name="name">Object 2</field>
+                 <field name="value">20</field>
+               </record>
+
+               <record id="hr_hospital_4_object3" model="hr_hospital_4.hr_hospital_4">
+                 <field name="name">Object 3</field>
+                 <field name="value">30</field>
+               </record>
+
+               <record id="hr_hospital_4_object4" model="hr_hospital_4.hr_hospital_4">
+                 <field name="name">Object 4</field>
+                 <field name="value">40</field>
+               </record>
+     -->
+    </data>
 </odoo>

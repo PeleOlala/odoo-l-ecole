@@ -15,11 +15,11 @@
                                       context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">
                                 <field string="" name="history_patient_ids" widget="statinfo" />
                             </button>
-                            <button type="action" name="%(hr_hospital_4.research_patient_action)d"
+                            <button type="action" name="%(hr_hospital_4.research_action)d"
                                       class="oe_stat_button"
                                       icon="fa-flask"
                                       domain="[('default_patient_id', '=', active_id)]"
-                                      context="{'search_default_patient_id': active_id, 'default_patient_id': active_id}">
+                                      context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">
                                 <field string="" name="research_patient_ids" widget="statinfo" />
                             </button>
                             <button type="action" name="%(hr_hospital_4.appointment_patient_action)d"

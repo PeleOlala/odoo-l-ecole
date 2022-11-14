@@ -128,10 +128,11 @@
             <field name="name">Research by patient</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hr_hospital_4.research</field>
-            <field name="view_mode">tree</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_patient_id':1}</field>
         </record>
 
-        <menuitem name="Research" id="_3_research_menu" parent="hr_hospital_4_setting_main" action="research_action"/>
+        <menuitem name="Research" id="_3_research_menu" parent="hr_hospital_4_setting_main" action="research_action" sequence="680"/>
 
         <record id="action_research_catalog" model="ir.actions.act_window">
             <field name="name">Catalog Research</field>
@@ -140,6 +141,6 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Catalog Research" id="_3_research_catalog_menu" parent="hr_hospital_4_setting_main" action="action_research_catalog"/>
+        <menuitem name="Catalog Research" id="_3_research_catalog_menu" parent="hr_hospital_4_setting_main" action="action_research_catalog" sequence="670"/>
 
 </odoo>

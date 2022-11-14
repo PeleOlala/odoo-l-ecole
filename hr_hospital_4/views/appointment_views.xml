@@ -62,6 +62,6 @@
             <field name="view_mode">tree</field>
         </record>
 
-        <menuitem name="appointment" id="_4_appointment_menu" parent="hr_hospital_4_setting_main" action="appointment_action"/>
+        <menuitem name="Appointment" id="_4_appointment_menu" parent="hr_hospital_4_setting_main" action="appointment_action" sequence="690"/>
 
 </odoo>

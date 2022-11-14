@@ -7,7 +7,7 @@
     'website': "http://golodaeva.org.ua",
 
     'category': 'module_category_human_resources',
-    'version': '15.0.15.31',
+    'version': '15.0.17.33',
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
@@ -16,8 +16,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/hr_hospital_4_menu.xml',
-        'views/patient_view.xml',
-        'views/doctor_view.xml',
+        'views/patient_card_view.xml',
         'report/doctor_report.xml',
         'views/personne_contact_view.xml',
         'views/disease_views.xml',
@@ -26,13 +25,13 @@
         'views/sample_view.xml',
         'views/research_views.xml',
         'views/appointment_views.xml',
-        'views/patient_card_view.xml',
         'views/schedule_doctor_views.xml',
         'wizard/fill_doctor_person_wizard_views.xml',
-        'wizard/disease_report_views.xml',
         'wizard/change_reception_wizard_views.xml',
         'wizard/set_reception_wizard_views.xml',
         'wizard/fill_schedule_doctor_week_views.xml',
+        'views/patient_view.xml',
+        'views/doctor_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

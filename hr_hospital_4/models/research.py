@@ -71,14 +71,12 @@ class Research(models.Model):
     doctor_id = fields.Many2one(
         comodel_name='hr_hospital_4.doctor',
         string='Doctor',
-        required=False
-    )
+        required=False)
     patient_card_id = fields.Many2one(
         comodel_name='hr_hospital_4.patient_card',
         string='Visit doctor',
         domain="['&',('doctor_id', '=', doctor_id),('patient_id','=',patient_id)]",
-        required=False
-    )
+        required=False)
     sample_id = fields.Many2one(
         comodel_name='hr_hospital_4.sample',
         string='',

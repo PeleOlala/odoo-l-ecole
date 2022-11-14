@@ -20,4 +20,4 @@ access_hr_hospital_4_schedule_doctor,hr_hospital_4.schedule_doctor,model_hr_hosp
 access_hr_hospital_4_mm1,hr_hospital_4.mm1,model_my_model1,base.group_user,1,1,1,1
 access_hr_hospital_4_mm2,hr_hospital_4.mm2,model_my_model2,base.group_user,1,1,1,1
 access_hr_hospital_4_mm3,hr_hospital_4.mm3,model_my_model3,base.group_user,1,1,1,1
-access_hr_hospital_4_desease_summary_report,hr_hospital_4.desease.summary.report,model_hr_hospital_4_desease_summary_report,base.group_user,1,1,1,1
+
