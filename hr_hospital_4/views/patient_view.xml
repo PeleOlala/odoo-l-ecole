@@ -1,86 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-        <record id="hr_hospital_4_patient_view_form" model="ir.ui.view">
-            <field name="name">hr_hospital_4_patient_view_form</field>
-            <field name="model">hr_hospital_4.patient</field>
-            <field name="arch" type="xml">
-                <form string="hr_hospital_4_patient_view_form">
-                    <sheet>
-                        <div name="button_box" class="oe_button_box">
-                            <button type="action" name="%(hr_hospital_4.patient_card_action)d"
-                                      class="oe_stat_button"
-                                      icon="fa-rocket"
-                                      domain="[('default_patient_id', '=', active_id)]"
-                                      context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">
-                                <field string="" name="history_patient_ids" widget="statinfo" />
-                            </button>
-                            <button type="action" name="%(hr_hospital_4.research_action)d"
-                                      class="oe_stat_button"
-                                      icon="fa-flask"
-                                      domain="[('default_patient_id', '=', active_id)]"
-                                      context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">
-                                <field string="" name="research_patient_ids" widget="statinfo" />
-                            </button>
-                            <button type="action" name="%(hr_hospital_4.appointment_patient_action)d"
-                                      class="oe_stat_button"
-                                      icon="fa-train"
-                                      domain="[('default_patient_id', '=', active_id)]"
-                                      context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">Appointment
-                            </button>
-                            <button class="btn-primary" icon="fa-smile" type="action"
-                                                       name="%(hr_hospital_4.action_hr_hospital_4_set_reception_wizard)d"
-                                    context="{'default_patient_id': active_id}">+
-                            </button>
-                        </div>
-                        <field name="photo" widget="image" class="oe_avatar" />
-                        <div class="oe_title">
-                            <label for="name"/>
-                            <h3>
-                                <field name="name" placeholder="Patient"/>
-                            </h3>
-                            <label for="last_name"/>
-                            <h3>
-                                <field name="last_name" placeholder="Last name Patient"/>
-                            </h3>
-                        </div>
-                        <group  col="4">
-                            <field name="birthday"/>
-                            <field name="age"/>
-                            <field name="sex"/>
-                            <newline/>
-                            <field name="passport"/>
-                            <field name="personne_contact_id"/>
-                            <field name="telephone" widget="phone"/>
-                            <field name="email" widget="email"/>
-                        </group>
-                        <group>
-                            <field name="doctor_personal_id" ref ="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
-                        </group>
-                        <notebook>
-                            <page name="page_patient_one" string="History diagnostic">
-                                <field name="diagnostic_patient_ids" readonly="True"/>
-                            </page>
-                            <page name="page_patient_doux" string="Appointment">
-                                <field name="appointment_patient_ids" readonly="True"/>
-                            </page>
-                        </notebook>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+    <record id="hr_hospital_4_patient_view_form" model="ir.ui.view">
+        <field name="name">hr_hospital_4_patient_view_form</field>
+        <field name="model">hr_hospital_4.patient</field>
+        <field name="arch" type="xml">
+            <form string="hr_hospital_4_patient_view_form">
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button type="action" name="%(hr_hospital_4.patient_card_action)d"
+                                class="oe_stat_button"
+                                icon="fa-rocket"
+                                domain="[('default_patient_id', '=', active_id)]"
+                                context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">
+                            <field string="" name="history_patient_ids" widget="statinfo"/>
+                        </button>
+                        <button type="action" name="%(hr_hospital_4.research_action)d"
+                                class="oe_stat_button"
+                                icon="fa-flask"
+                                domain="[('default_patient_id', '=', active_id)]"
+                                context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">
+                            <field string="" name="research_patient_ids" widget="statinfo"/>
+                        </button>
+                        <button type="action" name="%(hr_hospital_4.appointment_patient_action)d"
+                                class="oe_stat_button"
+                                icon="fa-train"
+                                domain="[('default_patient_id', '=', active_id)]"
+                                context="{'search_default_patient_id': active_id, 'default_patient_id': active_id, 'group_expand': True}">
+                            Appointment
+                        </button>
+                        <button class="btn-primary" icon="fa-smile" type="action"
+                                name="%(hr_hospital_4.action_hr_hospital_4_set_reception_wizard)d"
+                                context="{'default_patient_id': active_id}">+
+                        </button>
+                    </div>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h3>
+                            <field name="name" placeholder="Patient"/>
+                        </h3>
+                        <label for="last_name"/>
+                        <h3>
+                            <field name="last_name" placeholder="Last name Patient"/>
+                        </h3>
+                    </div>
+                    <group col="4">
+                        <field name="birthday"/>
+                        <field name="age"/>
+                        <field name="sex"/>
+                        <newline/>
+                        <field name="passport"/>
+                        <field name="personne_contact_id"/>
+                        <field name="telephone" widget="phone"/>
+                        <field name="email" widget="email"/>
+                    </group>
+                    <group>
+                        <field name="doctor_personal_id" ref="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
+                    </group>
+                    <notebook>
+                        <page name="page_patient_one" string="History diagnostic">
+                            <field name="diagnostic_patient_ids" readonly="True"/>
+                        </page>
+                        <page name="page_patient_doux" string="Appointment">
+                            <field name="appointment_patient_ids" readonly="True"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <record id="hr_hospital_4_patient_view_tree" model="ir.ui.view">
-            <field name="name">hr_hospital_4_patient_view_tree</field>
-            <field name="model">hr_hospital_4.patient</field>
-            <field name="arch" type="xml">
-                <tree multi_edit="1" string="hr_hospital_4_patient_tree">
-                    <field name="name"/>
-                    <field name="birthday"/>
-                    <field name="doctor_personal_id" ref="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
-                </tree>
-            </field>
-        </record>
+    <record id="hr_hospital_4_patient_view_tree" model="ir.ui.view">
+        <field name="name">hr_hospital_4_patient_view_tree</field>
+        <field name="model">hr_hospital_4.patient</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1" string="hr_hospital_4_patient_tree">
+                <field name="name"/>
+                <field name="birthday"/>
+                <field name="doctor_personal_id" ref="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
+            </tree>
+        </field>
+    </record>
 
     <record id="list_patient_action" model="ir.actions.act_window">
         <field name="name">Patients</field>
@@ -89,6 +90,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Patient" id="patient_menu" parent="hr_hospital_4_setting_main" action="list_patient_action" sequence="20"/>
+    <menuitem name="Patient" id="patient_menu" parent="hr_hospital_4_setting_main" action="list_patient_action"
+              sequence="20"/>
 
 </odoo>

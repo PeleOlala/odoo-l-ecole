@@ -3,7 +3,6 @@ from odoo import fields, models, _
 
 
 class DeseaseSummary(models.TransientModel):
-
     _name = 'hr_hospital_4.desease.summary.report'
     _description = 'Summary diseases by month'
 

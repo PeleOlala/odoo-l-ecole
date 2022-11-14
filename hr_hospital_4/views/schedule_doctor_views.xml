@@ -1,69 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-        <record id="hr_hospital_4_schedule_doctor_form_view" model="ir.ui.view">
-            <field name="name">hr_hospital_4_schedule_doctor.form</field>
-            <field name="model">hr_hospital_4.schedule_doctor</field>
-            <field name="arch" type="xml">
-                <form string="Doctor'schedule">
-                    <sheet>
-                        <group>
-                            <field name="doctor_id" ref="hr_hospital_4_doctor_tree_view"/>
-                            <field name="date_time_rec"/>
-                            <field name="time_rec" widget="float_time"/>
-                            <field name="dure_time" widget="float_time"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+    <record id="hr_hospital_4_schedule_doctor_form_view" model="ir.ui.view">
+        <field name="name">hr_hospital_4_schedule_doctor.form</field>
+        <field name="model">hr_hospital_4.schedule_doctor</field>
+        <field name="arch" type="xml">
+            <form string="Doctor'schedule">
+                <sheet>
+                    <group>
+                        <field name="doctor_id" ref="hr_hospital_4_doctor_tree_view"/>
+                        <field name="date_time_rec"/>
+                        <field name="time_rec" widget="float_time"/>
+                        <field name="dure_time" widget="float_time"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <record id="hr_hospital_4_schedule_doctor_tree_view" model="ir.ui.view">
-            <field name="name">hr_hospital_4_schedule_doctor.tree</field>
-            <field name="model">hr_hospital_4.schedule_doctor</field>
-            <field name="arch" type="xml">
-                <tree string="Doctor's schedule">
-                    <field name="patient_card_id" widget="selection" placeholder="Free"/>
-                    <field name="doctor_id" ref="hr_hospital_4_doctor_tree_view"/>
-                    <field name="date_time_rec"/>
-                    <field name="time_rec" widget="float_time"/>
-                </tree>
-            </field>
-        </record>
+    <record id="hr_hospital_4_schedule_doctor_tree_view" model="ir.ui.view">
+        <field name="name">hr_hospital_4_schedule_doctor.tree</field>
+        <field name="model">hr_hospital_4.schedule_doctor</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor's schedule">
+                <field name="patient_card_id" widget="selection" placeholder="Free"/>
+                <field name="doctor_id" ref="hr_hospital_4_doctor_tree_view"/>
+                <field name="date_time_rec"/>
+                <field name="time_rec" widget="float_time"/>
+            </tree>
+        </field>
+    </record>
 
     <record id="_4_patient_card_view_calendar" model="ir.ui.view">
         <field name="model">hr_hospital_4.schedule_doctor</field>
         <field name="arch" type="xml">
-        <calendar date_start="date_time_rec_cal" date_delay="dure_time" color="doctor_id" mode="month">
-            <field name="doctor_id"/>
-            <field name="patient_card_id" filters="1" invisible="1"/>
-        </calendar>
+            <calendar date_start="date_time_rec_cal" date_delay="dure_time" color="doctor_id" mode="month">
+                <field name="doctor_id"/>
+                <field name="patient_card_id" filters="1" invisible="1"/>
+            </calendar>
         </field>
     </record>
 
-        <record id="hr_hospital_4_schedule_doctor_search_view" model="ir.ui.view">
-            <field name="name">hr_hospital_4_schedule_doctor.search</field>
-            <field name="model">hr_hospital_4.schedule_doctor</field>
-            <field name="arch" type="xml">
-                <search string="doctor's schedule">
-                    <group expand="1" string="Doctor by">
-                        <filter string="Doctor" name="doctor_id" domain="[]"
-                                context="{'group_by':'doctor_id'}"/>
-                    </group>
-                    <separator/>
-                    <filter string="Free" name="patient_card_id" domain="[('patient_card_id', '=', False)]"/>
-                </search>
-            </field>
-        </record>
+    <record id="hr_hospital_4_schedule_doctor_search_view" model="ir.ui.view">
+        <field name="name">hr_hospital_4_schedule_doctor.search</field>
+        <field name="model">hr_hospital_4.schedule_doctor</field>
+        <field name="arch" type="xml">
+            <search string="doctor's schedule">
+                <group expand="1" string="Doctor by">
+                    <filter string="Doctor" name="doctor_id" domain="[]"
+                            context="{'group_by':'doctor_id'}"/>
+                </group>
+                <separator/>
+                <filter string="Free" name="patient_card_id" domain="[('patient_card_id', '=', False)]"/>
+            </search>
+        </field>
+    </record>
 
-        <record id="hr_hospital_4_schedule_doctor_act_window" model="ir.actions.act_window">
-            <field name="name">Doctor's schedule</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hr_hospital_4.schedule_doctor</field>
-            <field name="view_mode">calendar,tree,form</field>
-             <field name="context">{'search_default_doctor_id':1}</field>
-        </record>
+    <record id="hr_hospital_4_schedule_doctor_act_window" model="ir.actions.act_window">
+        <field name="name">Doctor's schedule</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_hospital_4.schedule_doctor</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="context">{'search_default_doctor_id':1}</field>
+    </record>
 
-        <menuitem name="Doctor's schedule" id="hr_hospital_4_schedule_doctor_menu" parent="hr_hospital_4_visites_main" action="hr_hospital_4_schedule_doctor_act_window"/>
+    <menuitem name="Doctor's schedule" id="hr_hospital_4_schedule_doctor_menu" parent="hr_hospital_4_visites_main"
+              action="hr_hospital_4_schedule_doctor_act_window"/>
 
 </odoo>

@@ -31,19 +31,20 @@ class SetReception(models.TransientModel):
             'view_mode': 'form',
             'res_id': self.id,
             'target': 'new',
-            'context': {'doctor_id': self._context.get('doctor_id', [])
-                ,'patient_id': self._context.get('patient_id', [])},
+            'context': {'doctor_id': self._context.get('doctor_id', []),
+                        'patient_id': self._context.get('patient_id', [])},
         }
 
     def action_set_visite(self):
         self.ensure_one()
         if not self.schedule_doctor_id.patient_card_id:
-            sc_id = self.env['hr_hospital_4.patient_card'].create({'doctor_id': self.doctor_id.id
-                                    , 'patient_id': self.patient_id.id
-                                    , 'schedule_doctor_id': self.schedule_doctor_id.id
-                                    , 'date_time_visite': self.schedule_doctor_id.date_time_rec
-                                    , 'time_visite': self.schedule_doctor_id.time_rec
-                                    , 'name': "Visit %s chez %s" % (self.patient_id.name, self.doctor_id.name)})
+            sc_id = self.env['hr_hospital_4.patient_card'].create({'doctor_id': self.doctor_id.id,
+                                                                   'patient_id': self.patient_id.id,
+                                                                   'schedule_doctor_id': self.schedule_doctor_id.id,
+                                                                   'date_time_visite': self.schedule_doctor_id.date_time_rec,
+                                                                   'time_visite': self.schedule_doctor_id.time_rec,
+                                                                   'name': "Visit %s chez %s" % (
+                                                                       self.patient_id.name, self.doctor_id.name)})
             self.schedule_doctor_id.write({'patient_card_id': sc_id.id})
         else:
             raise UserError(_("Schedule is not free, chose other, pls"))

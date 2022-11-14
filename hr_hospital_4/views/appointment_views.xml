@@ -1,67 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-        <record id="_4_appointment_form_view" model="ir.ui.view">
-            <field name="name">hr_hospital_4.appointment.form</field>
-            <field name="model">hr_hospital_4.appointment</field>
-            <field name="arch" type="xml">
-                <form string="appointment">
-                    <sheet>
-                        <div class="oe_title">
-                            <label for="name"/>
-                            <h1>
-                                <field name="name" placeholder="Name of appointment"/>
-                            </h1>
-                        </div>
+    <record id="_4_appointment_form_view" model="ir.ui.view">
+        <field name="name">hr_hospital_4.appointment.form</field>
+        <field name="model">hr_hospital_4.appointment</field>
+        <field name="arch" type="xml">
+            <form string="appointment">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name of appointment"/>
+                        </h1>
+                    </div>
+                    <group>
                         <group>
-                            <group>
-                                <field name="patient_id" ref="hr_hospital_4.hr_hospital_4_patient_view_tree"/>
-                                <field name="doctor_id" ref ="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
-                                <field name="patient_card_id" ref="hr_hospital_4.patient_card_tree_view"/>
-                            </group>
+                            <field name="patient_id" ref="hr_hospital_4.hr_hospital_4_patient_view_tree"/>
+                            <field name="doctor_id" ref="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
+                            <field name="patient_card_id" ref="hr_hospital_4.patient_card_tree_view"/>
                         </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <record id="appointment_search_view" model="ir.ui.view">
-            <field name="name">hr_hospital.appointment.search</field>
-            <field name="model">hr_hospital_4.appointment</field>
-            <field name="arch" type="xml">
-                <search string="appointment">
-                    <field name="patient_id" string="By patient" />
-                    <field name="doctor_id" string="By doctor" />
-                </search>
-            </field>
-        </record>
+    <record id="appointment_search_view" model="ir.ui.view">
+        <field name="name">hr_hospital.appointment.search</field>
+        <field name="model">hr_hospital_4.appointment</field>
+        <field name="arch" type="xml">
+            <search string="appointment">
+                <field name="patient_id" string="By patient"/>
+                <field name="doctor_id" string="By doctor"/>
+            </search>
+        </field>
+    </record>
 
-        <record id="appointment_tree_view" model="ir.ui.view">
-            <field name="name">hr_hospital_4.appointment.tree</field>
-            <field name="model">hr_hospital_4.appointment</field>
-            <field name="arch" type="xml">
-                <tree string="appointment" expand="1">
-                    <field name="name"/>
-                    <field name="patient_id"/>
-                    <field name="doctor_id"/>
-                </tree>
-            </field>
-        </record>
+    <record id="appointment_tree_view" model="ir.ui.view">
+        <field name="name">hr_hospital_4.appointment.tree</field>
+        <field name="model">hr_hospital_4.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="appointment" expand="1">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+            </tree>
+        </field>
+    </record>
 
-        <record id="appointment_action" model="ir.actions.act_window">
-            <field name="name">appointment</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hr_hospital_4.appointment</field>
-            <field name="view_mode">tree,form</field>
-        </record>
+    <record id="appointment_action" model="ir.actions.act_window">
+        <field name="name">appointment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_hospital_4.appointment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
-        <record id="appointment_patient_action" model="ir.actions.act_window">
-            <field name="name">appointment by patient</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hr_hospital_4.appointment</field>
-            <field name="view_mode">tree</field>
-        </record>
+    <record id="appointment_patient_action" model="ir.actions.act_window">
+        <field name="name">appointment by patient</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_hospital_4.appointment</field>
+        <field name="view_mode">tree</field>
+    </record>
 
-        <menuitem name="Appointment" id="_4_appointment_menu" parent="hr_hospital_4_setting_main" action="appointment_action" sequence="690"/>
+    <menuitem name="Appointment" id="_4_appointment_menu" parent="hr_hospital_4_setting_main"
+              action="appointment_action" sequence="690"/>
 
 </odoo>

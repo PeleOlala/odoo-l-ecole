@@ -37,7 +37,7 @@ class SheduleDoctor(models.Model):
 
     def name_get(self):
         return [(tag.id, "%s %s:%dh %dm" % (
-        tag.doctor_id.name, tag.date_time_rec, tag.time_rec, round(tag.time_rec - int(tag.time_rec), 2) * 60)) for
+            tag.doctor_id.name, tag.date_time_rec, tag.time_rec, round(tag.time_rec - int(tag.time_rec), 2) * 60)) for
                 tag in self]
 
     @api.depends('date_time_rec', 'time_rec')

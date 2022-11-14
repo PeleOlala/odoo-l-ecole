@@ -1,5 +1,3 @@
-import time
-
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
@@ -47,7 +45,6 @@ class DoctorExt3(models.Model):
         inverse_name='doctor_id',
         string='history personnal patients')
 
-
     @api.depends('mentor_id')
     def _compute_intern(self):
         for cadr in self:
@@ -63,7 +60,8 @@ class DoctorExt3(models.Model):
 
     def action_create_visit_to_doctor(self):
 
-        new_wizard = self.env['hr_hospital_4.set_reception.wizard'].create({'doctor_ids': self._context.get('active_ids', [])})
+        new_wizard = self.env['hr_hospital_4.set_reception.wizard'].create(
+            {'doctor_ids': self._context.get('active_ids', [])})
         view_id = self.env.ref('hr_hospital_4.set_reception_wizard').id
 
         return {

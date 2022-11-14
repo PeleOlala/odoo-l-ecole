@@ -55,7 +55,8 @@ class PatientCard(models.Model):
     @api.constrains("schedule_doctor_id")
     def _chang_schedule(self):
         for card in self:
-            recordset = self.env['hr_hospital_4.patient_card'].search_count([('schedule_doctor_id', '=', card.schedule_doctor_id.id)])
+            recordset = self.env['hr_hospital_4.patient_card'].search_count(
+                [('schedule_doctor_id', '=', card.schedule_doctor_id.id)])
             if recordset > 1 and card.schedule_doctor_id:
                 raise UserError(_("Schedule is not free, chose other, pls"))
             if card.is_finish:

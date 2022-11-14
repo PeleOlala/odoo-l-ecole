@@ -25,7 +25,8 @@ class DiseaseCatalog(models.Model):
     complete_name = fields.Char(
         'Complete Name', compute='_compute_complete_name',
         store=True)
-    parent_id = fields.Many2one('hr_hospital_4.disease_catalog', 'Parent catalog', index=True, ondelete='cascade')
+    parent_id = fields.Many2one('hr_hospital_4.disease_catalog',
+                                'Parent catalog', index=True, ondelete='cascade')
     parent_path = fields.Char(index=True)
     child_id = fields.One2many('hr_hospital_4.disease_catalog', 'parent_id', 'Child Class')
     disease_count = fields.Integer(
@@ -42,7 +43,8 @@ class DiseaseCatalog(models.Model):
                 category.complete_name = category.name
 
     def _compute_disease_count(self):
-        read_group_res = self.env['hr_hospital_4.disease'].read_group([('disease_catalog_id', 'child_of', self.ids)], ['disease_catalog_id'], ['disease_catalog_id'])
+        read_group_res = self.env['hr_hospital_4.disease'].read_group([('disease_catalog_id', 'child_of', self.ids)],
+                                                                      ['disease_catalog_id'], ['disease_catalog_id'])
         group_data = dict((data['disease_catalog_id'][0], data['disease_catalog_id_count']) for data in read_group_res)
         for categ in self:
             disease_count = 0

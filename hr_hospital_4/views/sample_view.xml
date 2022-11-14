@@ -35,7 +35,8 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="sample_menu" name="Sample" parent="hr_hospital_4_setting_main" action="sample_action" sequence="850"/>
+        <menuitem id="sample_menu" name="Sample" parent="hr_hospital_4_setting_main" action="sample_action"
+                  sequence="850"/>
 
     </data>
 </odoo>

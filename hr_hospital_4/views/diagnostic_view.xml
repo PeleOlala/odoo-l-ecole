@@ -1,105 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-        <record id="diagnostic_form_view" model="ir.ui.view">
-            <field name="name">hr_hospital_4.diagnostic.form</field>
-            <field name="model">hr_hospital_4.diagnostic</field>
-            <field name="arch" type="xml">
-                <form string="Diagnostic">
-                    <sheet>
-                        <div class="oe_title">
-                            <label for="name"/>
-                            <h1>
-                                <field name="name" placeholder="Diagnostic"/>
-                            </h1>
-                        </div>
+    <record id="diagnostic_form_view" model="ir.ui.view">
+        <field name="name">hr_hospital_4.diagnostic.form</field>
+        <field name="model">hr_hospital_4.diagnostic</field>
+        <field name="arch" type="xml">
+            <form string="Diagnostic">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Diagnostic"/>
+                        </h1>
+                    </div>
+                    <group>
                         <group>
-                            <group>
-                                <field name="date_diagnistic"/>
-                                <field name="patient_id" ref="hr_hospital_4.hr_hospital_4_patient_view_tree"/>
-                                <field name="doctor_id" ref ="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
-                                <field name="disease_id" ref="_4_disease_catalog_tree_view"/>
-                                <field name="appointment_ids" widget="many2many_tags"/>
-                                <field name="research_ids" widget="many2many_tags"/>
-                            </group>
-                            <group>
-                                <field name="comment"/>
-                            </group>
+                            <field name="date_diagnistic"/>
+                            <field name="patient_id" ref="hr_hospital_4.hr_hospital_4_patient_view_tree"/>
+                            <field name="doctor_id" ref="hr_hospital_4.hr_hospital_4_doctor_tree_view"/>
+                            <field name="disease_id" ref="_4_disease_catalog_tree_view"/>
+                            <field name="appointment_ids" widget="many2many_tags"/>
+                            <field name="research_ids" widget="many2many_tags"/>
                         </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="diagnostic_tree_view" model="ir.ui.view">
-            <field name="name">hr_hospital_4.diagnostic.tree</field>
-            <field name="model">hr_hospital_4.diagnostic</field>
-            <field name="arch" type="xml">
-                <tree string="Dignostic">
-                    <field name="name"/>
-                    <field name="date_diagnistic"/>
-                    <field name="patient_id"/>
-                    <field name="doctor_id"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="view_pivot_checkout" model="ir.ui.view">
-            <field name="model">hr_hospital_4.diagnostic</field>
-            <field name="arch" type="xml">
-                <pivot display_quantity="1" sample="1">
-                    <field name="disease_id" type="row" />
-                    <field name="doctor_id" type="row" />
-                    <field name="date_diagnistic" interval="month" type="col"/>
-                    <field name="age_for_disease" type="measure" />
-                </pivot>
-            </field>
-        </record>
-
-        <record id="_4_diagnostic_search" model="ir.ui.view">
-            <field name="name">hr_hospital_4_diagnostic_search</field>
-            <field name="model">hr_hospital_4.diagnostic</field>
-            <field name="arch" type="xml">
-                <search string="">
-                    <group expand="1" string="disease by">
-                        <filter string="Disease" name="groupby_disease" domain="[]"
-                                context="{'group_by':'disease_id'}"/>
+                        <group>
+                            <field name="comment"/>
+                        </group>
                     </group>
-                    <filter name="filter_diagnos_date" date="date_diagnistic" default_period="month"
-                    context="{'group_by':'date_diagnistic'}"/>
-                    <field name="patient_id" string="By patient" />
-                    <field name="doctor_id" string="By doctor" />
-                    <field name="disease_id" string="By disease" />
-                </search>
-            </field>
-        </record>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <record id="view_graph_checkout" model="ir.ui.view">
-            <field name="model">hr_hospital_4.diagnostic</field>
-            <field name="arch" type="xml">
-                <graph sample="1">
-                    <field name="disease_id" type="row" />
-                    <field name="date_diagnistic" interval="month" type="col"/>
-                </graph>
-            </field>
-        </record>
+    <record id="diagnostic_tree_view" model="ir.ui.view">
+        <field name="name">hr_hospital_4.diagnostic.tree</field>
+        <field name="model">hr_hospital_4.diagnostic</field>
+        <field name="arch" type="xml">
+            <tree string="Dignostic">
+                <field name="name"/>
+                <field name="date_diagnistic"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+            </tree>
+        </field>
+    </record>
 
-        <record id="diagnostic_pivot_action" model="ir.actions.act_window">
-            <field name="name">Diagnostic</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hr_hospital_4.diagnostic</field>
-            <field name="view_mode">pivot,graph</field>
-            <field name="context">{'search_default_filter_diagnos_date':2,
-                'search_default_filter_groupby_disease':1}</field>
-         </record>
+    <record id="view_pivot_checkout" model="ir.ui.view">
+        <field name="model">hr_hospital_4.diagnostic</field>
+        <field name="arch" type="xml">
+            <pivot display_quantity="1" sample="1">
+                <field name="disease_id" type="row"/>
+                <field name="doctor_id" type="row"/>
+                <field name="date_diagnistic" interval="month" type="col"/>
+                <field name="age_for_disease" type="measure"/>
+            </pivot>
+        </field>
+    </record>
 
-        <record id="diagnostic_action" model="ir.actions.act_window">
-            <field name="name">Diagnostic</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hr_hospital_4.diagnostic</field>
-            <field name="view_mode">tree,form,pivot,graph</field>
-         </record>
+    <record id="_4_diagnostic_search" model="ir.ui.view">
+        <field name="name">hr_hospital_4_diagnostic_search</field>
+        <field name="model">hr_hospital_4.diagnostic</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <group expand="1" string="disease by">
+                    <filter string="Disease" name="groupby_disease" domain="[]"
+                            context="{'group_by':'disease_id'}"/>
+                </group>
+                <filter name="filter_diagnos_date" date="date_diagnistic" default_period="month"
+                        context="{'group_by':'date_diagnistic'}"/>
+                <field name="patient_id" string="By patient"/>
+                <field name="doctor_id" string="By doctor"/>
+                <field name="disease_id" string="By disease"/>
+            </search>
+        </field>
+    </record>
 
-        <menuitem name="Diagnostic" id="diagnostic_menu" parent="hr_hospital_4_setting_main" action="diagnostic_action" sequence="650"/>
+    <record id="view_graph_checkout" model="ir.ui.view">
+        <field name="model">hr_hospital_4.diagnostic</field>
+        <field name="arch" type="xml">
+            <graph sample="1">
+                <field name="disease_id" type="row"/>
+                <field name="date_diagnistic" interval="month" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="diagnostic_pivot_action" model="ir.actions.act_window">
+        <field name="name">Diagnostic</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_hospital_4.diagnostic</field>
+        <field name="view_mode">pivot,graph</field>
+        <field name="context">{'search_default_filter_diagnos_date':2,
+            'search_default_filter_groupby_disease':1}
+        </field>
+    </record>
+
+    <record id="diagnostic_action" model="ir.actions.act_window">
+        <field name="name">Diagnostic</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_hospital_4.diagnostic</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+
+    <menuitem name="Diagnostic" id="diagnostic_menu" parent="hr_hospital_4_setting_main" action="diagnostic_action"
+              sequence="650"/>
 
 </odoo>

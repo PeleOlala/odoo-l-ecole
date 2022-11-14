@@ -1,5 +1,5 @@
-from odoo import fields, models
 import datetime
+from odoo import fields, models
 
 
 class PersonneIdentifi(models.AbstractModel):
@@ -21,6 +21,7 @@ class PersonneIdentifi(models.AbstractModel):
                    ('féminin', 'Féminin'), ('indécis', 'Indécis')],
         required=False, translate=True)
     photo = fields.Image(string="Photo", max_width=1920, max_height=1920)
+
 
 # якщо ви це читаєте, то хочу сказати, що в вас помилка в вікторині 3.2
 # питання 4. всі запропановані вами моделі - всі є корректними з точки

@@ -1,5 +1,6 @@
-from odoo import api, fields, models
 import datetime
+
+from odoo import api, fields, models
 
 
 class Patient(models.Model):
@@ -23,7 +24,7 @@ class Patient(models.Model):
     age = fields.Integer(
         string="Age",
         compute='_compute_age_patient',
-        )
+    )
     state = fields.Selection(
         required=True, default='draft', selection=[
             ('draft', 'Draft'), ('sent', 'Sent'),
@@ -35,7 +36,7 @@ class Patient(models.Model):
             date1 = card.birthday
             date_ah = datetime.date.today()
             if isinstance(date1, datetime.date):
-                card.age = (date_ah.year-date1.year-1)+(date_ah.month+12-date1.month)//12
+                card.age = (date_ah.year - date1.year - 1) + (date_ah.month + 12 - date1.month) // 12
             else:
                 card.age = 0
 
@@ -72,7 +73,7 @@ class PatientExt(models.Model):
         for cadr in self:
             if cadr.id and cadr.doctor_personal_id:
                 self.env['hr_hospital_4.histoir_person_doctor'].create({
-                    'name': cadr.name+' '+cadr.doctor_personal_id.name,
+                    'name': cadr.name + ' ' + cadr.doctor_personal_id.name,
                     'doctor_id': cadr.doctor_personal_id.id,
                     'patient_id': cadr.id,
                     'date_appointment': datetime.date.today()})
