@@ -125,11 +125,11 @@
                                 </t>
                             </div>
                         </t>
-                        <!--                    <div class="row">Date du report:
-                                                <div class="col-12" align="center">
-                                                    <span t-out="DateTime.today()"/>
-                                                </div>
-                                            </div> -->
+                        <div class="row">
+                            <div class="col-12" align="right">Date du report:
+                                <span t-out="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                            </div>
+                        </div>
                     </div> <!-- Report content -->
                 </div>
             </t>
