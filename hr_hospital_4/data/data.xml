@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+         <record id="hr_hospital_4_aliens" model="hr_hospital_4.disease_catalog">
+             <field name="name">aliens</field>
+         </record>
+         <record id="hr_hospital_4_catastrif" model="hr_hospital_4.disease_catalog">
+             <field name="name">catastrofic</field>
+         </record>
+         <record id="hr_hospital_4_advance" model="hr_hospital_4.disease_catalog">
+             <field name="name">time-travelling</field>
+         </record>
+
+         <record id="hr_hospital_4_daleks" model="hr_hospital_4.disease">
+             <field name="name">Daleks</field>
+             <field name="disease_catalog_id" eval="hr_hospital_4_aliens"/>
+         </record>
+         <record id="hr_hospital_4_cyberman" model="hr_hospital_4.disease">
+             <field name="name">Cyberman</field>
+             <field name="disease_catalog_id" eval="hr_hospital_4_catastrif"/>
+         </record>
+         <record id="hr_hospital_4_udd" model="hr_hospital_4.disease">
+             <field name="name">Udd</field>
+             <field name="disease_catalog_id" eval="hr_hospital_4_aliens"/>
+         </record>
+         <record id="hr_hospital_4_adventure0" model="hr_hospital_4.disease">
+             <field name="name">Avdenture #1</field>
+             <field name="disease_catalog_id" eval="hr_hospital_4_advance"/>
+         </record>
+
+         <record id="hr_hospital_4_adventure0" model="hr_hospital_4.disease">
+             <field name="name">Avdenture #2</field>
+             <field name="disease_catalog_id" eval="hr_hospital_4_advance"/>
+         </record>
+
+         <record id="hr_hospital_4_adventure0" model="hr_hospital_4.disease">
+             <field name="name">Parallel universe</field>
+             <field name="disease_catalog_id" eval="hr_hospital_4_catastrif"/>
+         </record>
+
+         <record id="hr_hospital_4_samp0" model="hr_hospital_4.sample">
+             <field name="name">TARDIS</field>
+         </record>
+
+        <record id="hr_hospital_4_samp1" model="hr_hospital_4.sample">
+             <field name="name">Exo-planet</field>
+         </record>
+
+        <record id="hr_hospital_4_samp2" model="hr_hospital_4.sample">
+             <field name="name">Ocean</field>
+         </record>
+
+
+    </data>
+</odoo>

@@ -156,8 +156,8 @@
                                         <div>
                                             <ul>
                                                 <li class="text-success mb4"
-                                                    t-if="record.patient_declaration_ids.raw_value">
-                                                    <i class="fa fa-circle" aria-label="declaration" title=""/>
+                                                    t-if="record.patient_declaration_ids">
+                                                    <i class="fa fa-circle" aria-label="declaration" title="Patient"/>
                                                     <field name="patient_declaration_ids" widget="many2many_tags"/>
                                                 </li>
                                             </ul>

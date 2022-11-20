@@ -153,33 +153,6 @@
              <field name="last_name">John Simm</field>
          </record>
 
-         <record id="hr_hospital_4_aliens" model="hr_hospital_4.disease_catalog">
-             <field name="name">aliens</field>
-         </record>
-         <record id="hr_hospital_4_catastrif" model="hr_hospital_4.disease_catalog">
-             <field name="name">catastrofic</field>
-         </record>
-         <record id="hr_hospital_4_advance" model="hr_hospital_4.disease_catalog">
-             <field name="name">time-travelling</field>
-         </record>
-
-         <record id="hr_hospital_4_daleks" model="hr_hospital_4.disease">
-             <field name="name">Daleks</field>
-             <field name="disease_catalog_id" eval="hr_hospital_4_aliens"/>
-         </record>
-         <record id="hr_hospital_4_cyberman" model="hr_hospital_4.disease">
-             <field name="name">Cyberman</field>
-             <field name="disease_catalog_id" eval="hr_hospital_4_catastrif"/>
-         </record>
-         <record id="hr_hospital_4_udd" model="hr_hospital_4.disease">
-             <field name="name">Udd</field>
-             <field name="disease_catalog_id" eval="hr_hospital_4_aliens"/>
-         </record>
-         <record id="hr_hospital_4_adventure0" model="hr_hospital_4.disease">
-             <field name="name">Avdenture #1</field>
-             <field name="disease_catalog_id" eval="hr_hospital_4_advance"/>
-         </record>
-
          <record id="hr_hospital_4_com0" model="hr_hospital_4.patient">
              <field name="name">Susan Foreman</field>
              <field name="last_name">Foreman</field>
@@ -245,20 +218,22 @@
              <field name="dure_time">0.333</field>
              <field name="time_rec">23.00</field>
          </record>
+
          <record id="hr_hospital_4_sch_13_9" model="hr_hospital_4.schedule_doctor">
              <field name="doctor_id" ref="hr_hospital_4_doctor12"/>
              <field name="date_time_rec">2022-10-24</field>
              <field name="dure_time">0.333</field>
              <field name="time_rec">23.00</field>
          </record>
-         <record id="hr_hospital_4_sch_13_8" model="hr_hospital_4.schedule_doctor">
+
+        <record id="hr_hospital_4_sch_13_8" model="hr_hospital_4.schedule_doctor">
              <field name="doctor_id" ref="hr_hospital_4_doctor12"/>
              <field name="date_time_rec">2022-4-18</field>
              <field name="dure_time">0.333</field>
              <field name="time_rec">23.00</field>
-         </record>
+        </record>
 
-         <record id="hr_hospital_4_vis0" model="hr_hospital_4.patient_card">
+        <record id="hr_hospital_4_vis0" model="hr_hospital_4.patient_card">
              <field name="name">An Unearthly Child</field>
              <field name="patient_id" ref="hr_hospital_4_com0"/>
              <field name="doctor_id" ref="hr_hospital_4_doctor0"/>
@@ -266,9 +241,9 @@
              <field name="diagnostic_id" ref="hr_hospital_4_diag0"/>
              <field name="time_visite">23.00</field>
              <field name="is_finish" eval="True"/>
-         </record>
+        </record>
 
-         <record id="hr_hospital_4_vis13" model="hr_hospital_4.patient_card">
+        <record id="hr_hospital_4_vis13" model="hr_hospital_4.patient_card">
              <field name="name">The Power of the Doctor(spesial)</field>
              <field name="patient_id" ref="hr_hospital_4_com13_2"/>
              <field name="doctor_id" ref="hr_hospital_4_doctor0"/>
@@ -276,22 +251,18 @@
              <field name="diagnostic_id" ref="hr_hospital_4_diag0"/>
              <field name="time_visite">23.00</field>
              <field name="is_finish" eval="True"/>
-         </record>
+        </record>
 
-         <record id="hr_hospital_4_res_cat0" model="hr_hospital_4.research_catalog">
+        <record id="hr_hospital_4_res_cat0" model="hr_hospital_4.research_catalog">
              <field name="name">galaxy</field>
-         </record>
+        </record>
 
-         <record id="hr_hospital_4_res_cat1" model="hr_hospital_4.research_catalog">
+        <record id="hr_hospital_4_res_cat1" model="hr_hospital_4.research_catalog">
              <field name="name">time</field>
-         </record>
+        </record>
 
          <record id="hr_hospital_4_res_cat2" model="hr_hospital_4.research_catalog">
              <field name="name">exo planet</field>
-         </record>
-
-         <record id="hr_hospital_4_samp0" model="hr_hospital_4.sample">
-             <field name="name">TARDIS</field>
          </record>
 
          <record id="hr_hospital_4_res0" model="hr_hospital_4.research">
@@ -368,24 +339,7 @@
              <field name="time_visite">23.00</field>
          </record>
 
-<!--
+        <delete id="hr_hospital_4_missy6" model="hr_hospital_4.doctor"/>
 
-                   <field name="doctor_personal_id" ref="doctor.doctor0"/>
-
-               <record id="hr_hospital_4_object2" model="hr_hospital_4.hr_hospital_4">
-                 <field name="name">Object 2</field>
-                 <field name="value">20</field>
-               </record>
-
-               <record id="hr_hospital_4_object3" model="hr_hospital_4.hr_hospital_4">
-                 <field name="name">Object 3</field>
-                 <field name="value">30</field>
-               </record>
-
-               <record id="hr_hospital_4_object4" model="hr_hospital_4.hr_hospital_4">
-                 <field name="name">Object 4</field>
-                 <field name="value">40</field>
-               </record>
-     -->
     </data>
 </odoo>

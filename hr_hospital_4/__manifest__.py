@@ -14,7 +14,9 @@
 
     # always loaded
     'data': [
+        'security/hr_hospital_groups.xml',
         'security/ir.model.access.csv',
+        'security/hr_hospital_security.xml',
         'views/hr_hospital_4_menu.xml',
         'views/patient_card_view.xml',
         'report/doctor_report.xml',
@@ -32,6 +34,7 @@
         'wizard/fill_schedule_doctor_week_views.xml',
         'views/patient_view.xml',
         'views/doctor_view.xml',
+        'data/data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -126,8 +126,9 @@
                             </div>
                         </t>
                         <div class="row">
-                            <div class="col-12" align="right">Date du report:
+                            <div class="col-12" align="right"  t-att="{'width': '100%', 'style': 'font-size: 12px;'}" >Date du report:
                                 <span t-out="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                                <span t-out="var"/>
                             </div>
                         </div>
                     </div> <!-- Report content -->
