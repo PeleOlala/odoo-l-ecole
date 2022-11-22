@@ -1,4 +1,5 @@
 
+from . import res_user_ext
 from . import personne
 from . import patient
 from . import personne_contact

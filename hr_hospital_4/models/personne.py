@@ -1,5 +1,5 @@
 import datetime
-from odoo import fields, models
+from odoo import fields, models, _
 
 
 class PersonneIdentifi(models.AbstractModel):
@@ -8,6 +8,7 @@ class PersonneIdentifi(models.AbstractModel):
 
     last_name = fields.Char(
         string='Last name',
+        translate=True,
         required=True)
     telephone = fields.Char(
         string='Telephone',
@@ -17,9 +18,8 @@ class PersonneIdentifi(models.AbstractModel):
         required=False)
     sex = fields.Selection(
         string='Sex',
-        selection=[('masculin', 'Masculin'),
-                   ('féminin', 'Féminin'), ('indécis', 'Indécis')],
-        required=False, translate=True)
+        selection=[('masculin', _('Masculin')),
+                   ('féminin', _('Féminin')), ('indécis', _('Indéc'))])
     photo = fields.Image(string="Photo", max_width=1920, max_height=1920)
 
 

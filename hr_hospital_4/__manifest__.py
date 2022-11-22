@@ -7,7 +7,7 @@
     'website': "http://golodaeva.org.ua",
 
     'category': 'module_category_human_resources',
-    'version': '15.0.17.33',
+    'version': '15.0.19.35',
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
