@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_ua_p2_profession_classifier_form_view" model="ir.ui.view">
+        <field name="name">hr_ua_p2_profession_classifier.form</field>
+        <field name="model">hr_ua_p2.profession_classifier</field>
+        <field name="arch" type="xml">
+            <form string="Profession Classifier UA">
+                <sheet>
+                    <group col="4">
+                        <field name="code"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_ua_p2_profession_classifier_tree_view" model="ir.ui.view">
+        <field name="name">hr_ua_p2_profession_classifier.tree</field>
+        <field name="model">hr_ua_p2.profession_classifier</field>
+        <field name="arch" type="xml">
+            <tree string="Profession Classifier UA">
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_ua_p2_pc_search_view" model="ir.ui.view">
+        <field name="name">hr_ua_p2.profession_classifier.search</field>
+        <field name="model">hr_ua_p2.profession_classifier</field>
+        <field name="arch" type="xml">
+            <search string="profession classifier catalog">
+                <group expand="1" string="Catalog">
+                    <filter string="PC catalog" name="profession_classifier_catalog_id" domain="[]"
+                            context="{'group_by':'profession_classifier_catalog_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_ua_p2_profession_classifier_action" model="ir.actions.act_window">
+        <field name="name">Profession Classifier UA</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_ua_p2.profession_classifier</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_profession_classifier_catalog_id':1}</field>
+    </record>
+
+    <menuitem id="profession_classifier_menu" name="Profession classifier UA" parent="hr_ua_p2.menu_2"
+              action="hr_ua_p2_profession_classifier_action"
+              sequence="950"/>
+
+</odoo>

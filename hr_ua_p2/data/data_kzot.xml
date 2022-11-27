@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
+    <data noupdate="1">
 
         <record id="a_36_g" model="hr_ua_p2.kzot">
             <field name="name">Article</field>

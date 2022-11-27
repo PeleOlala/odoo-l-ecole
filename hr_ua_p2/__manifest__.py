@@ -20,6 +20,7 @@
         'security/ir.model.access.csv',
         'data/data_kzot.xml',
         'data/data_kind_of_contract.xml',
+        'data/data_pc.xml',
         'views/hr_ua_p2_views.xml',
         'views/hr_views.xml',
         'views/kzot_views.xml',
@@ -27,6 +28,7 @@
         'views/military_views.xml',
         'views/hr_contract_views.xml',
         'views/appointment_views.xml',
+        'views/pc_ua_views.xml',
         'wizard/appointment_wizard_views.xml'
     ],
     'assets': {

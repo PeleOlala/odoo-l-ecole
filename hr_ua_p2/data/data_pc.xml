@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="hr_ua_p2.profession_classifier_catalog" id="pc_c_4">
+            <field name="name">4 Технічні службовці</field>
+        </record>
+
+        <record model="hr_ua_p2.profession_classifier" id="pc_41">
+            <field name="name">41 Службовці, пов'язані з інформацією</field>
+            <field name="code">41</field>
+            <field name="profession_classifier_catalog_id" eval="pc_c_4"/>
+        </record>
+        <record model="hr_ua_p2.profession_classifier" id="pc_4113">
+            <field name="name">4113	Оператори із збору даних</field>
+            <field name="code">4113</field>
+            <field name="profession_classifier_catalog_id" eval="pc_c_4"/>
+        </record>
+
+
+    </data>
+</odoo>

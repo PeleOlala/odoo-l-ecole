@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record id="resume_line_view_form" model="ir.ui.view">
+        <record id="resume_line_ua_view_form" model="ir.ui.view">
             <field name="name">hr.resume.line.form.inherit.stage</field>
             <field name="model">hr.resume.line</field>
             <field name="inherit_id" ref="hr_skills.resume_line_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='description']" position="before">
                     <field name="stage_text"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_hr_ua_job_form" model="ir.ui.view">
+            <field name="name">hr.job.form</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="code_kp_id"/>
                 </xpath>
             </field>
         </record>
@@ -19,6 +30,9 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='display_type']" position="after">
                     <field name="stage_text"/>
+                </xpath>
+                <xpath expr="//field[@name='address_home_id']" position="after">
+                    <field name="address_registration_id"/>
                 </xpath>
                 <xpath expr="//page[@name='public']" position="after">
                     <page name="family" string="Membres de famille">
