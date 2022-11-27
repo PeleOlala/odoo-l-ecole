@@ -11,7 +11,7 @@ class FillScheduleDoctor(models.TransientModel):
     date_begin = fields.Date(
         string='de Date:', default=fields.Date.today)
     date_end = fields.Date(
-        string='á Date:', default=fields.Date.today)   # + datetime.timedelta(days=7)))
+        string='á Date:', default=fields.Date.today)  # + datetime.timedelta(days=7)))
     doctor_id = fields.Many2one(
         comodel_name='hr_hospital_3.doctor',
         string='For doctor')
@@ -43,7 +43,7 @@ class FillScheduleDoctor(models.TransientModel):
     def action_fill_schedule(self):
         self.ensure_one()
         cur_day = self.date_begin
-        delta_time = (self.dure_rec % 60)/60 + self.dure_rec//60
+        delta_time = (self.dure_rec % 60) / 60 + self.dure_rec // 60
         while cur_day <= self.date_end:
             if cur_day.weekday() != calendar.SUNDAY and cur_day.weekday() != calendar.SATURDAY:
                 if cur_day.isocalendar()[1] % 2 == 0:
@@ -54,8 +54,8 @@ class FillScheduleDoctor(models.TransientModel):
                     cur_teme_end = self.time_end_odd
                 while cur_time <= cur_teme_end:
                     self.env['hr_hospital_3.schedule_doctor'].create({'doctor_id': self.doctor_id.id,
-                                 'date_time_rec': cur_day,
-                                 'time_rec': cur_time})
+                                                                      'date_time_rec': cur_day,
+                                                                      'time_rec': cur_time})
                     cur_time += delta_time
             cur_day += datetime.timedelta(days=1)
 

@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_ua_p2_kzot,hr_ua_p2.kzot,model_hr_ua_p2_kzot,base.group_user,1,0,0,0
+access_hr_ua_p2.hr_ua_p2.family_b,hr_ua_p2.hr_ua_p2.family,model_hr_ua_p2_family,base.group_user,1,0,0,0
+access_hr_ua_p2.hr_ua_p2.family_u,hr_ua_p2.hr_ua_p2.family,model_hr_ua_p2_family,hr_ua_p2.group_hr_ua_p2_hr,1,1,1,0
+access_hr_ua_p2.hr_ua_p2.family_a,hr_ua_p2.hr_ua_p2.family,model_hr_ua_p2_family,hr_ua_p2.group_hr_ua_p2_hr_admin,1,1,1,1
+access_hr_ua_p2.military_b,hr_ua_p2.military,model_hr_ua_p2_military,base.group_user,1,0,0,0
+access_hr_ua_p2.military_u,hr_ua_p2.military,model_hr_ua_p2_military,hr_ua_p2.group_hr_ua_p2_hr,1,1,1,0
+access_hr_ua_p2.military_a,hr_ua_p2.military,model_hr_ua_p2_military,hr_ua_p2.group_hr_ua_p2_hr_admin,1,1,1,1
+access_hr_ua_p2.appointment_b,hr_ua_p2.appointment,model_hr_ua_p2_appointment,base.group_user,1,0,0,0
+access_hr_ua_p2.appointment_u,hr_ua_p2.appointment,model_hr_ua_p2_appointment,hr_ua_p2.group_hr_ua_p2_hr,1,1,1,0
+access_hr_ua_p2.appointment_a,hr_ua_p2.appointment,model_hr_ua_p2_appointment,hr_ua_p2.group_hr_ua_p2_hr_admin,1,1,1,1
+access_hr_ua_p2.aappointment_wizard_u,hr_ua_p2.appointment_wizard,model_hr_ua_p2_appointment_wizard,hr_ua_p2.group_hr_ua_p2_hr,1,1,1,0
+access_hr_ua_p2.appointment_wizard_a,hr_ua_p2.appointment_wizard,model_hr_ua_p2_appointment_wizard,hr_ua_p2.group_hr_ua_p2_hr_admin,1,1,1,1

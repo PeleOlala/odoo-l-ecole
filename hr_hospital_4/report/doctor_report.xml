@@ -29,10 +29,10 @@
     <template id="print_doctor_report">
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
-                <div class="page">
-                    <!-- Report header content -->
-                    <div class="container">
-                        <t t-foreach="docs" t-as="doctor">
+                <!-- Report header content -->
+                <div class="container">
+                    <t t-foreach="docs" t-as="doctor">
+                        <div class="page">
                             <div class="row">
                                 <!-- Report row content -->
                                 <ul class="col-12 list-unstyled" align="right">
@@ -124,15 +124,16 @@
                                     </t>
                                 </t>
                             </div>
-                        </t>
-                        <div class="row">
-                            <div class="col-12" align="right"  t-att="{'width': '100%', 'style': 'font-size: 12px;'}" >Date du report:
-                                <span t-out="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
-                                <span t-out="var"/>
-                            </div>
                         </div>
-                    </div> <!-- Report content -->
-                </div>
+                    </t>
+                    <div class="row">
+                        <div class="col-12" align="right" t-att="{'width': '100%', 'style': 'font-size: 12px;'}">Date du
+                            report:
+                            <span t-out="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                            <span t-out="var"/>
+                        </div>
+                    </div>
+                </div> <!-- Report content -->
             </t>
             <!-- Report footer content -->
         </t>

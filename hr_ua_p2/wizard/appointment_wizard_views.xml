@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hr_ua_p2_appointment_wizard_form_view" model="ir.ui.view">
+        <field name="name">hr_ua_p2_appointment_wizard_form</field>
+        <field name="model">hr_ua_p2.appointment_wizard</field>
+        <field name="arch" type="xml">
+            <form string="wizard set appointment">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="employee_id"/>
+                        <h3>
+                            <field name="employee_id" placeholder="Employee"
+                                   options="{'no_open': True, 'no_create': True}"/>
+                        </h3>
+                    </div>
+                    <group col="4">
+                        <field name="date_begin"/>
+                        <field name="date_end"/>
+                        <field name="job_end_id"/>
+                        <field name="permanent"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_set_visite"
+                            string="Apply"
+                            type="object"
+                            icon="fa-plus"
+                            class="btn-primary"/>
+                    <button special="cancel" class="oe_link" string="Close"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_ua_p2_set_appointment_wizard" model="ir.actions.act_window">
+        <field name="name">set appointment</field>
+        <field name="res_model">hr_ua_p2.appointment_wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_hr_employee"/>
+        <field name="binding_view_types">form,tree</field>
+        <field name="binding_type">action</field>
+    </record>
+
+    <record id="server_action_appointment_wizard" model="ir.actions.server">
+        <field name="name">set appointment</field>
+        <field name="model_id" ref="model_hr_ua_p2_appointment_wizard"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_open_wizard()
+        </field>
+    </record>
+
+    <menuitem id="appointment_wizard_menu" name="Wizard appointment" parent="hr_ua_p2.menu_2"
+              action="server_action_appointment_wizard"
+              sequence="800"/>
+
+</odoo>

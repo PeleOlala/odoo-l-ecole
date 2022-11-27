@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="hr.contract.type" id="contract_labor">
+            <field name="name">Labor contract</field>
+        </record>
+        <record model="hr.contract.type" id="contract_agreemnt">
+            <field name="name">Contract agreement</field>
+        </record>
+        <record model="hr.contract.type" id="contract_cr">
+            <field name="name">Copyright agreement</field>
+        </record>
+
+    </data>
+</odoo>

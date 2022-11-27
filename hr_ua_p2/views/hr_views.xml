@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="resume_line_view_form" model="ir.ui.view">
+            <field name="name">hr.resume.line.form.inherit.stage</field>
+            <field name="model">hr.resume.line</field>
+            <field name="inherit_id" ref="hr_skills.resume_line_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='description']" position="before">
+                    <field name="stage_text"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_up_employee_view_form" model="ir.ui.view">
+            <field name="name">hr.employee.resume.view.form.inherit.stage</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_skills.hr_employee_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='display_type']" position="after">
+                    <field name="stage_text"/>
+                </xpath>
+                <xpath expr="//page[@name='public']" position="after">
+                    <page name="family" string="Membres de famille">
+                        <div class="row">
+                            <div class="d-flex">
+                                <field mode="tree" nolabel="1" name="family_ids"
+                                       context="{'default_employee_id': active_id}">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="relation"/>
+                                        <field name="birthday"/>
+                                        <field name="sex"/>
+                                        <field name="age"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </div>
+                    </page>
+                    <page name="appointment_page" string="HR appointment">
+                        <div>
+                            <field mode="tree" nolabel="1" name="appointment_ids"
+                                   context="{'default_employee_id': active_id}">
+                                <tree>
+                                    <field name="date_begin"/>
+                                    <field name="date_end"/>
+                                    <field name="job_begin_id"/>
+                                    <field name="job_end_id"/>
+                                    <field name="permanent"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </page>
+                    <page name="military" string="Military">
+                        <sheet>
+                            <div>
+                                <field name="military_id" context="{'default_employee_id': active_id}"/>
+                            </div>
+                        </sheet>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_ua_contract_view_form" model="ir.ui.view">
+            <field name="name">hr.contract_ua.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='contract_type_id']" position="after">
+                    <field name="type_labor"/>
+                    <field name="reason_for_dismissal"/>
+                </xpath>
+            </field>
+        </record>
+
+        <menuitem id="ua_employee_menu" name="Employee" parent="hr_ua_p2.menu_1" action="hr.open_view_employee_list_my"
+              sequence="820"/>
+
+
+    </data>
+</odoo>

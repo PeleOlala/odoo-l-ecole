@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_ua_p2_appointment_form_view" model="ir.ui.view">
+        <field name="name">hr_ua_p2_appointment.form</field>
+        <field name="model">hr_ua_p2.appointment</field>
+        <field name="arch" type="xml">
+            <form string="HR appointment">
+                <sheet>
+                    <group col="4">
+                        <field name="date_begin"/>
+                        <field name="date_end"/>
+                        <field name="job_begin_id"/>
+                        <field name="job_end_id"/>
+                        <newline/>
+                        <field name="permanent"/>
+                        <newline/>
+                        <field name="employee_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_ua_p2_appointment_tree_view" model="ir.ui.view">
+        <field name="name">hr_ua_p2_appointment.tree</field>
+        <field name="model">hr_ua_p2.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="HR appointment employee">
+                <field name="employee_id"/>
+                <field name="date_begin"/>
+                <field name="date_end"/>
+                <field name="job_begin_id"/>
+                <field name="job_end_id"/>
+                <field name="permanent"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_ua_p2_appointment_search" model="ir.ui.view">
+        <field name="name">HR appointment employee</field>
+        <field name="model">hr_ua_p2.appointment</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <field name="employee_id" string="by employee"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_ua_p2_appointment_action" model="ir.actions.act_window">
+        <field name="name">HR appointment employee</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_ua_p2.appointment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="appointment_menu" name="HR appointment employee" parent="hr_ua_p2.menu_1" action="hr_ua_p2_appointment_action"
+              sequence="810"/>
+
+</odoo>

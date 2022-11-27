@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_ua_p2_kzot_form_view" model="ir.ui.view">
+        <field name="name">hr_ua_p2_kzot.form</field>
+        <field name="model">hr_ua_p2.kzot</field>
+        <field name="arch" type="xml">
+            <form string="Articles KZOT UA">
+                <sheet>
+                    <group col="4">
+                        <field name="article"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_ua_p2_kzot_tree_view" model="ir.ui.view">
+        <field name="name">hr_ua_p2_kzot.tree</field>
+        <field name="model">hr_ua_p2.kzot</field>
+        <field name="arch" type="xml">
+            <tree string="Article KZOT UA">
+                <field name="article"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_ua_p2_kzot_action" model="ir.actions.act_window">
+        <field name="name">Article KZOT UA</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr_ua_p2.kzot</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="kzot_menu" name="Article KZOT" parent="hr_ua_p2.menu_2" action="hr_ua_p2_kzot_action"
+              sequence="850"/>
+
+</odoo>

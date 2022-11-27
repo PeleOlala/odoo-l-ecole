@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="a_36_g" model="hr_ua_p2.kzot">
+            <field name="name">Article</field>
+            <field name="article">a.36g.g</field>
+            <field name="active" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+<t t-extend="hr_resume_data_row">
+    <t t-jquery="div.o_resume_line" t-operation="after">
+        <small class="o_resume_stage_text">
+            <b t-esc="data.stage_text"/>
+        </small>
+    </t>
+</t>
+</templates>
