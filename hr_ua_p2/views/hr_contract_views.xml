@@ -45,13 +45,13 @@
     <menuitem
             id="menu_human_resources_ua_stat_report"
             name="Stat report employee"
-            parent="hr_ua_p2.menu_2" action="action_ua_hr_contract"
+            parent="hr_ua_p2.menu_3" action="action_ua_hr_contract"
             sequence="7"/>
     <menuitem
             id="menu_human_resources_ua_configuration_contract"
             name="Contract"
             parent="hr_ua_p2.menu_1" action="hr_contract.action_hr_contract"
-            sequence="700"/>
+            sequence="900"/>
 
 
 </odoo>

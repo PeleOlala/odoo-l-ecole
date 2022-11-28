@@ -8,6 +8,7 @@
 
     <menuitem name="HR department" id="hr_ua_p2.menu_1" parent="hr_ua_p2.menu_root"/>
     <menuitem name="HR setting" id="hr_ua_p2.menu_2" parent="hr_ua_p2.menu_root"/>
+    <menuitem name="HR stat report" id="hr_ua_p2.menu_3" parent="hr_ua_p2.menu_root"/>
 
     <!-- actions -->
 <!--

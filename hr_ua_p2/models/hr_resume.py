@@ -15,6 +15,20 @@ class ResumeLineXt(models.Model):
         string='day', compute='_compute_stage')
     stage_text = fields.Char(
         string='Stage text', compute='_compute_stage')
+    diploma = fields.Char(
+        string='Diploma', help='number & seria')
+    specialty = fields.Char(
+        string='specialty', help='Specialty profession')
+    qualification = fields.Char(
+        string='Qualification', help='Qualification of diploma')
+    forma_ed = fields.Selection(
+        string='Forma education',
+        selection=[('daytime', 'daytime'),
+                   ('evening', 'evening'), ('correspondence','correspondence')],
+        required=False, )
+
+    is_education = fields.Boolean(
+        string='This is education', compute='_compute_ed')
 
     @api.depends('date_end')
     def _compute_stage(self):
@@ -32,3 +46,8 @@ class ResumeLineXt(models.Model):
             else:
                 card.stage_year, card.stage_month, card.stage_day = 0, 0, 0
                 card.stage_text = 'Current'
+
+    @api.depends('line_type_id')
+    def _compute_ed(self):
+        for card in self:
+            card.is_education = (card.line_type_id == self.env.ref('hr_skills.resume_type_education'))

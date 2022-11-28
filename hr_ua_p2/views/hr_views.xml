@@ -9,6 +9,13 @@
                 <xpath expr="//field[@name='description']" position="before">
                     <field name="stage_text"/>
                 </xpath>
+                <xpath expr="//field[@name='description']" position="after">
+                    <field name="is_education" invisible="1"/>
+                    <field name="diploma" placeholder="Diploma seria number" attrs = "{'invisible':[('is_education','=',False)]}"/>
+                    <field name="specialty" placeholder="specialty"/>
+                    <field name="qualification"  placeholder="Diploma qualification" attrs = "{'invisible':[('is_education','=',False)]}"/>
+                    <field name="forma_ed"  placeholder="Forma" attrs = "{'invisible':[('is_education','=',False)]}"/>
+                </xpath>
             </field>
         </record>
 
@@ -89,7 +96,7 @@
         </record>
 
         <menuitem id="ua_employee_menu" name="Employee" parent="hr_ua_p2.menu_1" action="hr.open_view_employee_list_my"
-              sequence="820"/>
+              sequence="120"/>
 
 
     </data>

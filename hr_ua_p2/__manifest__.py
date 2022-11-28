@@ -29,7 +29,8 @@
         'views/hr_contract_views.xml',
         'views/appointment_views.xml',
         'views/pc_ua_views.xml',
-        'wizard/appointment_wizard_views.xml'
+        'wizard/appointment_wizard_views.xml',
+        'report/p2_report.xml'
     ],
     'assets': {
         'web.assets_qweb': [
