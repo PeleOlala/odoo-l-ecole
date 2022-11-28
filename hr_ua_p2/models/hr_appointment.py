@@ -20,11 +20,10 @@ class Appointment(models.Model):
         string='Job á')
     permanent = fields.Boolean(
         string='Permanent')
-    status = fields.Selection(
+    state = fields.Selection(
         string='status',
         selection=[('draft', 'Draft'),
                    ('approve', 'Approve'), ] )
-
 
     def name_get(self):
         return [(tag.id, "Employee: %s de %s á %s job position new %s" % (

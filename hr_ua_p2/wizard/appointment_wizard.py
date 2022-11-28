@@ -2,7 +2,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
 
-class ModelName(models.TransientModel):
+class AppointmentWizard(models.TransientModel):
     _name = 'hr_ua_p2.appointment_wizard'
     _description = 'Appointment employees'
 
@@ -32,20 +32,20 @@ class ModelName(models.TransientModel):
             'view_mode': 'form',
             'res_id': self.id,
             'target': 'new',
-            'context': {'employee_id': self._context.get('employee_id', [])},
+            'context': {'employee_id': self._context.get('active_id', [])},
         }
 
     def action_set_visite(self):
         self.ensure_one()
-        if not self.employee_id:
+        if self.employee_id:
             job_begin_id = self.employee_id.job_id.id
             self.env['hr_ua_p2.appointment'].create({'employee_id': self.employee_id.id,
                                                                    'permanent': self.permanent,
-                                                                   'date_bigin': self.date_begin,
+                                                                   'date_begin': self.date_begin,
                                                                    'date_end': self.date_end,
                                                                    'job_end_id': self.job_end_id.id,
                                                                    'job_begin_id': job_begin_id,
-                                                     'status':'draft'})
+                                                     'state': 'draft'})
             if self.permanent:
                 self.employee_id.write({'job_id': self.job_end_id.id})
         else:
