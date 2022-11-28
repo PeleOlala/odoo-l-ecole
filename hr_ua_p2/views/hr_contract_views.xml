@@ -1,37 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
+    <record id="hr_contract_ua_view_search" model="ir.ui.view">
+        <field name="name">hr.contract.search</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_search"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//filter[@name='running']" position="before">
+                    <field string="Company" name="company_id"/>
+                    <field string="Department" name="department_id"/>
+                    <field string="Type contract" name="contract_type_id"/>
+                    <field string="type of employment" name="type_labor"/>
+                    <separator/>
+                    <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                    <separator/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
     <record id="view_pivot_ua_contract" model="ir.ui.view">
-        <field name="name">Stat report labor</field>
+        <field name="name">Stat report employee</field>
         <field name="model">hr.contract</field>
         <field name="arch" type="xml">
             <pivot display_quantity="1" sample="1">
                 <field name="company_id" type="row"/>
                 <field name="department_id" type="row"/>
                 <field name="contract_type_id" type="col"/>
-                <field name="type_labor"  type="col"/>
+                <field name="type_labor" type="col"/>
             </pivot>
         </field>
     </record>
 
     <record id="action_ua_hr_contract" model="ir.actions.act_window">
-        <field name="name">Contracts</field>
+        <field name="name">Stat report employee</field>
         <field name="res_model">hr.contract</field>
-        <field name="view_mode">kanban,tree,pivot,form,activity</field>
+        <field name="view_mode">pivot</field>
         <field name="domain">[('employee_id', '!=', False)]</field>
-        <field name="context">{'search_default_group_by_state': 1}</field>
+        <field name="context">{'search_default_group_by_active': 1}</field>
         <field name="search_view_id" ref="hr_contract.hr_contract_view_search"/>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create a new contract
-            </p>
-        </field>
     </record>
 
     <menuitem
+            id="menu_human_resources_ua_stat_report"
+            name="Stat report employee"
+            parent="hr_ua_p2.menu_2" action="action_ua_hr_contract"
+            sequence="7"/>
+    <menuitem
             id="menu_human_resources_ua_configuration_contract"
-            name="Contracts"
-            parent="hr_ua_p2.menu_1" action="action_ua_hr_contract"
-            sequence="3"/>
+            name="Contract"
+            parent="hr_ua_p2.menu_1" action="hr_contract.action_hr_contract"
+            sequence="700"/>
+
 
 </odoo>
