@@ -2,6 +2,9 @@ from odoo import fields, models
 
 
 class Appointment(models.Model):
+    """
+    Appointment temporare or permanent
+    """
     _name = 'hr_ua_p2.appointment'
     _description = 'Appointment job position'
 

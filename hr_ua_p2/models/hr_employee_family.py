@@ -5,6 +5,9 @@ from odoo import api, fields, models, _
 class FamilyEmployee(models.Model):
     _name = 'hr_ua_p2.family'
     _description = 'Family members'
+    """
+    Family status
+    """
 
     name = fields.Char()
     relation = fields.Selection(
