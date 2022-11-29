@@ -2,7 +2,7 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="HR Ukraine" id="hr_ua_p2.menu_root"/>
+    <menuitem name="HR Ukraine" id="hr_ua_p2.menu_root" web_icon="hr_ua_p2,static/description/icon.png"/>
 
     <!-- menu categories -->
 

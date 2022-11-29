@@ -243,14 +243,17 @@
                             <div class="col-12" align="left">
                                 <p>
                                     11. Місце фактичного проживання (область, місто, район, вулиця, No будинку, квартири, номер контактного телефону, поштовий індекс)
+                                     <span t-field="employee.address_id"/>
                                 </p>
                             </div>
                             <p class="row">
                                 <div class="col-6" align="left">
                                     12. Місце проживання за державною реєстрацією
+                                    <span t-field="employee.address_registration_id"/>
                                 </div>
                                 <div class="col-6" align="left">
                                     Паспорт
+                                    <span t-field="employee.passport_id"/>
                                 </div>
                             </p>
                             <div class="col-12" align="left">

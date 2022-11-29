@@ -7,8 +7,8 @@
 
     'author': "Olha Holodaieva",
     'website': "http://golodaeva.org.ua",
-
-    'category': 'module_category_human_resources',
+    'license': 'LGPL-3',
+    'category': 'Hidden',
     'version': '15.0.1.19',
 
     # any module necessary for this one to work correctly

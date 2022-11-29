@@ -46,7 +46,26 @@
         <field name="arch" type="xml">
             <search string="">
                 <field name="employee_id" string="by employee"/>
+                <field string="Department" name="department_begin_id"/>
+                <field string="Job position" name="job_begin_id"/>
+                <filter string="Approve" name="state" domain="[('state', '=', 'Approve')]"/>
+                <filter string="Draft" name="state" domain="[('state', '=', 'Draft')]"/>
+                <filter name="filter_date_begin" date="date_begin" default_period="month"
+                        context="{'group_by':'date_begin'}"/>
             </search>
+        </field>
+    </record>
+
+    <record id="view_pivot_ua_appointment" model="ir.ui.view">
+        <field name="name">Stat report appointment employee</field>
+        <field name="model">hr_ua_p2.appointment</field>
+        <field name="arch" type="xml">
+            <pivot display_quantity="1" sample="1">
+                <field name="department_begin_id" type="row"/>
+                <field name="job_begin_id" type="row"/>
+                <field name="permanent" type="col"/>
+                <field name="date_begin" interval="month" type="col"/>
+            </pivot>
         </field>
     </record>
 
@@ -54,7 +73,7 @@
         <field name="name">HR appointment employee</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr_ua_p2.appointment</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,pivot</field>
     </record>
 
     <menuitem id="appointment_menu" name="HR appointment employee" parent="hr_ua_p2.menu_1" action="hr_ua_p2_appointment_action"
