@@ -9,10 +9,10 @@
     'website': "http://golodaeva.org.ua",
     'license': 'LGPL-3',
     'category': 'Human Resources',
-    'version': '15.0.1.19',
+    'version': '15.0.1.1.19',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'hr', 'hr_contract', 'hr_skills'],
+    'depends': ['hr_contract', 'hr_skills'],
 
     # always loaded
     'data': [
