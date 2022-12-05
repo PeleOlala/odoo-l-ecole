@@ -25,7 +25,7 @@ class ProfessionClassifierCatalog(models.Model):
     name = fields.Char()
     complete_name = fields.Char(
         'Complete Name', compute='_compute_complete_name',
-        store=True)
+        store=True, recursive=True)
     parent_id = fields.Many2one('hr_ua_p2.profession_classifier_catalog',
                                 'Parent catalog', index=True, ondelete='cascade')
     parent_path = fields.Char(index=True)

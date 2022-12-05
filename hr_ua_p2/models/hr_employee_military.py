@@ -6,11 +6,11 @@ class MilitaryUA(models.Model):
     _description = 'Military inscrite'
 
     range = fields.Char(
-        string='Military range')
+        string='Military range', translate=True)
     document = fields.Char(
         string='N document')
     department = fields.Char(
-        string='Military department')
+        string='Military department', translate=True)
     employee_id = fields.Many2one(
         comodel_name='hr.employee',
         string='Employee')

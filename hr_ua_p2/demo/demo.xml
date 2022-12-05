@@ -1,30 +1,29 @@
 <odoo>
-    <data>
-<!--
-          <record id="object0" model="hr_ua_p2.hr_ua_p2">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
+    <data noupdate="1">
+
+          <record id="famaly_0" model="hr_ua_p2.family">
+            <field name="name">Liticia Oliver</field>
+            <field name="relation">child</field>
+            <field name="birthday">2015-07-17</field>
+            <field name="sex">féminin</field>
+            <field name="employee_id" ref="hr.employee_mit"/>
           </record>
 
-          <record id="object1" model="hr_ua_p2.hr_ua_p2">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
+          <record id="famaly_1" model="hr_ua_p2.family">
+            <field name="name">Caroline Oliver</field>
+            <field name="relation">child</field>
+            <field name="birthday">2002-11-05</field>
+            <field name="sex">féminin</field>
+            <field name="employee_id" ref="hr.employee_mit"/>
           </record>
 
-          <record id="object2" model="hr_ua_p2.hr_ua_p2">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
+          <record id="famaly_2" model="hr_ua_p2.family">
+            <field name="name">Martin Oliver</field>
+            <field name="relation">spouse</field>
+            <field name="birthday">1982-11-01</field>
+            <field name="sex">masculin</field>
+            <field name="employee_id" ref="hr.employee_mit"/>
           </record>
 
-          <record id="object3" model="hr_ua_p2.hr_ua_p2">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
-
-          <record id="object4" model="hr_ua_p2.hr_ua_p2">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
     </data>
 </odoo>

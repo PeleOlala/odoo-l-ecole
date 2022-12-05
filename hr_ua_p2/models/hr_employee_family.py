@@ -9,7 +9,7 @@ class FamilyEmployee(models.Model):
     Family status
     """
 
-    name = fields.Char()
+    name = fields.Char(translate=True)
     relation = fields.Selection(
         string='Relation degree',
         selection=[('child', 'Child'),
@@ -20,7 +20,7 @@ class FamilyEmployee(models.Model):
         string='Birthday')
     age = fields.Integer(
         string="Age",
-        compute='_compute_age')
+        compute='_compute_age', store=True)
     sex = fields.Selection(
         string='Sex',
         selection=[('masculin', _('Masculin')),
@@ -38,5 +38,4 @@ class FamilyEmployee(models.Model):
                 card.age = (date_ah.year - date1.year - 1) + (date_ah.month + 12 - date1.month) // 12
             else:
                 card.age = 0
-
 
