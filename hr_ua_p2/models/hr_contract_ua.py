@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, _
 
 
 class ContractUA(models.Model):
@@ -6,9 +6,9 @@ class ContractUA(models.Model):
 
     type_labor = fields.Selection(
         string='Type labor',
-        selection=[('main', 'Main'),
-                   ('internal', 'Internal'),
-                   ('external', 'External'), ], )
+        selection=[('main', _('Main')),
+                   ('internal', _('Internal')),
+                   ('external', _('External')), ], )
     reason_for_dismissal = fields.Many2one(
         comodel_name='hr_ua_p2.kzot',
         string='Reason for dismissal')

@@ -1,6 +1,6 @@
 import datetime
 import calendar
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 
 class ResumeLineXt(models.Model):
@@ -23,8 +23,8 @@ class ResumeLineXt(models.Model):
         string='Qualification', help='Qualification of diploma')
     forma_ed = fields.Selection(
         string='Forma education',
-        selection=[('daytime', 'daytime'),
-                   ('evening', 'evening'), ('correspondence','correspondence')],
+        selection=[('daytime', _('Daytime')),
+                   ('evening', _('Evening')), ('correspondence',_('Correspondence'))],
         required=False, )
 
     is_education = fields.Boolean(
