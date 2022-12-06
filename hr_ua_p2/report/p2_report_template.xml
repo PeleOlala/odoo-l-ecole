@@ -177,7 +177,12 @@
                                             <t t-if="h.is_education">
                                                 <tr>
                                                     <td class="text-center col-5">
-                                                        <span t-field="h.specialty"/>
+                                                        <t t-if="h.specialty">
+                                                            <span t-field="h.specialty"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <br/>
+                                                        </t>
                                                     </td>
                                                     <td class="text-center col-5">
                                                         <span t-field="h.qualification"/>
@@ -201,21 +206,42 @@
                             <p class="row">
                                 <div class="col-6" align="left">
                                     6. Останнє місце роботи
-                                        <t t-set="seul" t-value="0"/>
-                                        <t t-foreach="employee.mapped('resume_line_ids').sorted(reverse=True, key=lambda g: g.date_end)" t-as="h">
-                                            <t t-if="h.is_education or seul==1">
-                                            </t>
-                                            <t t-else="" >
-                                                <t t-set="seul" t-value="1"/>
-                                               <span t-field="h.name"/>
-                                            </t>
+                                    <t t-set="seul" t-value="0"/>
+                                    <t t-foreach="employee.mapped('resume_line_ids').sorted(reverse=True, key=lambda g: g.date_end)"
+                                       t-as="h">
+                                        <t t-if="h.is_education or seul==1">
                                         </t>
+                                        <t t-else="">
+                                            <t t-set="seul" t-value="1"/>
+                                            <span t-field="h.name"/>
+                                        </t>
+                                    </t>
                                 </div>
                                 <div class="col-6" align="left">
                                     Посада (професія)
                                     <span t-field="employee.job_id.name"/>
                                 </div>
                             </p>
+                            <div class="col-12" align="left">
+                                <p>
+                                    7. Стаж роботи станом на
+                                    <span t-out="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                                    Загальний
+                                </p>
+                            </div>
+                            <div class="col-12" align="left">
+                                <p>
+                                    8. Дата та причина звільнення(скорочення штатів; за власним бажанням, за прогул та
+                                    інші порушення, невідповідність
+                                    займаній посаді тощо)
+                                </p>
+                            </div>
+                            <div class="col-12" align="left">
+                                <p>
+                                    9. Відомості про отримання пенсії (у разі наявності вказати вид пенсійних виплат
+                                    згідно з чинним законодавством)
+                                </p>
+                            </div>
                             <div class="col-12" align="left">
                                 <p>
                                     10. Родинний стан
@@ -252,8 +278,9 @@
                             </p>
                             <div class="col-12" align="left">
                                 <p>
-                                    11. Місце фактичного проживання (область, місто, район, вулиця, No будинку, квартири, номер контактного телефону, поштовий індекс)
-                                     <span t-field="employee.address_id"/>
+                                    11. Місце фактичного проживання (область, місто, район, вулиця, No будинку,
+                                    квартири, номер контактного телефону, поштовий індекс)
+                                    <span t-field="employee.address_id"/>
                                 </p>
                             </div>
                             <p class="row">
@@ -273,19 +300,140 @@
                             </div>
                             <div class="col-12" align="left">
                                 <p>
-                                    <strong>ІІІ. ПРОФЕСІЙНА ОСВІТА НА ВИРОБНИЦТВІ (ЗА РАХУНОК ПІДПРИЄМСТВА - РОБОТОДАВЦЯ)</strong>
+                                    <strong>ІІІ. ПРОФЕСІЙНА ОСВІТА НА ВИРОБНИЦТВІ (ЗА РАХУНОК ПІДПРИЄМСТВА -
+                                        РОБОТОДАВЦЯ)
+                                    </strong>
                                 </p>
                             </div>
+                            <p class="row">
+                                <table class="table-bordered col-12"
+                                       style="border: 1px solid black;"
+                                       width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1">Дата</th>
+                                            <th class="col-3">Назва структурного підрозділу</th>
+                                            <th class="col-2">Період навчання</th>
+                                            <th class="col-2">Вид навчання</th>
+                                            <th class="col-2">Форма навчання</th>
+                                            <th class="col-2">Назва документу, що посвідчує професійну освіту, ким
+                                                виданий
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center col-1">
+                                                <br/>
+                                            </td>
+                                            <td class="text-center col-3">
+                                            </td>
+                                            <td class="text-center col-2">
+                                            </td>
+                                            <td class="text-center col-2">
+                                            </td>
+                                            <td class="text-center col-2">
+                                            </td>
+                                            <td class="text-center col-2">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </p>
                             <div class="col-12" align="left">
                                 <p>
                                     <strong>IV. ПРИЗНАЧЕННЯ І ПЕРЕВЕДЕННЯ</strong>
+                                </p>
+                                <p class="row">
+                                    <table class="table-bordered col-12"
+                                           style="border: 1px solid black;"
+                                           width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-1">Дата</th>
+                                                <th class="col-3">Назва структурного підрозділу (код)</th>
+                                                <th class="col-2">Професія, посада</th>
+                                                <th class="col-2">Розряд (оклад)</th>
+                                                <th class="col-2">Підстава, наказ No</th>
+                                                <th class="col-2">Підпис працівника</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center col-1">
+                                                    <br/>
+                                                </td>
+                                                <td class="text-center col-3">
+                                                </td>
+                                                <td class="text-center col-2">
+                                                </td>
+                                                <td class="text-center col-2">
+                                                </td>
+                                                <td class="text-center col-2">
+                                                </td>
+                                                <td class="text-center col-2">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </p>
                             </div>
                             <div class="col-12" align="left">
                                 <p>
                                     <strong>V. ВІДПУСТКИ</strong>
                                 </p>
+                                <p class="row">
+                                    <table class="table-bordered col-12"
+                                           style="border: 1px solid black;"
+                                           width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-2">Вид відпустки</th>
+                                                <th class="col-3">За який період</th>
+                                                <th class="col-2">Дата початку відпустки</th>
+                                                <th class="col-2">Дата закінчення відпустки</th>
+                                                <th class="col-2">Підстава, наказ No</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center col-2">
+                                                    <br/>
+                                                </td>
+                                                <td class="text-center col-3">
+                                                </td>
+                                                <td class="text-center col-2">
+                                                </td>
+                                                <td class="text-center col-2">
+                                                </td>
+                                                <td class="text-center col-2">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </p>
                             </div>
+                            <div class="col-12" align="left">
+                                <p>
+                                    Додаткові відомості
+                                </p>
+                            </div>
+                            <div class="col-12" align="left">
+                                <p>
+                                    Дата і причина звільнення (підстава)
+                                </p>
+                            </div>
+                            <div class="col-12" align="left">
+                                <p>
+                                    Працівник кадрової служби
+                                </p>
+                            </div>
+                            <div class="col-12" align="left">
+                                <p>
+                                    Підпис працівника
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                 </t>

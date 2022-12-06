@@ -45,17 +45,17 @@ class AppointmentWizard(models.TransientModel):
         self.ensure_one()
         if self.employee_id:
             job_begin_id = self.employee_id.job_id.id
-            department_begin_id = self.employee_id.deprtment_id.id
+            department_begin_id = self.employee_id.department_id.id
             self.env['hr_ua_p2.appointment'].create({'employee_id': self.employee_id.id,
-                                                                   'permanent': self.permanent,
-                                                                   'date_begin': self.date_begin,
-                                                                   'date_end': self.date_end,
-                                                                   'job_end_id': self.job_end_id.id,
-                                                                   'job_begin_id': job_begin_id,
+                                                     'permanent': self.permanent,
+                                                     'date_begin': self.date_begin,
+                                                     'date_end': self.date_end,
+                                                     'job_end_id': self.job_end_id.id,
+                                                     'job_begin_id': job_begin_id,
                                                      'department_begin_id': department_begin_id,
-                                                     'department_end_id': self.department_end_id,
+                                                     'department_end_id': self.department_end_id.id,
                                                      'state': 'draft'})
             if self.permanent:
-                self.employee_id.write({'job_id': self.job_end_id.id, 'department_id':self.department_end_id.id})
+                self.employee_id.write({'job_id': self.job_end_id.id, 'department_id': self.department_end_id.id})
         else:
             raise UserError(_("Select employee at first"))
