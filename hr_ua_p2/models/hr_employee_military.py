@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, _
 
 
 class MilitaryUA(models.Model):
@@ -14,6 +14,18 @@ class MilitaryUA(models.Model):
     employee_id = fields.Many2one(
         comodel_name='hr.employee',
         string='Employee')
+    military_group = fields.Char(string="Military Group")
+    ready_service = fields.Selection(
+        string='Ready to Service',
+        selection=[('ready', _('Ready')),
+                   ('not_ready', _('Not ready')),
+                   ('party_ready', _('Not suitable for a reasonable time. Suitable for wartime'))],
+    )
+    military_category = fields.Char(
+        string='Military category')
+    military_speciality = fields.Char(
+        string='Military speciality',
+        required=False)
 
     def name_get(self):
         return [(tag.id, "%s %s %s %s" % (
