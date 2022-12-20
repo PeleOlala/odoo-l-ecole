@@ -2,6 +2,9 @@ from odoo import fields, models, _
 
 
 class ContractUA(models.Model):
+    """
+    C'est une classe heridiraire, qui se lui développe
+    """
     _inherit = 'hr.contract'
 
     type_labor = fields.Selection(

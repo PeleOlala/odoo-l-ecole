@@ -3,6 +3,9 @@ from odoo.exceptions import ValidationError
 
 
 class ProfessionClassifier(models.Model):
+    """
+    Il s'agi une classe nouvelle pour classifier professional
+    """
     _name = "hr_ua_p2.profession_classifier"
     _description = "Profession Classifier UA"
 
@@ -15,6 +18,9 @@ class ProfessionClassifier(models.Model):
 
 
 class ProfessionClassifierCatalog(models.Model):
+    """
+     Il s'agit une classe nouvelle pour cataloge de classifier professional
+     """
     _name = 'hr_ua_p2.profession_classifier_catalog'
     _description = 'Catalog Profession Classifier UA'
     _parent_name = "parent_id"
@@ -32,15 +38,18 @@ class ProfessionClassifierCatalog(models.Model):
     child_id = fields.One2many('hr_ua_p2.profession_classifier_catalog', 'parent_id', 'Child Class')
     pc_count = fields.Integer(
         '# Profession Classifier', compute='_compute_ps_count',
-        help="The number of Profession Classifier under this category (Does not consider the children categories)")
+        help="The number of Profession Classifier under this "
+             "category (Does not consider the children categories)")
     profession_classifier_ids = fields.One2many(
-        comodel_name='hr_ua_p2.profession_classifier', inverse_name='profession_classifier_catalog_id')
+        comodel_name='hr_ua_p2.profession_classifier',
+        inverse_name='profession_classifier_catalog_id')
 
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):
         for category in self:
             if category.parent_id:
-                category.complete_name = '%s / %s' % (category.parent_id.complete_name, category.name)
+                category.complete_name = '{s1} / {s2}'.format(s1=category.parent_id.complete_name,
+                                                            s2=category.name)
             else:
                 category.complete_name = category.name
 
@@ -49,7 +58,8 @@ class ProfessionClassifierCatalog(models.Model):
             [('profession_classifier_catalog_id', 'child_of', self.ids)],
             ['profession_classifier_catalog_id'], ['profession_classifier_catalog_id'])
         group_data = dict(
-            (data['profession_classifier_catalog_id'][0], data['profession_classifier_catalog_count'])
+            (data['profession_classifier_catalog_id'][0],
+             data['profession_classifier_catalog_count'])
             for data in read_group_res)
         for categ in self:
             disease_count = 0
@@ -73,6 +83,9 @@ class ProfessionClassifierCatalog(models.Model):
 
 
 class JobPositionUA(models.Model):
+    """
+    il s'agit une classe heridataire de se developper
+    """
     _inherit = 'hr.job'
 
     code_kp_id = fields.Many2one(

@@ -4,6 +4,9 @@ from odoo import api, fields, models, _
 
 
 class ResumeLineXt(models.Model):
+    """
+        C'est une classe heritage qui exsiste pour ajouter de nouvelles propriétés.
+    """
     _inherit = 'hr.resume.line'
     _description = 'Labor stage for Ukraine'
 
@@ -24,7 +27,7 @@ class ResumeLineXt(models.Model):
     forma_ed = fields.Selection(
         string='Forma education',
         selection=[('daytime', _('Daytime')),
-                   ('evening', _('Evening')), ('correspondence',_('Correspondence'))],
+                   ('evening', _('Evening')), ('correspondence', _('Correspondence'))],
         required=False, )
 
     is_education = fields.Boolean(
@@ -38,11 +41,14 @@ class ResumeLineXt(models.Model):
             if isinstance(date_ah, datetime.date):
                 days = calendar.monthrange(date1.year, date1.month)[1]
                 card.stage_year = (date_ah.year - date1.year - 1) + (
-                        date_ah.month + 12 - date1.month - 1 + (date_ah.day + days - date1.day) // days) // 12
+                        date_ah.month + 12 - date1.month - 1
+                        + (date_ah.day + days - date1.day) // days) // 12
                 card.stage_month = (date_ah.month + 12 - date1.month - 1 + (
                         date_ah.day + days - date1.day) // days) % 12
                 card.stage_day = (date_ah.day + days - date1.day) % days
-                card.stage_text = 'Stage %d year %d month %d days' % (card.stage_year, card.stage_month, card.stage_day)
+                card.stage_text = "Stage {d1} year {d2} month {d3} days".format(d1=card.stage_year,
+                                                                                d2=card.stage_month,
+                                                                                d3=card.stage_day)
             else:
                 card.stage_year, card.stage_month, card.stage_day = 0, 0, 0
                 card.stage_text = 'Current'

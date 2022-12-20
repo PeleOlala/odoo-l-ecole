@@ -3,6 +3,9 @@ from odoo import api, fields, models, _
 
 
 class FamilyEmployee(models.Model):
+    """
+    Il s'agit une classe nouvelle
+    """
     _name = 'hr_ua_p2.family'
     _description = 'Family members'
     """
@@ -35,7 +38,7 @@ class FamilyEmployee(models.Model):
             date1 = card.birthday
             date_ah = datetime.date.today()
             if isinstance(date1, datetime.date):
-                card.age = (date_ah.year - date1.year - 1) + (date_ah.month + 12 - date1.month) // 12
+                card.age = (date_ah.year - date1.year - 1) \
+                           + (date_ah.month + 12 - date1.month) // 12
             else:
                 card.age = 0
-

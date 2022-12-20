@@ -2,6 +2,9 @@ from odoo import fields, models, _
 
 
 class MilitaryUA(models.Model):
+    """
+    C'est ine classe de military compte
+    """
     _name = 'hr_ua_p2.military'
     _description = 'Military inscrite'
 
@@ -28,6 +31,6 @@ class MilitaryUA(models.Model):
         required=False)
 
     def name_get(self):
-        return [(tag.id, "%s %s %s %s" % (
-            tag.employee_id.name, tag.department, tag.range, tag.document)) for
+        return [(tag.id, "{s1} {s2} {s3} {s4}".format(
+            s1=tag.employee_id.name, s2=tag.department, s3=tag.range, s4=tag.document)) for
                 tag in self]

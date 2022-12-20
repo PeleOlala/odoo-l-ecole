@@ -71,11 +71,24 @@
         </field>
     </record>
 
+    <record id="view_grapg_ua_appointment" model="ir.ui.view">
+        <field name="name">Stat report appointment employee</field>
+        <field name="model">hr_ua_p2.appointment</field>
+        <field name="arch" type="xml">
+            <graph sample="1">
+                <field name="department_begin_id"/>
+                <field name="job_begin_id"/>
+                <field name="permanent" />
+                <field name="date_begin" interval="month" type="col"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="hr_ua_p2_appointment_action" model="ir.actions.act_window">
         <field name="name">HR appointment employee</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr_ua_p2.appointment</field>
-        <field name="view_mode">tree,form,pivot</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
     </record>
 
     <menuitem id="appointment_menu" name="HR appointment employee" parent="hr_ua_p2.menu_1" action="hr_ua_p2_appointment_action"

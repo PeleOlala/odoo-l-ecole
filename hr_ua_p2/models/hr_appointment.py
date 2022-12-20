@@ -26,7 +26,7 @@ class Appointment(models.Model):
     state = fields.Selection(
         string='status',
         selection=[('draft', 'Draft'),
-                   ('approve', 'Approve'), ] )
+                   ('approve', 'Approve'), ])
     department_begin_id = fields.Many2one(
         comodel_name='hr.department',
         string='Department de')
@@ -35,6 +35,6 @@ class Appointment(models.Model):
         string='Department á')
 
     def name_get(self):
-        return [(tag.id, "Employee: %s de %s á %s job position new %s" % (
-            tag.employee_id.name, tag.date_begin, tag.date_end, tag.job_end_id)) for
+        return [(tag.id, "Employee: {name} de {dtb} á {dte} job position new {jobnew}".format(
+            name=tag.employee_id.name, dtb=tag.date_begin, dte=tag.date_end, jobnew=tag.job_end_id)) for
                 tag in self]
