@@ -1,0 +1,11 @@
+.o_kanban_dashboard.o_hr_ua_appointment_kanban {
+  .o_kanban_group:not(.o_column_folded) {
+    width: 300px + $o-kanban-group-padding;
+    height: 200px + $o-kanban-group-padding;
+  }
+
+  .o_kanban_record {
+    width: 300px;
+    height: 200px;
+  }
+}

@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, _
 
 
 class Appointment(models.Model):
@@ -25,8 +25,9 @@ class Appointment(models.Model):
         string='Permanent')
     state = fields.Selection(
         string='status',
-        selection=[('draft', 'Draft'),
-                   ('approve', 'Approve'), ])
+        selection=[('draft', _('Draft')),
+                   ('approve', _('Approve')),
+                   ('cancel', _('Cancel')), ])
     department_begin_id = fields.Many2one(
         comodel_name='hr.department',
         string='Department de')
@@ -35,6 +36,7 @@ class Appointment(models.Model):
         string='Department á')
 
     def name_get(self):
-        return [(tag.id, "Employee: {name} de {dtb} á {dte} job position new {jobnew}".format(
-            name=tag.employee_id.name, dtb=tag.date_begin, dte=tag.date_end, jobnew=tag.job_end_id)) for
-                tag in self]
+        return [(tag.id,
+                 f"Employee: {tag.employee_id.name} de {tag.date_begin} á "
+                 f"{tag.date_end} job position new {tag.job_end_id}")
+                for tag in self]

@@ -36,6 +36,9 @@
         'web.assets_qweb': [
             'hr_ua_p2/static/src/xml/**/*',
         ],
+        'web.assets_backend': [
+            'hr_ua_p2/static/src/scss/hr_ua_appointment.scss',
+        ],
     },
         # only loaded in demonstration mode
     'demo': ['demo/demo.xml'

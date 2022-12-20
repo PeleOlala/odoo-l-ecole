@@ -31,6 +31,5 @@ class MilitaryUA(models.Model):
         required=False)
 
     def name_get(self):
-        return [(tag.id, "{s1} {s2} {s3} {s4}".format(
-            s1=tag.employee_id.name, s2=tag.department, s3=tag.range, s4=tag.document)) for
+        return [(tag.id, f"{tag.employee_id.name} {tag.department} {tag.range} {tag.document}") for
                 tag in self]
