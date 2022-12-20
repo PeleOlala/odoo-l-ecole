@@ -46,9 +46,8 @@ class ResumeLineXt(models.Model):
                 card.stage_month = (date_ah.month + 12 - date1.month - 1 + (
                         date_ah.day + days - date1.day) // days) % 12
                 card.stage_day = (date_ah.day + days - date1.day) % days
-                card.stage_text = "Stage {d1} year {d2} month {d3} days".format(d1=card.stage_year,
-                                                                                d2=card.stage_month,
-                                                                                d3=card.stage_day)
+                card.stage_text = f"Stage {card.stage_year} year " \
+                                  f"{card.stage_month} month {card.stage_day} days"
             else:
                 card.stage_year, card.stage_month, card.stage_day = 0, 0, 0
                 card.stage_text = 'Current'
@@ -56,4 +55,5 @@ class ResumeLineXt(models.Model):
     @api.depends('line_type_id')
     def _compute_ed(self):
         for card in self:
-            card.is_education = (card.line_type_id == self.env.ref('hr_skills.resume_type_education'))
+            card.is_education = (card.line_type_id ==
+                                 self.env.ref('hr_skills.resume_type_education'))
