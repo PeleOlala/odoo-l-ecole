@@ -7,6 +7,9 @@ from odoo.exceptions import ValidationError
 
 
 class Disease(models.Model):
+    """
+6
+    """
     _name = 'hr_hospital_3.disease'
     _description = 'disease'
 
@@ -18,6 +21,9 @@ class Disease(models.Model):
 
 
 class DiseaseCatalog(models.Model):
+    """
+5
+    """
     _name = 'hr_hospital_3.disease_catalog'
     _description = 'Catalog disease'
     _parent_name = "parent_id"
@@ -39,19 +45,22 @@ class DiseaseCatalog(models.Model):
                                , 'Child Class')
     disease_count = fields.Integer(
         '# disease', compute='_compute_disease_count',
-        help="The number of disease under this category (Does not consider the children categories)")
-    disease_ids = fields.One2many(comodel_name='hr_hospital_3.disease', inverse_name='disease_catalog_id')
+        help="The number of disease under this category "
+             "(Does not consider the children categories)")
+    disease_ids = fields.One2many(comodel_name='hr_hospital_3.disease',
+                                  inverse_name='disease_catalog_id')
 
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):
         for category in self:
             if category.parent_id:
-                category.complete_name = '%s / %s' % (category.parent_id.complete_name, category.name)
+                category.complete_name = f'{category.parent_id.complete_name} ' \
+                                         f'/ {category.name}'
             else:
                 category.complete_name = category.name
 
     def _compute_disease_count(self):
-        read_group_res = self.env['hr_hospital_3.disease']\
+        read_group_res = self.env['hr_hospital_3.disease'] \
             .read_group([('disease_catalog_id', 'child_of', self.ids)]
                         , ['disease_catalog_id'], ['disease_catalog_id'])
         group_data = dict((data['disease_catalog_id'][0]

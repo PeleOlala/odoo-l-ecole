@@ -18,6 +18,7 @@
     'data': [
         'security/hr_ua_p2_groups.xml',
         'security/ir.model.access.csv',
+        'security/hr_ua_p2_security.xml',
         'data/data_kzot.xml',
         'views/hr_ua_p2_views.xml',
         'views/pc_ua_views.xml',

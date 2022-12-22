@@ -2,10 +2,13 @@
 jamais
 """
 
-from odoo import fields, models, api
+from odoo import api, fields, models
 
 
 class HistoirMedecin(models.Model):
+    """
+ooooo
+    """
     _name = 'hr_hospital_3.histoir_person_doctor'
     _description = "Histoir person doctor "
 

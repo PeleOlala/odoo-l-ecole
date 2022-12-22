@@ -22,7 +22,7 @@
 
         <record model="ir.rule" id="hr_ua_p2_rule_resume_hr_users">
             <field name="name">Rôle pour resume hr users</field>
-            <field name="model_id" ref="base.model_hr_resume_line"/>
+            <field name="model_id" ref="model_hr_resume_line"/>
             <field name="domain_force"> [('employee_id.active', '=', False)]</field>
             <field name="groups" eval="[(4, ref('group_hr_ua_p2_hr'))]"/>
             <field name="perm_read" eval="True"/>
@@ -33,7 +33,7 @@
 
         <record id="hr_ua_p2_rule_resume_admin" model="ir.rule">
             <field name="name">Les rôles resume pour HRadmin</field>
-            <field name="model_id" ref="base.model_hr_resume_line"/>
+            <field name="model_id" ref="model_hr_resume_line"/>
             <field name="domain_force">[(1,'=',1)]</field>
             <field name="groups" eval="[(4, ref('group_hr_ua_p2_hr_admin'))]"/>
         </record>

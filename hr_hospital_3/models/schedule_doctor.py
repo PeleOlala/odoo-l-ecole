@@ -7,6 +7,9 @@ from odoo.exceptions import UserError
 
 
 class SheduleDoctor(models.Model):
+    """
+    1
+    """
     _name = 'hr_hospital_3.schedule_doctor'
     _description = 'Schedule doctors'
 
@@ -27,9 +30,15 @@ class SheduleDoctor(models.Model):
 
     def _check_time(self):
         for cadr in self:
-            recordset = self.env['hr_hospital_3.schedule_doctor'].search_count(['&', '&', ('time_rec', '=', cadr.time_rec), ('doctor_id', '=', cadr.doctor_id.id), ('date_time_rec', '=', cadr.date_time_rec)])
+            recordset = self.env['hr_hospital_3.schedule_doctor'].search_count(
+                ['&', '&', ('time_rec', '=', cadr.time_rec),
+                 ('doctor_id', '=', cadr.doctor_id.id),
+                 ('date_time_rec', '=', cadr.date_time_rec)])
             if recordset > 1:
                 raise UserError(_("Double reception. Verefied schedule, pls"))
 
     def name_get(self):
-        return [(tag.id, "%s %s:%dh %dm" % (tag.doctor_id.name, tag.date_time_rec, tag.time_rec, round(tag.time_rec - int(tag.time_rec), 2)*600/10)) for tag in self]
+        return [(tag.id, f"{tag.doctor_id.name} "
+                         f"{tag.date_time_rec}:{tag.time_rec}h "
+                         f"{round(tag.time_rec - int(tag.time_rec), 2)*600/10}"
+                 ) for tag in self]

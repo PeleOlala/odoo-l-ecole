@@ -59,6 +59,7 @@ class Diagnostic(models.Model):
             date1 = card.patient_id.birthday
             date_ah = card.date_diagnistic
             if isinstance(date1, datetime.date):
-                card.age_for_disease = (date_ah.year - date1.year - 1) + (date_ah.month + 12 - date1.month) // 12
+                card.age_for_disease = (date_ah.year - date1.year - 1) + \
+                                       (date_ah.month + 12 - date1.month) // 12
             else:
                 card.age_for_disease = 0

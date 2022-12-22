@@ -7,6 +7,9 @@ from odoo.exceptions import UserError
 
 
 class Doctor(models.Model):
+    """
+    kkkk dsdf
+    """
     _name = 'hr_hospital_3.doctor'
     _description = 'Doctor'
 
@@ -17,6 +20,9 @@ class Doctor(models.Model):
 
 
 class DoctorExt3(models.Model):
+    """
+jjjj
+    """
     _name = 'hr_hospital_3.doctor'
     _description = 'MedecinExt3'
     _inherit = ['hr_hospital_3.personne', 'hr_hospital_3.doctor']

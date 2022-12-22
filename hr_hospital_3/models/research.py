@@ -7,6 +7,9 @@ from odoo.exceptions import ValidationError
 
 
 class ResearchCatalog(models.Model):
+    """
+hdhd
+    """
     _name = 'hr_hospital_3.research_catalog'
     _description = 'Catalog research'
     _parent_name = "parent_id"
@@ -18,12 +21,14 @@ class ResearchCatalog(models.Model):
     complete_name = fields.Char(
         'Complete Name', compute='_compute_complete_name',
         store=True)
-    parent_id = fields.Many2one('hr_hospital_3.research_catalog', 'Parent catalog', index=True, ondelete='cascade')
+    parent_id = fields.Many2one('hr_hospital_3.research_catalog',
+                                'Parent catalog', index=True, ondelete='cascade')
     parent_path = fields.Char(index=True)
     child_id = fields.One2many('hr_hospital_3.research_catalog', 'parent_id', 'Child Class')
     research_count = fields.Integer(
         '# research', compute='_compute_research_count',
-        help="The number of reseach under this category (Does not consider the children categories)")
+        help="The number of reseach under this category "
+             "(Does not consider the children categories)")
     research_ids = fields.One2many(
         comodel_name='hr_hospital_3.research',
         inverse_name='research_catalog_id',
@@ -33,13 +38,18 @@ class ResearchCatalog(models.Model):
     def _compute_complete_name(self):
         for category in self:
             if category.parent_id:
-                category.complete_name = '%s / %s' % (category.parent_id.complete_name, category.name)
+                category.complete_name = f'{category.parent_id.complete_name} / {category.name}'
             else:
                 category.complete_name = category.name
 
     def _compute_research_count(self):
-        read_group_res = self.env['hr_hospital_3.research'].read_group([('research_catalog_id', 'child_of', self.ids)], ['research_catalog_id'], ['research_catalog_id'])
-        group_data = dict((data['research_catalog_id'][0], data['research_catalog_id_count']) for data in read_group_res)
+        read_group_res = self.env['hr_hospital_3.research'].read_group([('research_catalog_id',
+                                                                         'child_of', self.ids)],
+                                                                       ['research_catalog_id'],
+                                                                       ['research_catalog_id'])
+        group_data = dict(
+            (data['research_catalog_id'][0], data['research_catalog_id_count'])
+            for data in read_group_res)
         for categ in self:
             research_count = 0
             for sub_categ_id in categ.search([('id', 'child_of', categ.ids)]).ids:
